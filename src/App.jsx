@@ -5,15 +5,19 @@ import { ToastContainer } from "react-toastify";
 
 import Home from "./pages/Home";
 import PublicRoutes from "./routes/PublicRoutes";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Routes>
         <Route element={<PublicRoutes />}>
           <Route path="/" element={<Home />} />
         </Route>
       </Routes>
+      <Footer />
 
       <ToastContainer />
     </>
