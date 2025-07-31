@@ -1,12 +1,20 @@
 import "./Button.css";
 
-const Button = ({ variant = "primary", icon, text, large = false }) => {
+const Button = ({
+  variant = "primary",
+  icon,
+  text,
+  large = false,
+  customClasses,
+}) => {
   const sizeClass = large ? "patas-btn-lg" : "";
   const variantClass =
     variant === "secondary" ? "patas-btn-secondary" : "patas-btn-primary";
 
   return (
-    <button className={`patas-btn ${variantClass} ${sizeClass}`}>
+    <button
+      className={`patas-btn ${variantClass} ${sizeClass} ${customClasses}`}
+    >
       {icon && (
         <i
           className={`bi ${icon}`}

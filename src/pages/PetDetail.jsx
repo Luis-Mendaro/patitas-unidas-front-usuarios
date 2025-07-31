@@ -1,7 +1,9 @@
+import { Link } from "react-router";
+import Button from "../components/Button.jsx";
 import pets from "../data/pets.js";
 
 function PetDetail() {
-  const petId = 3;
+  const petId = 1;
   const pet = pets.find((pet) => pet.id === petId);
 
   const monthsToYears = (petAge) => {
@@ -20,8 +22,10 @@ function PetDetail() {
       <div className="vh-100" style={{ backgroundColor: "#faf4ed" }}>
         <div className="container pb-5">
           <div className="p-3">
-            <i className="bi bi-arrow-left me-2"></i>
-            <span>Volver a la lista</span>
+            <Link to="/" className="text-decoration-none text-black">
+              <i className="bi bi-arrow-left me-2"></i>
+              <span>Volver a la lista</span>
+            </Link>
           </div>
           <div className="row p-3">
             <div className="col-12 col-md-6 mb-4 mb-md-0">
@@ -40,11 +44,11 @@ function PetDetail() {
                   </span>
                 </div>
                 <div className="mb-3">
-                  <span className="me-4">
+                  <span className="me-4 patas-text-brown">
                     <i className="bi bi-house-door"></i> tShelterUser
                   </span>
-                  <span>
-                    <i className="bi bi-geo-alt"></i> tShelterUser
+                  <span className="patas-text-brown">
+                    <i className="bi bi-geo-alt"></i>tShelterUser
                   </span>
                 </div>
                 <div
@@ -100,14 +104,21 @@ function PetDetail() {
               </div>
               <div className="row">
                 <div className="col">
-                  <button className="btn btn-outline-danger w-100">
-                    Me interesa
-                  </button>
+                  <Button
+                    text="Me interesa"
+                    large={true}
+                    icon="bi-heart-fill"
+                    variant="secondary"
+                    customClasses="w-100"
+                  />
                 </div>
                 <div className="col">
-                  <button className="btn btn-danger w-100">
-                    Quiero Adoptar
-                  </button>
+                  <Button
+                    text="Quiero adoptar"
+                    large={true}
+                    icon="bi-heart-fill"
+                    customClasses="w-100"
+                  />
                 </div>
               </div>
             </div>
