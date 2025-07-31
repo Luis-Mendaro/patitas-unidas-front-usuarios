@@ -1,5 +1,19 @@
+import "./Home.css";
+
+import Hero from "../components/Home/Hero";
+import HowItWorks from "../components/Home/HowItWorks";
+import PetSection from "../components/Home/PetSection";
+
 function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      <main className="patas-bg-gradient-soft">
+        <Hero />
+        <PetSection />
+        <HowItWorks />
+      </main>
+    </>
+  );
 }
 
 export default Home;

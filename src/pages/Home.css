@@ -1,0 +1,99 @@
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.Hero {
+  min-height: 45vh;
+}
+
+.hero-text-limited {
+  max-width: 30rem;
+}
+
+.image-over-card {
+  bottom: -1.5rem;
+  left: -1.5rem;
+  transform: translateY(50%);
+  backdrop-filter: blur(10px);
+  max-width: 280px;
+}
+
+.image-over-circle {
+  width: 48px;
+  height: 48px;
+}
+
+.step-icon-wrapper {
+  height: 100px;
+}
+
+.step-box {
+  max-width: 75%;
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  top: -10px;
+  right: 10px;
+  color: white;
+  animation: bounce 1s infinite;
+}
+
+.step-box,
+.step-icon {
+  transition: transform 0.2s ease;
+}
+
+.step-box:hover,
+.step-icon:hover {
+  transform: scale(1.01);
+}
+
+.step-content p {
+  line-height: 1.625;
+}
+
+.cta-box {
+  max-width: 720px;
+}
+
+.cta-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.pet-card-preview {
+  border-color: hsl(35 25% 96%);
+  border-width: 1px;
+  color: hsl(25 25% 45%);
+  line-height: 1.625;
+  font-weight: 400;
+}

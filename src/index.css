@@ -1,0 +1,29 @@
+:root {
+  --patas-primary: 227, 112, 54;
+  --patas-brown: 143, 110, 86;
+}
+
+.patas-text-primary {
+  color: rgb(var(--patas-primary));
+}
+
+.patas-text-brown {
+  color: rgb(var(--patas-brown));
+}
+
+.patas-bg-gradient-soft {
+  background-image: linear-gradient(
+    45deg,
+    hsl(20 75% 55% / 0.1),
+    hsl(45 85% 70% / 0.1)
+  );
+}
+
+.patas-bg-gradient {
+  background-image: linear-gradient(
+    135deg,
+    hsl(20 75% 55%),
+    hsl(25 70% 60%),
+    hsl(35 75% 65%)
+  );
+}
