@@ -10,7 +10,7 @@ import PublicRoutes from "./routes/PublicRoutes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PetDetail from "./pages/PetDetail";
-
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
 
           <Route path="/adopcion" element={<AdoptionForm />} />
           <Route path="/petDetail" element={<PetDetail />} />
-
+          <Route path="/about" element={<AboutUs />} />
         </Route>
       </Routes>
       <Footer />
