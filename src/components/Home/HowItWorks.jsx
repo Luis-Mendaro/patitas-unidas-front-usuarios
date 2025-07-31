@@ -55,7 +55,7 @@ function HowItWorks() {
                 </div>
               </div>
 
-              <div className="step-content border rounded-4 p-4">
+              <div className="step-content border rounded-4 p-4 flex-grow-1">
                 <h5 className="fw-bold mb-3">{step.title}</h5>
                 <p className="patas-text-brown">{step.description}</p>
               </div>

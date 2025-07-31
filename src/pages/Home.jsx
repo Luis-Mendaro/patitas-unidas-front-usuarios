@@ -7,7 +7,7 @@ import PetSection from "../components/Home/PetSection";
 function Home() {
   return (
     <>
-      <main className="Home">
+      <main className="patas-bg-gradient-soft">
         <Hero />
         <PetSection />
         <HowItWorks />
