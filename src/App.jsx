@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PetDetail from "./pages/PetDetail";
 import AboutUs from "./pages/AboutUs";
-import LikedPets from "./pages/LikedPe
+import LikedPets from "./pages/LikedPets";
 
 function App() {
   return (
