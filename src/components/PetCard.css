@@ -1,0 +1,77 @@
+.card {
+  width: 20rem;
+  border-radius: 10px;
+}
+
+.petCardImageContainer {
+  position: relative;
+}
+
+.card-img-top {
+  position: relative;
+  border-radius: 10px 10px 0 0;
+}
+
+.heart-button {
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  background-color: lightgray;
+  opacity: 0.5;
+  border-radius: 50%;
+}
+.heart-button:hover {
+  background-color: white;
+  opacity: 1;
+}
+
+.pet-Category {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: #efedeb;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.card-body {
+  background-color: #f9f5f3;
+  border-radius: 0 0 10px 10px;
+}
+
+.petAge,
+.petLocation {
+  background-color: #f2ece4;
+  color: #a28570;
+}
+
+.card-text {
+  color: #8f6e56;
+}
+
+.btn-PetDetails {
+  background-color: #e37036;
+  color: white;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+.btn-PetDetails:hover {
+  background-color: #de5714;
+  color: white;
+}
+
+.btn-PetDetails:active {
+  transform: translateY(2px); /* Move down slightly */
+}
+
+.btn-PetLike {
+  color: #e37036;
+  border-radius: 10px;
+  border-color: #e3ecdf;
+}
+
+.btn-PetLike:hover {
+  color: #de5714;
+  border-color: black !important;
+}
