@@ -1,0 +1,12 @@
+#root,
+body {
+  min-height: 100vh;
+  background-color: hsla(0, 100%, 50%, 0.1);
+  background-image: radial-gradient(
+      at 38% 23%,
+      hsla(34, 93%, 63%, 0.5) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 100%, hsla(34, 74%, 65%, 0.4) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(25, 69%, 60%, 0.4) 0px, transparent 50%);
+}
