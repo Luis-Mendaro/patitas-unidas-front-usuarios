@@ -30,6 +30,7 @@ const PetCard = () => {
     <div>
       <div className="card">
         <div className="petCardImageContainer">
+          {/*replace the src from line 35's value with a url for the pet's image */}
           <img
             src="https://t3.ftcdn.net/jpg/02/36/99/22/360_F_236992283_sNOxCVQeFLd5pdqaKGh8DRGMZy7P4XKm.jpg"
             className="card-img-top"
@@ -47,7 +48,7 @@ const PetCard = () => {
           <div>
             <span className="petAge badge rounded-pill py-2 px-2 me-1">
               {petAgeyears > 0
-                ? `${petAgeyears} anios, ${petAgeMonths} meses`
+                ? `${petAgeyears} años`
                 : `${petAgeMonths} meses`}
             </span>
 
