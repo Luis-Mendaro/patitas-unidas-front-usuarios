@@ -9,6 +9,7 @@ import AdoptionForm from "./pages/AdoptionForm";
 import PublicRoutes from "./routes/PublicRoutes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import PetDetail from "./pages/PetDetail";
 
 
 function App() {
@@ -18,7 +19,10 @@ function App() {
       <Routes>
         <Route element={<PublicRoutes />}>
           <Route path="/" element={<Home />} />
+
           <Route path="/adopcion" element={<AdoptionForm />} />
+          <Route path="/petDetail" element={<PetDetail />} />
+
         </Route>
       </Routes>
       <Footer />
