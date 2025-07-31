@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedin, FaClock, FaTools, FaTasks } from "react-icons/fa";
+import { FaLinkedin, FaClock, FaTools, FaTasks, FaUsers } from "react-icons/fa";
 import "./AboutUs.css";
 
 function AboutUs() {
@@ -29,7 +29,6 @@ function AboutUs() {
 
       <section className="container position-relative cards-section">
         <div className="row g-4 floating-cards justify-content-center">
-          {/* Duración */}
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
             <div className="card shadow-sm h-100  rounded-4 position-relative">
               <FaClock
@@ -56,7 +55,6 @@ function AboutUs() {
             </div>
           </div>
 
-          {/* Tecnologías */}
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
             <div className="card shadow-sm h-100  rounded-4 position-relative">
               <FaTools
@@ -85,7 +83,6 @@ function AboutUs() {
             </div>
           </div>
 
-          {/* División de tareas */}
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
             <div className="card shadow-sm h-100  rounded-4 position-relative">
               <FaTasks
@@ -120,11 +117,23 @@ function AboutUs() {
       <section className="container team-section ">
         <div className="row g-4 ">
           <div className="col-md-4">
-            <div className="card shadow-lg h-100 team-card  ">
-              <div className="card-body ">
+            <div className="card shadow-lg h-100 team-card text-center">
+              <div className="card-body">
+                <FaUsers
+                  size={50}
+                  color="white"
+                  style={{
+                    backgroundColor: "#e37036ff",
+                    borderRadius: "50%",
+                    padding: "10px",
+                    boxShadow: "0 0 5px rgba(0,0,0,0.2)",
+                    border: "2px solid #b65b28",
+                    marginBottom: "15px",
+                  }}
+                />
                 <h5 className="card-title">Equipo</h5>
                 <hr />
-                <p className="card-text">
+                <p className="card-text mt-5">
                   Somos un equipo de estudiantes del Bootcamp Full Stack de{" "}
                   <strong>Hack Academy</strong>. Durante el proyecto aplicamos
                   metodologías ágiles, trabajo colaborativo y las tecnologías
@@ -133,8 +142,7 @@ function AboutUs() {
                 </p>
               </div>
             </div>
-          </div>
-
+          </div>{" "}
           {[
             {
               name: "Bruno",
