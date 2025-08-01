@@ -1,21 +1,11 @@
 import { Link } from "react-router";
 import Button from "../components/Button.jsx";
 import pets from "../data/pets.js";
+import monthsToYears from "../utils/constants.js";
 
 function PetDetail() {
   const petId = 1;
   const pet = pets.find((pet) => pet.id === petId);
-
-  const monthsToYears = (petAge) => {
-    let age = "";
-    if (petAge < 12) {
-      return (age = `${petAge} meses`);
-    } else if (petAge >= 12 && petAge < 24) {
-      return (age = `1 año`);
-    } else {
-      return (age = `${Math.floor(petAge / 12)} años`);
-    }
-  };
 
   return (
     <>

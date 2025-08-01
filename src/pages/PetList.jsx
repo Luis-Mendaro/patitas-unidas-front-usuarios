@@ -1,39 +1,32 @@
+import { useSelector } from "react-redux";
 import FilterSideBar from "../components/FilterSideBar.jsx";
 import PetCard from "../components/PetCard.jsx";
-import pets from "../data/pets.js";
 
 function PetList() {
+  const pets = useSelector((state) => state.pets);
   return (
-    <>
-      <div className="patas-bg-gradient-soft">
-        <div className="container py-5">
-          <div className="row">
-            <div className="col-12 col-sm-6 col-lg-4 col-xl-3">
-              <FilterSideBar />
-            </div>
-            <div className="col-12 col-sm-6 col-lg-8 col-xl-9">
-              <div className="row g-2">
-                <div className="col-12 col-lg-6 col-xxl-4">
-                  <PetCard />
-                </div>
-                <div className="col-12 col-lg-6 col-xxl-4">
-                  <PetCard />
-                </div>
-                <div className="col-12 col-lg-6 col-xxl-4">
-                  <PetCard />
-                </div>
-                <div className="col-12 col-lg-6 col-xxl-4">
-                  <PetCard />
-                </div>
-                <div className="col-12 col-lg-6 col-xxl-4">
-                  <PetCard />
+    pets && (
+      <>
+        <div className="patas-bg-gradient-soft">
+          <div className="container py-5">
+            <div className="row">
+              <div className="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <FilterSideBar />
+              </div>
+              <div className="col-12 col-sm-6 col-lg-8 col-xl-9">
+                <div className="row g-2">
+                  {pets.map((pet) => (
+                    <div className="col-12 col-lg-6 col-xxl-4" key={pet.id}>
+                      <PetCard pet={pet} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </>
+    )
   );
 }
 
