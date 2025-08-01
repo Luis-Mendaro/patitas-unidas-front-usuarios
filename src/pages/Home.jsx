@@ -32,7 +32,6 @@ function Home() {
     pets.length > 0 && (
       <>
         <main>
-          <h1>{pets[0].name}</h1>
           <Hero />
           <PetSection />
           <HowItWorks />

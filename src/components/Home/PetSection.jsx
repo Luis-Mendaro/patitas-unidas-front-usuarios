@@ -1,8 +1,10 @@
 import { Link } from "react-router";
 import Badge from "../Badge";
 import PetCard from "../PetCard";
+import { useSelector } from "react-redux";
 
 function PetSection() {
+  const pets = useSelector((state) => state.pets);
   return (
     <section className="pets-section py-5">
       <div className="container">
@@ -23,10 +25,10 @@ function PetSection() {
 
         <div className="row g-4 mb-5">
           <div className="col">
-            <PetCard />
+            <PetCard pet={pets[0]} />
           </div>
           <div className="col">
-            <PetCard />
+            <PetCard pet={pets[1]} />
           </div>
           <div className="col">
             <Link to="/mascotas" className="text-decoration-none text-muted">
