@@ -1,48 +1,8 @@
+import { Link } from "react-router";
 import Badge from "../Badge";
+import PetCard from "../PetCard";
 
 function PetSection() {
-  const pets = [
-    {
-      id: 2,
-      name: "Ace",
-      description:
-        "Fuga tremo utrum valens peior defero torqueo. Cornu conatus autem similique curriculum. Tribuo minus vivo ver comminor vicissitudo statim.",
-      images: [
-        "https://avatars.githubusercontent.com/u/31630839",
-        "https://avatars.githubusercontent.com/u/45450002",
-        "https://avatars.githubusercontent.com/u/40089496",
-      ],
-      sex: "female",
-      size: "small",
-      color: "verde menta",
-      age: "84",
-      isAdopted: true,
-      createdAt: "2025-07-30T14:01:16.000Z",
-      updatedAt: "2025-07-30T14:01:16.000Z",
-      categoryId: 1,
-      shelterUserId: 14,
-    },
-    {
-      id: 3,
-      name: "Milo",
-      description:
-        "Excepturi tantillus adfectus versus via atqui crapula crux conqueror pectus. Aiunt vinculum depromo vomica verecundia caecus civitas angustus. Causa callide voro claudeo terror.",
-      images: [
-        "https://avatars.githubusercontent.com/u/45121084",
-        "https://avatars.githubusercontent.com/u/98066201",
-        "https://avatars.githubusercontent.com/u/89829562",
-      ],
-      sex: "female",
-      size: "large",
-      color: "verde",
-      age: "143",
-      isAdopted: true,
-      createdAt: "2025-07-30T14:01:16.000Z",
-      updatedAt: "2025-07-30T14:01:16.000Z",
-      categoryId: 1,
-      shelterUserId: 2,
-    },
-  ];
   return (
     <section className="pets-section py-5">
       <div className="container">
@@ -61,31 +21,20 @@ function PetSection() {
           </p>
         </div>
 
-        <div className="row g-4 mb-5 justify-content-center">
-          {pets.slice(0, 2).map((pet) => (
-            <div
-              key={pet.id}
-              className="col-md-6 col-lg-4 d-flex justify-content-center"
-            >
-              <div
-                className="pet-card-preview rounded-4 d-flex justify-content-center align-items-center"
-                style={{ width: "15rem", height: "20rem" }}
-              >
-                <p className="fs-5 text-muted mb-0">{pet.name}</p>
+        <div className="row g-4 mb-5">
+          <div className="col">
+            <PetCard />
+          </div>
+          <div className="col">
+            <PetCard />
+          </div>
+          <div className="col">
+            <Link to="/mascotas" className="text-decoration-none text-muted">
+              <div className="h-100 d-flex flex-column align-items-center justify-content-center">
+                <i className="bi bi-plus-circle fs-3"></i>
+                <p>Ver todos los animales</p>
               </div>
-            </div>
-          ))}
-
-          <div className="col-md-6 col-lg-4 d-flex justify-content-center">
-            <div
-              className="pet-card-preview rounded-4 d-flex justify-content-center align-items-center text-center cursor-pointer"
-              style={{ width: "15rem", height: "20rem" }}
-            >
-              <p className="fs-5 text-muted mb-0">
-                Ver todos los animales{" "}
-                <i className="bi bi-arrow-right ms-1"></i>
-              </p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

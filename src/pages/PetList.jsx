@@ -12,20 +12,20 @@ function PetList() {
               <FilterSideBar />
             </div>
             <div className="col-12 col-sm-6 col-lg-8 col-xl-9">
-              <div className="row">
-                <div className="col-12 col-lg-6 col-xxl-4 mb-3">
+              <div className="row g-2">
+                <div className="col-12 col-lg-6 col-xxl-4">
                   <PetCard />
                 </div>
-                <div className="col-12 col-lg-6 col-xxl-4 mb-3">
+                <div className="col-12 col-lg-6 col-xxl-4">
                   <PetCard />
                 </div>
-                <div className="col-12 col-lg-6 col-xxl-4 mb-3">
+                <div className="col-12 col-lg-6 col-xxl-4">
                   <PetCard />
                 </div>
-                <div className="col-12 col-lg-6 col-xxl-4 mb-3">
+                <div className="col-12 col-lg-6 col-xxl-4">
                   <PetCard />
                 </div>
-                <div className="col-12 col-lg-6 col-xxl-4 mb-3">
+                <div className="col-12 col-lg-6 col-xxl-4">
                   <PetCard />
                 </div>
               </div>

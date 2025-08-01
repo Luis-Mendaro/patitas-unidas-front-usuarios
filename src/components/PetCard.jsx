@@ -1,4 +1,6 @@
+import { Link } from "react-router";
 import "./PetCard.css";
+import Button from "./Button";
 const pets = [
   {
     id: 1,
@@ -57,13 +59,20 @@ const PetCard = () => {
             </span>
           </div>
           <p className="card-text mt-3">{pets[0].description}</p>
-          <div className="d-flex justify-content-between">
-            <a href="#" className="btn btn px-4 btn-PetDetails">
-              Ver Detalle
-            </a>
-            <a href="#" className="bt n btn px-4 border btn-PetLike">
-              <i className="bi bi-heart me-1"></i>Me interesa
-            </a>
+          <div className="row">
+            <div className="col p-1">
+              <Link to="/mascotas/idMascota">
+                <Button text="Ver Detalle" customClasses="w-100" />
+              </Link>
+            </div>
+            <div className="col p-1">
+              <Button
+                text="Me interesa"
+                icon="bi-heart-fill"
+                variant="secondary"
+                customClasses="w-100"
+              />
+            </div>
           </div>
         </div>
       </div>

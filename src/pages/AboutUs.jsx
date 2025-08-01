@@ -5,17 +5,9 @@ import "./AboutUs.css";
 function AboutUs() {
   return (
     <>
-      <section
-        className="hero-section position-relative text-white d-flex align-items-center"
-        style={{
-          backgroundImage: "url('/img/nosotros.jpg')",
-        }}
-      >
-        <div className="overlay"></div>
-        <div className="position-relative text-start  rounded p-4 mx-3 hero-text ">
-          <h1 className="display-4 fw-bold text text-white">
-            Sobre este proyecto
-          </h1>
+      <section className="hero-section position-relative d-flex align-items-center container">
+        <div className="position-relative text-start rounded p-4 mx-3 hero-text ">
+          <h1 className="display-4 fw-bold">Sobre este proyecto</h1>
           <p className="lead">
             El presente sitio de e-commerce es un proyecto desarrollado por
             estudiantes del Coding Bootcamp de{" "}
@@ -30,21 +22,7 @@ function AboutUs() {
       <section className="container position-relative cards-section">
         <div className="row g-4 floating-cards justify-content-center">
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
-            <div className="card shadow-sm h-100  rounded-4 position-relative">
-              <FaClock
-                size={50}
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  backgroundColor: "#e37036ff",
-                  borderRadius: "50%",
-                  padding: "8px",
-                  boxShadow: "0 0 5px rgba(0,0,0,0.2)",
-                  color: "white",
-                  border: "2px solid #b65b28",
-                }}
-              />
+            <div className="card shadow-sm h-100 rounded-4 position-relative overflow-hidden">
               <div className="card-body text-center">
                 <h5 className="card-title mt-4">Duración</h5>
                 <p className="card-text text-start">
@@ -53,24 +31,25 @@ function AboutUs() {
                 </p>
               </div>
             </div>
+            <FaClock
+              size={50}
+              style={{
+                position: "absolute",
+                left: "50%",
+                top: 0,
+                transform: "translate(-50%, -50%)",
+                backgroundColor: "#e37036ff",
+                borderRadius: "50%",
+                padding: "8px",
+                boxShadow: "0 0 5px rgba(0,0,0,0.2)",
+                color: "white",
+                border: "2px solid #b65b28",
+              }}
+            />
           </div>
 
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
-            <div className="card shadow-sm h-100  rounded-4 position-relative">
-              <FaTools
-                size={50}
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  backgroundColor: "#e37036ff",
-                  borderRadius: "50%",
-                  padding: "8px",
-                  boxShadow: "0 0 5px rgba(0,0,0,0.2)",
-                  color: "white",
-                  border: "2px solid #b65b28",
-                }}
-              />
+            <div className="card shadow-sm h-100  rounded-4 position-relative overflow-hidden">
               <div className="card-body">
                 <h5 className="card-title text-center mt-4">Tecnologías</h5>
                 <p className="card-text text-start">
@@ -81,24 +60,25 @@ function AboutUs() {
                 </p>
               </div>
             </div>
+            <FaTools
+              size={50}
+              style={{
+                position: "absolute",
+                left: "50%",
+                top: 0,
+                transform: "translate(-50%, -50%)",
+                backgroundColor: "#e37036ff",
+                borderRadius: "50%",
+                padding: "8px",
+                boxShadow: "0 0 5px rgba(0,0,0,0.2)",
+                color: "white",
+                border: "2px solid #b65b28",
+              }}
+            />
           </div>
 
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
-            <div className="card shadow-sm h-100  rounded-4 position-relative">
-              <FaTasks
-                size={50}
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  backgroundColor: "#e37036ff",
-                  borderRadius: "50%",
-                  padding: "8px",
-                  boxShadow: "0 0 5px rgba(0,0,0,0.2)",
-                  color: "white",
-                  border: "2px solid #b65b28",
-                }}
-              />
+            <div className="card shadow-sm h-100  rounded-4 position-relative overflow-hidden">
               <div className="card-body text-start">
                 <h5 className="card-title mt-4 text-center">
                   División de tareas
@@ -110,6 +90,21 @@ function AboutUs() {
                 </p>
               </div>
             </div>
+            <FaTasks
+              size={50}
+              style={{
+                position: "absolute",
+                left: "50%",
+                top: 0,
+                transform: "translate(-50%, -50%)",
+                backgroundColor: "#e37036ff",
+                borderRadius: "50%",
+                padding: "8px",
+                boxShadow: "0 0 5px rgba(0,0,0,0.2)",
+                color: "white",
+                border: "2px solid #b65b28",
+              }}
+            />
           </div>
         </div>
       </section>
@@ -117,7 +112,7 @@ function AboutUs() {
       <section className="container team-section ">
         <div className="row g-4 ">
           <div className="col-md-4">
-            <div className="card shadow-lg h-100 team-card text-center">
+            <div className="card shadow-lg h-100 team-card text-center overflow-hidden">
               <div className="card-body">
                 <FaUsers
                   size={50}
@@ -182,7 +177,7 @@ function AboutUs() {
             },
           ].map(({ name, role, img, description }) => (
             <div key={name} className="col-md-4">
-              <div className="card shadow-lg h-100 team-card rounded-5">
+              <div className="card shadow-lg h-100 team-card rounded-4">
                 {" "}
                 <img
                   src={img}

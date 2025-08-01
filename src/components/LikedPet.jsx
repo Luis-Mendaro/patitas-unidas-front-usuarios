@@ -1,3 +1,4 @@
+import Button from "./Button";
 import "./LikedPet.css";
 
 const LikedPet = ({ likedPet }) => {
@@ -35,9 +36,10 @@ const LikedPet = ({ likedPet }) => {
           <p className="card-text mt-2 pet-description flex-grow-1">
             {likedPet.description}
           </p>
-          <a href="#" className="btn btn px-4 mb-1 btn-Adopt align-self-start">
+          <Button text="Adoptar" customClasses="align-self-start mb-1" />
+          {/* <a href="#" className="btn btn px-4 mb-1 btn-Adopt align-self-start">
             Adoptar
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

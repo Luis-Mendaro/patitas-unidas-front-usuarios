@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Link } from "react-router";
+
 import AuthLayout from "../components/AuthLayout";
+import Button from "../components/Button";
 
 export default function Register() {
   return (
@@ -52,17 +54,22 @@ export default function Register() {
               />
             </Form.Group>
 
-            <Button
-              type="submit"
-              className="orange-button w-100 py-2 fw-light small"
-            >
-              Crear cuenta
-            </Button>
+            <div className="d-flex justify-content-between">
+              <Button
+                text="Soy un Refugio"
+                variant="secondary"
+                customClasses="w-100 me-2"
+              />
+              <Button text="Crear Cuenta" customClasses="w-100" />
+            </div>
           </Form>
 
           <p className="mt-4 text-center fw-light small">
             ¿Ya tienes cuenta?
-            <Link to="/iniciar-sesion" className="orange-link">
+            <Link
+              to="/iniciar-sesion"
+              className="orange-link ms-1 text-decoration-none fw-semibold"
+            >
               Iniciar sesion
             </Link>
           </p>

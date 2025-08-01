@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { Link } from "react-router";
+
 import AuthLayout from "../components/AuthLayout";
+import Button from "../components/Button";
 
 export default function Login() {
   /*const [formData, setFormData] = useState({
@@ -54,18 +56,22 @@ export default function Login() {
                             onChange={handleChange}*/
               />
             </Form.Group>
-
-            <Button
-              type="submit"
-              className="orange-button w-100 py-2 fw-light small"
-            >
-              Iniciar sesion
-            </Button>
+            <div className="d-flex justify-content-between">
+              <Button
+                text="Soy un Refugio"
+                variant="secondary"
+                customClasses="w-100 me-2"
+              />
+              <Button text="Iniciar Sesion" customClasses="w-100" />
+            </div>
           </Form>
 
           <p className="mt-4 text-center fw-light small">
             ¿No tenés cuenta?
-            <Link to="/registro" className="orange-link">
+            <Link
+              to="/registro"
+              className="orange-link ms-1 text-decoration-none fw-semibold"
+            >
               Registrate
             </Link>
           </p>

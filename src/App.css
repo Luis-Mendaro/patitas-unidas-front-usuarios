@@ -1,4 +1,9 @@
 #root,
 body {
   min-height: 100vh;
+  background-image: linear-gradient(
+    45deg,
+    hsl(20 75% 55% / 0.1),
+    hsl(45 85% 70% / 0.1)
+  );
 }
