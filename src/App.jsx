@@ -8,6 +8,8 @@ import AdoptionForm from "./pages/AdoptionForm";
 import PublicRoutes from "./routes/PublicRoutes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import PetDetail from "./pages/PetDetail";
 import PetList from "./pages/PetList";
 import AboutUs from "./pages/AboutUs";
@@ -20,7 +22,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route element={<PublicRoutes />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} /
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} /
           <Route path="/adopcion" element={<AdoptionForm />} />
           <Route path="/petDetail" element={<PetDetail />} />
           <Route path="/petList" element={<PetList />} />
