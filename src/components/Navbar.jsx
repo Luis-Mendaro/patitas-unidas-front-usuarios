@@ -17,7 +17,7 @@ function Navbar() {
               height="32"
               className="me-2"
             />
-            <h1 className="fw-bold fs-2 m-0">Patas Unidas</h1>
+            <h1 className="fw-bold fs-2 m-0">Patitas Unidas</h1>
           </Link>
 
           {/* Botón Iniciar Sesión siempre visible (también en mobile) */}

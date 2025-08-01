@@ -28,7 +28,7 @@ const petAgeyears = (pets[0].age - petAgeMonths) / 12;
 const PetCard = () => {
   return (
     <div>
-      <div className="card">
+      <div className="card petCard">
         <div className="petCardImageContainer">
           {/*replace the src from line 35's value with a url for the pet's image */}
           <img

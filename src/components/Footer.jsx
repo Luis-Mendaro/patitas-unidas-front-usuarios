@@ -12,7 +12,7 @@ function Footer() {
                   height="25"
                   className="me-2"
                 />
-                <h5 className="fw-bold fs-3 m-0 text-white">Patas Unidas</h5>
+                <h5 className="fw-bold fs-3 m-0 text-white">Patitas Unidas</h5>
               </div>
               <p className="text-light mb-3">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
