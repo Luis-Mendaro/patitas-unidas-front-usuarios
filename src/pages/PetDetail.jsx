@@ -19,7 +19,7 @@ function PetDetail() {
 
   return (
     <>
-      <div className="vh-100" style={{ backgroundColor: "#faf4ed" }}>
+      <div className="vh-100 patas-bg-gradient-soft">
         <div className="container pb-5">
           <div className="p-3">
             <Link to="/" className="text-decoration-none text-black">

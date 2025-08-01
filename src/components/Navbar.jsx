@@ -21,8 +21,9 @@ function Navbar() {
           </Link>
 
           {/* Botón Iniciar Sesión siempre visible (también en mobile) */}
-          <div className="d-flex align-items-center ms-auto d-lg-none">
-            <Button text="Iniciar Sesión" large={false} />
+          <div className="d-flex align-items-center ms-auto d-lg-none me-2">
+            <i className="bi bi-heart-fill patas-text-primary fs-4 me-3"></i>
+            <Button text="" large={false} icon="bi-box-arrow-in-right" />
           </div>
 
           {/* Toggler */}
@@ -42,31 +43,25 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="mainNavbar">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold fs-5">
               <li className="nav-item mx-2">
-                <Link className="nav-link" to="/petDetail">
+                <Link className="nav-link" to="/petList">
                   Adoptar
                 </Link>
               </li>
               <li className="nav-item mx-2">
-                <Link className="nav-link" to="/refugios">
-                  Refugios
-                </Link>
+                <a href="#how-it-works" className="nav-link">
+                  Cómo Funciona
+                </a>
               </li>
               <li className="nav-item mx-2">
-                <Link className="nav-link" to="/ayuda">
-                  Cómo Ayudar
+                <Link className="nav-link" to="/sobre-este-proyecto">
+                  Sobre Este Proyecto
                 </Link>
               </li>
             </ul>
 
             {/* Botones solo visibles en pantallas grandes */}
-            <div className="d-none d-lg-flex ms-auto">
-              <div className="me-3">
-                <Button
-                  text="Soy un Refugio"
-                  large={false}
-                  variant="secondary"
-                />
-              </div>
+            <div className="d-none d-lg-flex ms-auto align-items-center">
+              <i className="bi bi-heart-fill patas-text-primary fs-4 me-3"></i>
               <Button text="Iniciar Sesión" large={false} />
             </div>
           </div>

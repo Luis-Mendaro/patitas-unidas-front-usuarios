@@ -22,7 +22,7 @@ function HowItWorks() {
     },
   ];
   return (
-    <section className="how-it-works py-5">
+    <section className="how-it-works py-5" id="how-it-works">
       <div className="container">
         <div className="text-center mb-5">
           <Badge text="Proceso simple" icon="bi-stars" />
