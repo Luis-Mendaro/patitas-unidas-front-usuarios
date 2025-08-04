@@ -36,13 +36,7 @@ const LikedPet = ({ likedPet }) => {
           <p className="card-text mt-2 pet-description flex-grow-1">
             {likedPet.description}
           </p>
-          <Button
-            text="Adoptar"
-            customClasses=" mb-1 btn-Adopt" //align-self-start
-          />
-          {/* <a href="#" className="btn btn px-4 mb-1 btn-Adopt align-self-start">
-            Adoptar
-          </a> */}
+          <Button text="Adoptar" customClasses="mb-1 btn-Adopt" />
         </div>
       </div>
     </div>
