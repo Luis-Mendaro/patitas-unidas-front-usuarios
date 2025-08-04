@@ -5,7 +5,6 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  
 }
 
 .hero-section .overlay {
@@ -17,17 +16,18 @@
 .hero-text {
   position: relative;
   z-index: 2;
-  max-width: 900px; 
-  margin: 0 auto; 
+  max-width: 900px;
+  margin: 0 auto;
   padding: 0 15px;
 }
 
 .text-justify {
   text-align: justify !important;
-  text-justify: inter-word; 
+  text-justify: inter-word;
+}
 
 .cards-section {
-  margin-top: 3rem; 
+  margin-top: 3rem;
   margin-bottom: 60px;
   position: relative;
 }
@@ -82,7 +82,7 @@
 
 .linkedin-btn svg,
 .github-btn svg {
-  width: 20px; 
+  width: 20px;
   height: 20px;
 }
 
@@ -116,7 +116,6 @@
     hsl(35 75% 65%)
   );
 }
-
 
 @media (max-width: 768px) {
   .hero-section h1 {
