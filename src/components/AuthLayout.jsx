@@ -11,4 +11,4 @@ export default function AuthLayout({ children, msg }) {
       </div>
     </div>
   );
-};
+}
