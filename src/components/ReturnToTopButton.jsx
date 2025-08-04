@@ -6,7 +6,7 @@ function ReturnToTopButton() {
     document.documentElement.scrollTo({
       top: 0,
       left: 0,
-      behavior: "instant",
+      behavior: "smooth",
     });
   }
   return (
@@ -14,7 +14,7 @@ function ReturnToTopButton() {
       <Button
         large={true}
         icon="bi-chevron-double-up"
-        customClasses="rounded-circle ms-auto me-3 return-top-btn"
+        customClasses="rounded-circle return-top-btn"
       />
     </div>
   );

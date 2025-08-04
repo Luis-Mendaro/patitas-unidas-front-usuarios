@@ -1,6 +1,6 @@
 import "./Home.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -9,14 +9,19 @@ import HowItWorks from "../components/Home/HowItWorks";
 import PetSection from "../components/Home/PetSection";
 import { useApi } from "../hooks/useApi";
 import ReturnToTopButton from "../components/ReturnToTopButton";
+import constants from "../utils/constants";
 
 function Home() {
   const pets = useSelector((state) => state.pets);
   const dispatch = useDispatch();
   const { fetchAndStorePets } = useApi();
+  const [showButton, setShowButton] = useState(false);
+  const { listenToScrollPosition, handleScroll } = constants;
 
   useEffect(() => {
     fetchAndStorePets();
+    const scrollHandler = () => handleScroll(setShowButton);
+    listenToScrollPosition(scrollHandler);
   }, []);
 
   return (
@@ -26,7 +31,7 @@ function Home() {
           <Hero />
           <PetSection />
           <HowItWorks />
-          <ReturnToTopButton />
+          {showButton && <ReturnToTopButton />}
         </main>
       </>
     )

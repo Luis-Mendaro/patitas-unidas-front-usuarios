@@ -16,5 +16,20 @@ const constants = {
       left: 0,
       behavior: "instant",
     }),
+
+  handleScroll: (setShowButton) => {
+    if (window.scrollY > 500) {
+      setShowButton(true);
+    } else {
+      setShowButton(false);
+    }
+  },
+
+  listenToScrollPosition: (scrollHandler) => {
+    window.addEventListener("scroll", scrollHandler);
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  },
 };
 export default constants;
