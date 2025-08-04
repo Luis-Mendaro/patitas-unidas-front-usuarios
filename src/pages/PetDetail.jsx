@@ -103,13 +103,15 @@ function PetDetail() {
               </div>
               <div className="row">
                 <div className="col">
-                  <Button
-                    text="Me interesa"
-                    large={true}
-                    icon="bi-heart-fill"
-                    variant="secondary"
-                    customClasses="w-100"
-                  />
+                  <Link to={`/${pet.shelterId}/refugio/:id`}>
+                    <Button
+                      text="Me interesa"
+                      large={true}
+                      icon="bi-heart-fill"
+                      variant="secondary"
+                      customClasses="w-100"
+                    />
+                  </Link>
                 </div>
                 <div className="col">
                   <Link to={`/${pet.id}/formulario-adopcion`}>

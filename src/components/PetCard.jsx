@@ -41,12 +41,14 @@ function PetCard({ pet }) {
               </Link>
             </div>
             <div className="col p-1">
-              <Button
-                text="Me interesa"
-                icon="bi-heart-fill"
-                variant="secondary"
-                customClasses="w-100"
-              />
+              <Link to={`/refugio/${pet.shelterId}`}>
+                <Button
+                  text="Me interesa"
+                  icon="bi-heart-fill"
+                  variant="secondary"
+                  customClasses="w-100"
+                />
+              </Link>
             </div>
           </div>
         </div>

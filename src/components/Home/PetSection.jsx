@@ -29,14 +29,25 @@ function PetSection() {
           <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
             <PetCard pet={pets[1]} />
           </div>
-          <div className="col-12 col-md-12 col-lg-4 d-flex justify-content-center">
+          <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
             <Link to="/mascotas" className="text-decoration-none text-muted">
               <div
-                className="d-flex flex-column align-items-center justify-content-center"
-                style={{ width: "20rem", height: "100%", minHeight: "10rem" }}
+                className="card petCard d-flex flex-column align-items-center justify-content-center"
+                style={{
+                  minHeight: "420px",
+                  backgroundColor: "#f9f5f3",
+                }}
               >
-                <i className="bi bi-plus-circle fs-3"></i>
-                <p>Ver todos los animales</p>
+                <i
+                  className="bi bi-plus-circle fs-1 mb-3"
+                  style={{ color: "#e37036" }}
+                ></i>
+                <p className="fs-5 fw-semibold text-center">
+                  Ver todos los animales
+                  <p className="card-text fs-6 mt-4">
+                    Descubre más mascotas en adopción !!!
+                  </p>
+                </p>
               </div>
             </Link>
           </div>
