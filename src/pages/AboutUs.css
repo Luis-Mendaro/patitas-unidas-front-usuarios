@@ -1,8 +1,11 @@
 .hero-section {
-  min-height: 400px;
+  min-height: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
   background-size: cover;
   background-position: center;
   position: relative;
+  
 }
 
 .hero-section .overlay {
@@ -14,11 +17,17 @@
 .hero-text {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 900px; 
+  margin: 0 auto; 
+  padding: 0 15px;
 }
 
+.text-justify {
+  text-align: justify !important;
+  text-justify: inter-word; 
+
 .cards-section {
-  margin-top: -100px;
+  margin-top: 3rem; 
   margin-bottom: 60px;
   position: relative;
 }
@@ -52,18 +61,18 @@
 .team-card {
   border-radius: 12px;
   transition: box-shadow 0.3s ease;
+  background-color: #f8f9fa;
 }
 
 .team-card:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.linkedin-btn {
+.linkedin-btn,
+.github-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #0077b5;
-  color: white;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -71,11 +80,46 @@
   transition: background-color 0.3s ease;
 }
 
+.linkedin-btn svg,
+.github-btn svg {
+  width: 20px; 
+  height: 20px;
+}
+
+.linkedin-btn {
+  background-color: #0077b5;
+  color: white;
+}
+
 .linkedin-btn:hover {
   background-color: #005582;
 }
 
+.github-btn {
+  background-color: #181717;
+  color: white;
+}
+
+.github-btn:hover {
+  background-color: #6e5494;
+}
 .card svg {
   z-index: 10;
   position: relative;
+}
+
+.hack {
+  color: linear-gradient(
+    135deg,
+    hsl(20 75% 55%),
+    hsl(25 70% 60%),
+    hsl(35 75% 65%)
+  );
+}
+
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    text-align: center;
+  }
 }
