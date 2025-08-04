@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 function PetSection() {
   const pets = useSelector((state) => state.pets);
   return (
-    <section className="pets-section py-5">
+    <section className="pets-section pt-5">
       <div className="container">
         <div className="text-center mb-5">
           <div className="d-inline-flex align-items-center gap-2 text-muted">
@@ -24,15 +24,18 @@ function PetSection() {
         </div>
 
         <div className="row g-4 mb-5">
-          <div className="col">
+          <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
             <PetCard pet={pets[0]} />
           </div>
-          <div className="col">
+          <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
             <PetCard pet={pets[1]} />
           </div>
-          <div className="col">
+          <div className="col-12 col-md-12 col-lg-4 d-flex justify-content-center">
             <Link to="/mascotas" className="text-decoration-none text-muted">
-              <div className="h-100 d-flex flex-column align-items-center justify-content-center">
+              <div
+                className="d-flex flex-column align-items-center justify-content-center"
+                style={{ width: "20rem", height: "100%", minHeight: "10rem" }}
+              >
                 <i className="bi bi-plus-circle fs-3"></i>
                 <p>Ver todos los animales</p>
               </div>
