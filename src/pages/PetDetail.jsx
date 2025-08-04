@@ -3,18 +3,16 @@ import Button from "../components/Button.jsx";
 import pets from "../data/pets.js";
 import monthsToYears from "../utils/constants.js";
 import { useLayoutEffect } from "react";
+import { useApi } from "../hooks/useApi";
 
 function PetDetail() {
   const petId = 1;
   const pet = pets.find((pet) => pet.id === petId);
   const location = useLocation();
+  const { scrollToTop } = useApi();
 
   useLayoutEffect(() => {
-    document.documentElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
+    scrollToTop();
   }, [location.pathname]);
 
   return (

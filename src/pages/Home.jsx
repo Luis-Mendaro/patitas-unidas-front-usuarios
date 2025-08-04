@@ -10,21 +10,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addPets } from "../config/redux/petsSlice";
 import { useSelector } from "react-redux";
+import { useApi } from "../hooks/useApi";
 
 function Home() {
   const pets = useSelector((state) => state.pets);
   const dispatch = useDispatch();
+  const { fetchAndStorePets } = useApi();
 
   useEffect(() => {
-    const fetchAndStorePets = async () => {
-      const response = await axios({
-        method: "GET",
-        url: "http://localhost:3000/pets",
-      });
-      const data = response.data;
-      dispatch(addPets(data.pets));
-    };
-
     fetchAndStorePets();
   }, []);
 
