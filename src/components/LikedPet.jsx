@@ -16,9 +16,9 @@ const LikedPet = ({ likedPet }) => {
           <span className="badge rounded-pill py-2 pet-Category">Gata</span>
         </div>
         <div className="col-md-8 card-body-container d-flex flex-column px-2">
-          <div className="liked-Pet-Header mt-1 d-flex align-items-center ">
+          <div className="liked-Pet-Header mt-2 d-flex align-items-center ">
             <h5 className="card-title">{likedPet.name}</h5>
-            <button className="btn rounded-circle heart-button">
+            <button className="btn rounded-circle delete-button">
               <i className="bi bi-x" />
             </button>
           </div>
@@ -36,7 +36,10 @@ const LikedPet = ({ likedPet }) => {
           <p className="card-text mt-2 pet-description flex-grow-1">
             {likedPet.description}
           </p>
-          <Button text="Adoptar" customClasses="align-self-start mb-1" />
+          <Button
+            text="Adoptar"
+            customClasses=" mb-1 btn-Adopt" //align-self-start
+          />
           {/* <a href="#" className="btn btn px-4 mb-1 btn-Adopt align-self-start">
             Adoptar
           </a> */}

@@ -18,11 +18,17 @@
   display: block;
 }
 
-.heart-button {
+.delete-button {
   position: absolute;
   right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
 }
-.heart-button:hover,
+
+.delete-button:hover,
 .bi-x:hover {
   background-color: white;
   color: red;
@@ -63,20 +69,7 @@ p {
 }
 
 .btn-Adopt {
-  background-color: #e37036;
-  color: white;
-  border-radius: 10px;
-  display: inline-block;
-}
-
-.btn-Adopt:hover {
-  background-color: #de5714;
-  color: white;
-}
-
-.btn-Adopt:active {
-  transform: translateY(2px);
-  /* Move down slightly */
+  align-self: start;
 }
 
 @media (max-width: 767px) {
@@ -92,8 +85,6 @@ p {
     border-radius: 10px 10px 0 0;
   }
   .btn-Adopt {
-    position: static;
-    margin-top: 1rem;
     width: 100%;
   }
 }
