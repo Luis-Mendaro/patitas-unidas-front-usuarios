@@ -1,11 +1,21 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import Button from "../components/Button.jsx";
 import pets from "../data/pets.js";
 import monthsToYears from "../utils/constants.js";
+import { useLayoutEffect } from "react";
 
 function PetDetail() {
   const petId = 1;
   const pet = pets.find((pet) => pet.id === petId);
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [location.pathname]);
 
   return (
     <>

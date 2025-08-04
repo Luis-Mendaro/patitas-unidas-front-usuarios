@@ -1,5 +1,6 @@
 import Badge from "../Badge";
 import Button from "../Button";
+import ReturnToTopButton from "../ReturnToTopButton";
 
 function HowItWorks() {
   const steps = [
@@ -92,6 +93,7 @@ function HowItWorks() {
           </div>
         </div>
       </div>
+      <ReturnToTopButton />
     </section>
   );
 }

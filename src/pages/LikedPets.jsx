@@ -106,11 +106,10 @@ const likedPetsList = [
 const LikedPets = () => {
   return (
     <div className="container">
-      {/**style={{ color: "white" }} */}
-      <h1>Animales que te gustaron</h1>
+      <h1 className="mb-5">Tus animalitos favoritos</h1>
       <ul className="p-0 list-unstyled">
         {likedPetsList.map((likedPet) => (
-          <li key={likedPet.id}>
+          <li key={likedPet.id} className="mb-4">
             <LikedPet likedPet={likedPet} />
           </li>
         ))}
