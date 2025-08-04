@@ -30,7 +30,6 @@
 
 .delete-button:hover,
 .bi-x:hover {
-  background-color: white;
   color: red;
 }
 

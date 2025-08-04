@@ -1,9 +1,10 @@
 import { Link } from "react-router";
 import "./PetCard.css";
 import Button from "./Button";
-import monthsToYears from "../utils/constants";
+import constants from "../utils/constants";
 
 function PetCard({ pet }) {
+  const { monthsToYears } = constants;
   return (
     pet && (
       <div className="card petCard">

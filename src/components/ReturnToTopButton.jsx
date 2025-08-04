@@ -14,7 +14,7 @@ function ReturnToTopButton() {
       <Button
         large={true}
         icon="bi-chevron-double-up"
-        customClasses="rounded-circle ms-auto me-1 return-top-btn"
+        customClasses="rounded-circle ms-auto me-3 return-top-btn"
       />
     </div>
   );

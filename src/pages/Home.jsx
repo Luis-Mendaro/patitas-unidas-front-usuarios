@@ -1,16 +1,14 @@
 import "./Home.css";
 
 import { useEffect } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Hero from "../components/Home/Hero";
 import HowItWorks from "../components/Home/HowItWorks";
 import PetSection from "../components/Home/PetSection";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addPets } from "../config/redux/petsSlice";
-import { useSelector } from "react-redux";
 import { useApi } from "../hooks/useApi";
+import ReturnToTopButton from "../components/ReturnToTopButton";
 
 function Home() {
   const pets = useSelector((state) => state.pets);
@@ -28,6 +26,7 @@ function Home() {
           <Hero />
           <PetSection />
           <HowItWorks />
+          <ReturnToTopButton />
         </main>
       </>
     )

@@ -1,23 +1,24 @@
 import { Link, useLocation } from "react-router";
 import Button from "../components/Button.jsx";
 import pets from "../data/pets.js";
-import monthsToYears from "../utils/constants.js";
+import constants from "../utils/constants";
 import { useLayoutEffect } from "react";
-import { useApi } from "../hooks/useApi";
+const { monthsToYears } = constants;
 
 function PetDetail() {
+  const { monthsToYears, scrollToTop } = constants;
   const petId = 1;
   const pet = pets.find((pet) => pet.id === petId);
   const location = useLocation();
-  const { scrollToTop } = useApi();
 
   useLayoutEffect(() => {
     scrollToTop();
   }, [location.pathname]);
 
+  console.log(pet.age);
   return (
     <>
-      <div className="vh-100 patas-bg-gradient-soft">
+      <div className="vh-100">
         <div className="container pb-5">
           <div className="p-3">
             <Link to="/" className="text-decoration-none text-black">
@@ -111,12 +112,14 @@ function PetDetail() {
                   />
                 </div>
                 <div className="col">
-                  <Button
-                    text="Quiero adoptar"
-                    large={true}
-                    icon="bi-heart-fill"
-                    customClasses="w-100"
-                  />
+                  <Link to={`/${pet.id}/formulario-adopcion`}>
+                    <Button
+                      text="Quiero adoptar"
+                      large={true}
+                      icon="bi-heart-fill"
+                      customClasses="w-100"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>

@@ -13,10 +13,9 @@ function PetSection() {
             <Badge text="Historias de esperanza" icon="bi-heart-fill" />
           </div>
           <h2 className="fw-bold mb-3">
-            Animales buscando
-            <span className="patas-text-primary d-block">hogar</span>
+            Animales buscando <span className="patas-text-primary">hogar</span>
           </h2>
-          <p className="fs-5 text-muted text-center lead">
+          <p className="fs-5 text-muted text-center mx-auto lead w-75 w-md-50">
             Cada uno tiene una historia única y está esperando escribir un nuevo
             capítulo contigo. Dale una segunda oportunidad y recibe amor
             incondicional.

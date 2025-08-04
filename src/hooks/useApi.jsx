@@ -22,16 +22,8 @@ export const useApi = () => {
     dispatch(addPets(data.pets));
   };
 
-  const scrollToTop = () =>
-    document.documentElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
-
   return {
     fetchPets,
     fetchAndStorePets,
-    scrollToTop,
   };
 };

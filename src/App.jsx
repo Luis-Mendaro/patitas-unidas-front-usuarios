@@ -30,7 +30,10 @@ function App() {
           <Route path="/mascotas/idMascota" element={<PetDetail />} />{" "}
           {/* agregar mascota/:id */}
           <Route path="/lista/idLista" element={<LikedPets />} />
-          <Route path="/formulario-adopcion" element={<AdoptionForm />} />{" "}
+          <Route
+            path="/:id/formulario-adopcion"
+            element={<AdoptionForm />}
+          />{" "}
           {/* agregar /:id/formulario-adopcion */}
           <Route path="/refugio/:id" element={<ShelterDetail />} />
         </Route>
