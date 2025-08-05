@@ -13,10 +13,9 @@ function PetSection() {
             <Badge text="Historias de esperanza" icon="bi-heart-fill" />
           </div>
           <h2 className="fw-bold mb-3">
-            Animales buscando
-            <span className="patas-text-primary d-block">hogar</span>
+            Animales buscando <span className="patas-text-primary">hogar</span>
           </h2>
-          <p className="fs-5 text-muted text-center lead">
+          <p className="fs-5 text-muted text-center mx-auto lead w-75 w-md-50">
             Cada uno tiene una historia única y está esperando escribir un nuevo
             capítulo contigo. Dale una segunda oportunidad y recibe amor
             incondicional.
@@ -30,14 +29,25 @@ function PetSection() {
           <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
             <PetCard pet={pets[1]} />
           </div>
-          <div className="col-12 col-md-12 col-lg-4 d-flex justify-content-center">
+          <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
             <Link to="/mascotas" className="text-decoration-none text-muted">
               <div
-                className="d-flex flex-column align-items-center justify-content-center"
-                style={{ width: "20rem", height: "100%", minHeight: "10rem" }}
+                className="card petCard d-flex flex-column align-items-center justify-content-center"
+                style={{
+                  minHeight: "420px",
+                  backgroundColor: "#f9f5f3",
+                }}
               >
-                <i className="bi bi-plus-circle fs-3"></i>
-                <p>Ver todos los animales</p>
+                <i
+                  className="bi bi-plus-circle fs-1 mb-3"
+                  style={{ color: "#e37036" }}
+                ></i>
+                <p className="fs-5 fw-semibold text-center">
+                  Ver todos los animales
+                </p>
+                <p className="card-text fs-6 mt-4">
+                  Descubre más mascotas en adopción !!!
+                </p>
               </div>
             </Link>
           </div>

@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Badge from "../Badge";
 import Button from "../Button";
 
@@ -62,7 +63,7 @@ function HowItWorks() {
             </div>
           ))}
         </div>
-        <div className="text-center mt-5">
+        <div className="text-center mt-5 pt-5">
           <div className="cta-box p-5 rounded-4 shadow border mx-auto">
             <div className="cta-content">
               <div className="cta-icon patas-bg-gradient mx-auto mb-4 rounded-circle d-flex align-items-center justify-content-center shadow">
@@ -75,18 +76,22 @@ function HowItWorks() {
                 merecen.
               </p>
               <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                <Button
-                  variant="primary"
-                  text="Comenzar ahora"
-                  icon="bi-person-hearts"
-                  large={true}
-                />
-                <Button
-                  icon="bi-question-circle"
-                  text="Saber más"
-                  variant="secondary"
-                  large={true}
-                />
+                <Link to="mascotas">
+                  <Button
+                    variant="primary"
+                    text="Comenzar ahora"
+                    icon="bi-person-hearts"
+                    large={true}
+                  />
+                </Link>
+                <a href="#how-it-works">
+                  <Button
+                    icon="bi-question-circle"
+                    text="Saber más"
+                    variant="secondary"
+                    large={true}
+                  />
+                </a>
               </div>
             </div>
           </div>

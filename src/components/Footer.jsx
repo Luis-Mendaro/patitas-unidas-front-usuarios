@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <>
-      <footer className="bg-dark w-100">
+      <footer className="bg-dark w-100 mt-auto">
         <div className="container">
           <div className="row py-5">
             <div className="col-12 col-sm-6 col-xl-3 px-4 mb-5 mb-xl-0">
@@ -50,9 +50,11 @@ function Footer() {
             </div>
           </div>
           <hr className="text-light" />
-          <p className="text-light m-0 pb-3 text-end">
-            © 2025 Patas Unidas. Todos los derechos reservados
-          </p>
+          <div className="d-flex justify-content-end">
+            <p className="text-light m-0 pb-3 text-end">
+              © 2025 Patas Unidas. Todos los derechos reservados
+            </p>
+          </div>
         </div>
       </footer>
     </>

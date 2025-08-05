@@ -1,25 +1,24 @@
 import { Link, useLocation } from "react-router";
 import Button from "../components/Button.jsx";
 import pets from "../data/pets.js";
-import monthsToYears from "../utils/constants.js";
+import constants from "../utils/constants";
 import { useLayoutEffect } from "react";
+const { monthsToYears } = constants;
 
 function PetDetail() {
+  const { monthsToYears, scrollToTop } = constants;
   const petId = 1;
   const pet = pets.find((pet) => pet.id === petId);
   const location = useLocation();
 
   useLayoutEffect(() => {
-    document.documentElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
+    scrollToTop();
   }, [location.pathname]);
 
+  console.log(pet.age);
   return (
     <>
-      <div className="vh-100 patas-bg-gradient-soft">
+      <div className="vh-100">
         <div className="container pb-5">
           <div className="p-3">
             <Link to="/" className="text-decoration-none text-black">
@@ -104,21 +103,25 @@ function PetDetail() {
               </div>
               <div className="row">
                 <div className="col">
-                  <Button
-                    text="Me interesa"
-                    large={true}
-                    icon="bi-heart-fill"
-                    variant="secondary"
-                    customClasses="w-100"
-                  />
+                  <Link to={`/${pet.shelterId}/refugio/:id`}>
+                    <Button
+                      text="Me interesa"
+                      large={true}
+                      icon="bi-heart-fill"
+                      variant="secondary"
+                      customClasses="w-100"
+                    />
+                  </Link>
                 </div>
                 <div className="col">
-                  <Button
-                    text="Quiero adoptar"
-                    large={true}
-                    icon="bi-heart-fill"
-                    customClasses="w-100"
-                  />
+                  <Link to={`/${pet.id}/formulario-adopcion`}>
+                    <Button
+                      text="Quiero adoptar"
+                      large={true}
+                      icon="bi-heart-fill"
+                      customClasses="w-100"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>

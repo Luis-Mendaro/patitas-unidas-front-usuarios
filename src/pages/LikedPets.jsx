@@ -106,7 +106,7 @@ const likedPetsList = [
 const LikedPets = () => {
   return (
     <div className="container">
-      <h1 className="mb-5">Tus animalitos favoritos</h1>
+      <h2 className="my-4">Tus animalitos favoritos</h2>
       <ul className="p-0 list-unstyled">
         {likedPetsList.map((likedPet) => (
           <li key={likedPet.id} className="mb-4">

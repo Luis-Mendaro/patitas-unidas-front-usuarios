@@ -1,17 +1,43 @@
 import React from "react";
-import { FaLinkedin, FaClock, FaTools, FaTasks, FaUsers } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaClock,
+  FaTools,
+  FaTasks,
+  FaUsers,
+  FaGithub,
+} from "react-icons/fa";
 import "./AboutUs.css";
 
 function AboutUs() {
   return (
     <>
       <section className="hero-section position-relative d-flex align-items-center container">
-        <div className="position-relative text-start rounded p-4 mx-3 hero-text ">
-          <h1 className="display-4 fw-bold">Sobre este proyecto</h1>
-          <p className="lead">
-            El presente sitio de e-commerce es un proyecto desarrollado por
-            estudiantes del Coding Bootcamp de{" "}
-            <a href="https://ha.dev" className="text-info fw-bold">
+        <div className="position-relative rounded p-4 hero-text">
+          <h1 className="display-4 fw-bold mb-4 text-center text-md-start">
+            Sobre este proyecto
+          </h1>
+          <p className="lead text-justify">
+            Somos 5 compañeros que, tras más de 600 horas de formación intensiva
+            en 3 meses, nos propusimos un gran reto: crear esta página en solo 3
+            semanas. Con jornadas completas, horas extras y fines de semana
+            dedicados, logramos darle vida a un proyecto que refleja no solo lo
+            que aprendimos, sino el esfuerzo y la pasión que pusimos en cada
+            línea de código. Este sitio es parte de nuestro portfolio y un
+            reflejo de nuestra dedicación y compromiso.
+            <br />
+            Este proyecto fue desarrollado en el Coding Bootcamp de{" "}
+            <a
+              href="https://ha.dev"
+              className="fw-bold text-decoration-none"
+              style={{
+                background:
+                  "linear-gradient(135deg, hsl(20 75% 55%), hsl(25 70% 60%), hsl(35 75% 65%))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                display: "inline-block",
+              }}
+            >
               Hack Academy
             </a>
             .
@@ -109,8 +135,8 @@ function AboutUs() {
         </div>
       </section>
 
-      <section className="container team-section ">
-        <div className="row g-4 ">
+      <section className="container team-section">
+        <div className="row g-4 mt-5">
           <div className="col-md-4">
             <div className="card shadow-lg h-100 team-card text-center overflow-hidden">
               <div className="card-body">
@@ -137,7 +163,7 @@ function AboutUs() {
                 </p>
               </div>
             </div>
-          </div>{" "}
+          </div>
           {[
             {
               name: "Bruno",
@@ -171,33 +197,46 @@ function AboutUs() {
               name: "Luis",
               role: "Estudiante  Full Stack Developer",
               img: "./img/luis.avif",
-
               description:
                 "Desarrollador enfocado en la creación de aplicaciones funcionales y atractivas.",
             },
           ].map(({ name, role, img, description }) => (
             <div key={name} className="col-md-4">
               <div className="card shadow-lg h-100 team-card rounded-4">
-                {" "}
                 <img
                   src={img}
                   alt={name}
                   className="card-img-top custom-rounded-top highlight-card"
                   style={{ height: "250px", objectFit: "cover" }}
                 />
-                <div className="card-body">
+                <div className="card-body ">
                   <h5 className="card-title">{name}</h5>
                   <h6 className="text-primary">{role}</h6>
-                  <p className="card-text">{description}</p>
-                  <a
-                    href="https://www.linkedin.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="linkedin-btn"
-                    aria-label="LinkedIn"
+                  <p className="card-text text-justify">{description}</p>
+
+                  <div
+                    className="d-flex gap-2 mt-3"
+                    style={{ justifyContent: "flex-start" }}
                   >
-                    <FaLinkedin size={24} />
-                  </a>
+                    <a
+                      href="https://www.linkedin.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="linkedin-btn"
+                      aria-label="LinkedIn"
+                    >
+                      <FaLinkedin size={28} />
+                    </a>
+                    <a
+                      href="https://github.com/tuUsuario"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="github-btn"
+                      aria-label="GitHub"
+                    >
+                      <FaGithub size={28} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

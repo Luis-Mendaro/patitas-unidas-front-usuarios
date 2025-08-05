@@ -1,8 +1,9 @@
+import { Link } from "react-router";
 import heroImage from "../../assets/img/hero.jpg";
 import Button from "../Button";
 function Hero() {
   return (
-    <section className="Hero position-relative d-flex align-items-center py-5">
+    <section className="Hero position-relative d-flex align-items-center py-5 mb-5">
       <div className="container">
         <div className="row align-items-center gy-5">
           <div className="col-12 col-lg-6">
@@ -26,15 +27,16 @@ function Hero() {
                 <div className="text-muted small">Refugios</div>
               </div>
             </div>
-
-            <div className="d-flex flex-column flex-sm-row gap-3">
-              <Button text="Quiero adoptar" large={true} icon="bi-heart-fill" />
-              <Button
-                text="Ver Animales"
-                large={true}
-                icon="bi-arrow-right"
-                variant="secondary"
-              />
+            <div className="d-md-inline d-flex justify-content-center w-100">
+              <Link to="mascotas">
+                <Button
+                  text="Ver Animales"
+                  large={true}
+                  icon="bi-arrow-right"
+                  variant="primary"
+                  customClasses="col col-12 col-lg-6"
+                />
+              </Link>
             </div>
           </div>
 
