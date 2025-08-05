@@ -1,13 +1,10 @@
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-// import { setAuthData } from "../redux/authSlice";
 import { toast } from "react-toastify";
 import { addPets } from "../config/redux/petsSlice";
-import { login } from "../config/redux/userSlice";
-import { response } from "express";
+import { login, logout } from "../config/redux/userSlice";
 
 export const useApi = () => {
-  //   const { authUser, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const api = axios.create({
@@ -29,14 +26,25 @@ export const useApi = () => {
       const response = await api.post("/auth/login", loginData);
       const data = response.data;
       dispatch(login(data));
-
       return response;
-    } catch (error) {}
+    } catch (error) {
+      if (error.status === 401) {
+        toast.error("Credenciales inválidas");
+      } else {
+        toast.error("Ocurrió un error inesperado");
+      }
+    }
+  };
+
+  //Preguntar a Lucho a ver si es mejor dejar este metodo aca o mover la linea 41 a la linea 11 de Navbar.jsx
+  const userLogout = () => {
+    dispatch(logout());
   };
 
   return {
     fetchPets,
     fetchAndStorePets,
     userLogin,
+    userLogout,
   };
 };

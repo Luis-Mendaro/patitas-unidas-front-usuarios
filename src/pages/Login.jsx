@@ -5,12 +5,10 @@ import { Link, useNavigate } from "react-router";
 import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
 import { useApi } from "../hooks/useApi";
-import { useSelector } from "react-redux";
 
 export default function Login() {
   const { userLogin } = useApi();
   const navigate = useNavigate();
-  const token = useSelector((state) => state.user.token);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -27,7 +25,9 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await userLogin(formData);
-    if (response) navigate("/");
+    if (response) {
+      navigate("/");
+    }
   };
 
   return (
