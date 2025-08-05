@@ -1,0 +1,86 @@
+export default function Step2({ data, update, onNext, onBack }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // const { email } = e.target;
+    // update({ email });
+    onNext();
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label className="form-label fw-medium mb-0">
+          ¿Vivís en un lugar que permite mascotas?
+        </label>
+        <div className="form-text text-muted mb-1">
+          Verificá si tu edificio o arrendador acepta animales.
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="petsAllowed"
+            id="petsAllowed"
+            value="true"
+            defaultChecked={data.petsAllowed === "true"}
+          />
+          <label className="form-check-label" htmlFor="petsAllowed">
+            Sí
+          </label>
+        </div>
+        <div className="form-check form-check-inline">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="petsAllowed"
+            id="petsAllowedNo"
+            value="no"
+            defaultChecked={data.petsAllowed === "no"}
+          />
+          <label className="form-check-label" htmlFor="petsAllowedNo">
+            No
+          </label>
+        </div>
+      </div>
+
+      <div className="mb-3">
+        <label className="form-label fw-medium">
+          ¿Tenés patio o terraza? ¿Está cercado?
+        </label>
+        <input
+          name="location"
+          type="text"
+          className="form-control"
+          placeholder="Ej. Montevideo"
+          defaultValue={data.location}
+        />
+      </div>
+
+      <div className="mb-3">
+        <label className="form-label fw-medium">
+          ¿Hay niños en tu hogar? ¿De qué edad?
+        </label>
+        <input
+          name="location"
+          type="text"
+          className="form-control"
+          placeholder="Ej. Montevideo"
+          defaultValue={data.location}
+        />
+      </div>
+
+      <div className="d-flex justify-content-between gap-2">
+        <button
+          type="button"
+          className="patas-btn patas-btn-secondary px-4"
+          onClick={onBack}
+        >
+          Atrás
+        </button>
+        <button type="submit" className="patas-btn patas-btn-primary px-4">
+          Siguiente
+        </button>
+      </div>
+    </form>
+  );
+}
