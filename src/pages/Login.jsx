@@ -1,34 +1,41 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
+import { useApi } from "../hooks/useApi";
+import { useSelector } from "react-redux";
 
 export default function Login() {
+  const { userLogin } = useApi();
+  const navigate = useNavigate();
+  const token = useSelector((state) => state.user.token);
+
   const [formData, setFormData] = useState({
-         user: "",
-         password: "",
-     });
- 
-     const handleChange = (e) => {
-         setFormData({
-             ...formData,
-             [e.target.name]: e.target.value,
-         });
-     };
- 
-     const handleSubmit = (e) => {
-         e.preventDefault();
-         console.log("Login data:", formData);
-     }
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await userLogin(formData);
+    if (response) navigate("/");
+  };
 
   return (
     <AuthLayout msg="Bienvenido a Patas Unidas">
       <div className="login-container">
         <div className="login-box">
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicUser">
+            <Form.Group className="mb-3">
               <Form.Label className="d-none" htmlFor="email">
                 Email
               </Form.Label>
@@ -39,11 +46,10 @@ export default function Login() {
                 className="form-input"
                 placeholder="Email"
                 value={formData.email}
-
                 onChange={handleChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3">
               <Form.Label className="d-none" htmlFor="password">
                 Contraseña
               </Form.Label>
