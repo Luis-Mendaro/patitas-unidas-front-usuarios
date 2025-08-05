@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addPets } from "../config/redux/petsSlice";
 import { login } from "../config/redux/userSlice";
-import { response } from "express";
 
 export const useApi = () => {
   //   const { authUser, token } = useSelector((state) => state.auth);
