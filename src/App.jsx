@@ -19,23 +19,29 @@ import ShelterDetail from "./pages/ShelterDetail";
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route element={<PublicRoutes />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/iniciar-sesion" element={<Login />} />
-          <Route path="/registro" element={<Register />} />
-          <Route path="/sobre-este-proyecto" element={<AboutUs />} />
-          <Route path="/mascotas" element={<PetList />} />
-          <Route path="/mascotas/:idMascota" element={<PetDetail />} />{" "}
-          <Route path="/lista/idLista" element={<LikedPets />} />
-          <Route path="/:id/formulario-adopcion" element={<AdoptionForm />} />
-          <Route path="/refugio/:id" element={<ShelterDetail />} />
-        </Route>
-      </Routes>
-      <Footer />
+      <div className="d-flex flex-column min-vh-100">
+        <Navbar />
+        <Routes>
+          <Route element={<PublicRoutes />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/iniciar-sesion" element={<Login />} />
+            <Route path="/registro" element={<Register />} />
+            <Route path="/sobre-este-proyecto" element={<AboutUs />} />
+            <Route path="/mascotas" element={<PetList />} />
+            <Route path="/mascotas/idMascota" element={<PetDetail />} />{" "}
+            {/* agregar mascota/:id */}
+            <Route path="/lista/idLista" element={<LikedPets />} />
+            <Route
+              path="/formulario-adopcion"
+              element={<AdoptionForm />}
+            />{" "}
+            {/* agregar /:id/formulario-adopcion */}
+          </Route>
+        </Routes>
+        <Footer />
+      </div>
 
-      <ToastContainer />
+<ToastContainer />
     </>
   );
 }
