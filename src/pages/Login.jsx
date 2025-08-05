@@ -6,7 +6,7 @@ import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
 
 export default function Login() {
-  /*const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
          user: "",
          password: "",
      });
@@ -21,13 +21,13 @@ export default function Login() {
      const handleSubmit = (e) => {
          e.preventDefault();
          console.log("Login data:", formData);
- */
+     }
 
   return (
     <AuthLayout msg="Bienvenido a Patas Unidas">
       <div className="login-container">
         <div className="login-box">
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicUser">
               <Form.Label className="d-none" htmlFor="email">
                 Email
@@ -38,8 +38,9 @@ export default function Login() {
                 type="text"
                 className="form-input"
                 placeholder="Email"
+                value={formData.email}
 
-                /*onChange={handleChange}*/
+                onChange={handleChange}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -52,8 +53,8 @@ export default function Login() {
                 type="password"
                 className="form-input"
                 placeholder="Contraseña"
-                /**value={formData.password}
-                            onChange={handleChange}*/
+                value={formData.password}
+                onChange={handleChange}
               />
             </Form.Group>
             <div className="d-flex justify-content-between">
