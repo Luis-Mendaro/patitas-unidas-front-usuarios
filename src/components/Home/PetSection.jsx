@@ -44,9 +44,9 @@ function PetSection() {
                 ></i>
                 <p className="fs-5 fw-semibold text-center">
                   Ver todos los animales
-                  <p className="card-text fs-6 mt-4">
-                    Descubre más mascotas en adopción !!!
-                  </p>
+                </p>
+                <p className="card-text fs-6 mt-4">
+                  Descubre más mascotas en adopción !!!
                 </p>
               </div>
             </Link>
