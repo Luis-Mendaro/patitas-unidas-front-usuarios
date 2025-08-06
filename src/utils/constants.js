@@ -31,5 +31,23 @@ const constants = {
       window.removeEventListener("scroll", scrollHandler);
     };
   },
+
+  determineBadgeText: (petSpecies, petSex) => {
+    let badgeText = "";
+    switch (petSpecies) {
+      case "dog":
+        petSex === "male" ? (badgeText = "perro") : (badgeText = "perra");
+        break;
+
+      case "cat":
+        petSex === "male" ? (badgeText = "gato") : (badgeText = "gata");
+        break;
+
+      case "other":
+        petSex === "male" ? (badgeText = "otro") : (badgeText = "otra");
+        break;
+    }
+    return badgeText;
+  },
 };
 export default constants;

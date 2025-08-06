@@ -1,11 +1,10 @@
 import { Link } from "react-router";
 import constants from "../utils/constants";
-import monthsToYears from "../utils/constants";
 import Button from "./Button";
 import "./LikedPet.css";
 
 const LikedPet = ({ likedPet }) => {
-  const { monthsToYears } = constants;
+  const { monthsToYears, determineBadgeText } = constants;
   return (
     <div className="card mb-3">
       <div className="row g-0">
@@ -15,7 +14,9 @@ const LikedPet = ({ likedPet }) => {
             className="img-fluid"
             alt={`Imagen de la mascota ${likedPet.name}`}
           />
-          <span className="badge rounded-pill py-2 pet-Category">Gata</span>
+          <span className="badge rounded-pill py-2 pet-Category">
+            {determineBadgeText(likedPet.category.species, likedPet.sex)}
+          </span>
         </div>
         <div className="col-md-8 card-body-container d-flex flex-column p-3">
           <div className="liked-Pet-Header mt-2 d-flex align-items-center ">
@@ -30,7 +31,7 @@ const LikedPet = ({ likedPet }) => {
             </span>
 
             <span className="petLocation badge rounded-pill py-2 px-2">
-              Departamento del Refugio
+              {likedPet.shelterUser.location}
             </span>
           </div>
           <p className="card-text mt-2 pet-description flex-grow-1">
