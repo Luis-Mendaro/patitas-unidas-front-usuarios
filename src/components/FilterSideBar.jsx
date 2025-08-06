@@ -3,22 +3,22 @@ import "./FilterSideBar.css";
 import { useState } from "react";
 
 import {
-  typeFilters,
+  speciesFilters,
   sizeFilters,
   sexFilters,
   departamentosUruguay,
 } from "../data/filterData";
 
-function FilterSideBar() {
+function FilterSideBar({ onSearch, onReset }) {
   const [showSidebar, setShowSidebar] = useState(true);
   const [collapsed, setCollapsed] = useState({
-    type: false,
+    species: false,
     size: false,
     sex: false,
     age: false,
     location: false,
   });
-  const [typeFilter, setTypeFilter] = useState(null);
+  const [speciesFilter, setSpeciesFilter] = useState(null);
   const [sizeFilter, setSizeFilter] = useState(null);
   const [sexFilter, setSexFilter] = useState(null);
   const [ageFilter, setAgeFilter] = useState(["", ""]);
@@ -31,8 +31,8 @@ function FilterSideBar() {
     }));
   };
 
-  const handleFilters = () => {
-    setTypeFilter(null);
+  const resetFilters = () => {
+    setSpeciesFilter(null);
     setSizeFilter(null);
     setSexFilter(null);
     setAgeFilter(["", ""]);
@@ -55,7 +55,7 @@ function FilterSideBar() {
         }}
       >
         <div
-          className={`d-flex align-items-center ${showSidebar ? "mb-3" : ""} `}
+          className={`d-flex align-items-center ${showSidebar ? "mb-2" : ""} `}
         >
           {showSidebar && <p className="fs-4 fw-bold m-0">Filtros</p>}
           <i
@@ -70,28 +70,84 @@ function FilterSideBar() {
           className={`mb-5 ${showSidebar ? "" : "d-none"}`}
           id="filter-content"
         >
-          <div className={`${collapsed.type ? "" : "mb-3"}`}>
+          <div className="mb-2 d-flex flex-wrap gap-1">
+            {speciesFilter && (
+              <span
+                className="py-1 px-2 rounded bg-body-secondary"
+                onClick={() => setSpeciesFilter(null)}
+              >
+                {speciesFilters.find((f) => f.value === speciesFilter)?.label}
+              </span>
+            )}
+
+            {sizeFilter && (
+              <span
+                className="py-1 px-2 rounded bg-body-secondary"
+                onClick={() => setSizeFilter(null)}
+              >
+                {sizeFilters.find((f) => f.value === sizeFilter)?.label}
+              </span>
+            )}
+
+            {sexFilter && (
+              <span
+                className="py-1 px-2 rounded bg-body-secondary"
+                onClick={() => setSexFilter(null)}
+              >
+                {sexFilters.find((f) => f.value === sexFilter)?.label}
+              </span>
+            )}
+
+            {ageFilter[0] && (
+              <span
+                className="py-1 px-2 rounded bg-body-secondary"
+                onClick={() => setAgeFilter(["", ageFilter[1]])}
+              >
+                Desde {ageFilter[0]} años
+              </span>
+            )}
+
+            {ageFilter[1] && (
+              <span
+                className="py-1 px-2 rounded bg-body-secondary"
+                onClick={() => setAgeFilter([ageFilter[0], ""])}
+              >
+                Hasta {ageFilter[1]} años
+              </span>
+            )}
+
+            {location && (
+              <span
+                className="py-1 px-2 rounded bg-body-secondary"
+                onClick={() => setLocation("")}
+              >
+                {location}
+              </span>
+            )}
+          </div>
+
+          <div className={`${collapsed.species ? "" : "mb-3"}`}>
             <div className={`d-flex justify-content-between mb-2`}>
               <span className="fw-semibold">Tipo:</span>
               <i
                 className={`bi ${
-                  collapsed.type ? "bi-chevron-up" : "bi-chevron-down"
+                  collapsed.species ? "bi-chevron-up" : "bi-chevron-down"
                 } icon`}
-                onClick={() => toggleCollapse("type")}
+                onClick={() => toggleCollapse("species")}
               />
             </div>
-            {!collapsed.type && (
+            {!collapsed.species && (
               <div className="d-flex justify-content-evenly">
-                {typeFilters.map((filter) => {
+                {speciesFilters.map((filter) => {
                   return (
                     <button
                       key={filter.value}
                       className={`filter-btn ${
-                        typeFilter === filter.value ? "selected" : ""
+                        speciesFilter === filter.value ? "selected" : ""
                       }`}
                       onClick={() =>
-                        setTypeFilter(
-                          typeFilter === filter.value ? null : filter.value
+                        setSpeciesFilter(
+                          speciesFilter === filter.value ? null : filter.value
                         )
                       }
                     >
@@ -251,11 +307,30 @@ function FilterSideBar() {
           <div className="d-flex justify-content-between">
             <button
               className="btn btn-outline-dark w-50 me-2"
-              onClick={handleFilters}
+              onClick={() => {
+                resetFilters();
+                onReset();
+              }}
             >
               Limpiar filtros
             </button>
-            <button className="btn btn-dark w-50" disabled={!isAgeValid}>
+
+            <button
+              className="btn btn-dark w-50"
+              disabled={!isAgeValid}
+              onClick={() => {
+                const filters = {};
+
+                if (speciesFilter) filters.species = speciesFilter;
+                if (sizeFilter) filters.size = sizeFilter;
+                if (sexFilter) filters.sex = sexFilter;
+                if (location) filters.location = location;
+                if (ageFilter[0]) filters.ageMin = ageFilter[0];
+                if (ageFilter[1]) filters.ageMax = ageFilter[1];
+
+                onSearch(filters);
+              }}
+            >
               Buscar
             </button>
           </div>
