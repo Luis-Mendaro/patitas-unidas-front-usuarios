@@ -2,9 +2,18 @@ import { Link } from "react-router";
 import constants from "../utils/constants";
 import Button from "./Button";
 import "./LikedPet.css";
+import { useSelector } from "react-redux";
+import { useApi } from "../hooks/useApi";
 
 const LikedPet = ({ likedPet }) => {
   const { monthsToYears, determineBadgeText } = constants;
+  const { likePetRequest } = useApi();
+  const loggedUserId = useSelector((state) => state.user?.user.id);
+  const userLikedPets = useSelector((state) => state.user?.user.likedPet.pets);
+
+  function handleLike() {
+    likePetRequest(loggedUserId, likedPet.id);
+  }
   return (
     <div className="card mb-3">
       <div className="row g-0">
@@ -21,8 +30,17 @@ const LikedPet = ({ likedPet }) => {
         <div className="col-md-8 card-body-container d-flex flex-column p-3">
           <div className="liked-Pet-Header mt-2 d-flex align-items-center ">
             <h5 className="card-title">{likedPet.name}</h5>
-            <button className="btn bg-transparent rounded-circle delete-button">
-              <i className="bi bi-x" />
+            <button
+              className="btn rounded-circle heart-button bg-transparent"
+              onClick={handleLike}
+            >
+              {userLikedPets?.some(
+                (listItem) => listItem.id === likedPet.id
+              ) ? (
+                <i className="bi bi-heart-fill petcard-heart" />
+              ) : (
+                <i className="bi bi-heart" />
+              )}
             </button>
           </div>
           <div>

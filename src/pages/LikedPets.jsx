@@ -4,7 +4,6 @@ import LikedPet from "../components/LikedPet";
 const LikedPets = () => {
   const user = useSelector((state) => state.user.user);
   const userLikedPets = user.likedPet.pets;
-  console.log(userLikedPets);
   return (
     <div className="container">
       <h2 className="my-4">Tus animalitos favoritos</h2>

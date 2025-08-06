@@ -2,9 +2,18 @@ import { Link } from "react-router";
 import "./PetCard.css";
 import Button from "./Button";
 import constants from "../utils/constants";
+import { useSelector } from "react-redux";
+import { useApi } from "../hooks/useApi";
 
 function PetCard({ pet }) {
   const { monthsToYears } = constants;
+  const { likePetRequest } = useApi();
+  const loggedUserId = useSelector((state) => state.user?.user.id);
+  const userLikedPets = useSelector((state) => state.user?.user.likedPet.pets);
+
+  function handleLike() {
+    likePetRequest(loggedUserId, pet.id);
+  }
   return (
     pet && (
       <div className="card petCard">
@@ -16,8 +25,15 @@ function PetCard({ pet }) {
             alt={`Imagen Mascota ${pet.name}`}
           />
 
-          <button className="btn rounded-circle heart-button">
-            <i className="bi bi-heart" />
+          <button
+            className="btn rounded-circle heart-button"
+            onClick={handleLike}
+          >
+            {userLikedPets?.some((listItem) => listItem.id === pet.id) ? (
+              <i className="bi bi-heart-fill petcard-heart" />
+            ) : (
+              <i className="bi bi-heart" />
+            )}
           </button>
           {/*replace the text with fetched value for the categoryId of the pet */}
           <span className="badge rounded-pill py-2  pet-Category">Gata</span>

@@ -10,9 +10,13 @@ const userSlice = createSlice({
     logout: () => {
       return null;
     },
+    likePet: (state, action) => {
+      const updatedLikedPets = action.payload;
+      state.user.likedPet.pets = updatedLikedPets;
+    },
   },
 });
 
 const { actions, reducer } = userSlice;
-export const { login, logout } = actions;
+export const { login, logout, likePet } = actions;
 export default reducer;
