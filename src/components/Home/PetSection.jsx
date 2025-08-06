@@ -4,7 +4,7 @@ import PetCard from "../PetCard";
 import { useSelector } from "react-redux";
 
 function PetSection() {
-  const pets = useSelector((state) => state.pets);
+  const pets = useSelector((state) => state.pets.items);
   return (
     <section className="pets-section pt-5">
       <div className="container">
