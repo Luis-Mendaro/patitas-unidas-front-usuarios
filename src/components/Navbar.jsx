@@ -1,7 +1,15 @@
 import { Link } from "react-router";
 import Button from "./Button";
+import { useSelector } from "react-redux";
+import { useApi } from "../hooks/useApi";
 
 function Navbar() {
+  const token = useSelector((state) => state.user?.token);
+  const { userLogout } = useApi();
+
+  function handleLogout() {
+    userLogout();
+  }
   return (
     <>
       <nav
@@ -22,12 +30,24 @@ function Navbar() {
 
           {/* Botón Iniciar Sesión siempre visible (también en mobile) */}
           <div className="d-flex align-items-center ms-auto d-lg-none me-2">
-            <Link className="nav-link" to="/lista/idLista">
-              <i className="bi bi-heart-fill patas-text-primary fs-4 me-3"></i>
-            </Link>
-            <Link className="nav-link" to="/iniciar-sesion">
-              <Button text="" large={false} icon="bi-box-arrow-in-right" />
-            </Link>
+            {token ? (
+              <>
+                <Link className="nav-link" to="/lista/idLista">
+                  <i className="bi bi-heart-fill patas-text-primary fs-4 me-3"></i>
+                </Link>
+                <Link
+                  className="nav-link"
+                  to="/iniciar-sesion"
+                  onClick={handleLogout}
+                >
+                  <Button text="" large={false} icon="bi-box-arrow-in-left" />
+                </Link>
+              </>
+            ) : (
+              <Link className="nav-link" to="/iniciar-sesion">
+                <Button text="" large={false} icon="bi-box-arrow-in-right" />
+              </Link>
+            )}
           </div>
 
           {/* Toggler */}
@@ -65,12 +85,24 @@ function Navbar() {
 
             {/* Botones solo visibles en pantallas grandes */}
             <div className="d-none d-lg-flex ms-auto align-items-center">
-              <Link className="nav-link" to="/lista/idLista">
-                <i className="bi bi-heart-fill patas-text-primary fs-4 me-3"></i>
-              </Link>
-              <Link className="nav-link" to="/iniciar-sesion">
-                <Button text="Iniciar Sesión" large={false} />
-              </Link>
+              {token ? (
+                <>
+                  <Link className="nav-link" to="/lista/idLista">
+                    <i className="bi bi-heart-fill patas-text-primary fs-4 me-3"></i>
+                  </Link>
+                  <Link
+                    className="nav-link"
+                    to="/iniciar-sesion"
+                    onClick={handleLogout}
+                  >
+                    <Button text="Cerrar Sesión" large={false} />
+                  </Link>
+                </>
+              ) : (
+                <Link className="nav-link" to="/iniciar-sesion">
+                  <Button text="Iniciar Sesión" large={false} />
+                </Link>
+              )}
             </div>
           </div>
         </div>
