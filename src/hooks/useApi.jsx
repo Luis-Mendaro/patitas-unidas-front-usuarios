@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addPets } from "../config/redux/petsSlice";
-import { login, logout } from "../config/redux/userSlice";
+import { login, logout } from "../config/redux/userSlice"
 
 export const useApi = () => {
   const dispatch = useDispatch();
