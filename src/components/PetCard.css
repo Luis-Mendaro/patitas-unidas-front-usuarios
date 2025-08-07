@@ -5,6 +5,17 @@
 
 .petCardImageContainer {
   position: relative;
+  height: 250px; /* o el alto que prefieras */
+  overflow: hidden;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.petCardImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .card-img-top {

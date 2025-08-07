@@ -20,7 +20,7 @@ function PetCard({ pet }) {
         <div className="petCardImageContainer">
           {/*replace the src from line 35's value with a url for the pet's image */}
           <img
-            src="https://t3.ftcdn.net/jpg/02/36/99/22/360_F_236992283_sNOxCVQeFLd5pdqaKGh8DRGMZy7P4XKm.jpg"
+            src={pet.images[0]}
             className="card-img-top"
             alt={`Imagen Mascota ${pet.name}`}
           />
@@ -36,7 +36,9 @@ function PetCard({ pet }) {
             )}
           </button>
           {/*replace the text with fetched value for the categoryId of the pet */}
-          <span className="badge rounded-pill py-2  pet-Category">Gata</span>
+          <span className="badge rounded-pill py-2 pet-Category position-absolute">
+            {pet.category.species}
+          </span>
         </div>
         <div className="card-body">
           <h5 className="card-title">{pet.name}</h5>
