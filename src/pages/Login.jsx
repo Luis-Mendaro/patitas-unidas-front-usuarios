@@ -5,11 +5,12 @@ import { Link, useNavigate } from "react-router";
 import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
 import { useApi } from "../hooks/useApi";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Login() {
   const { userLogin } = useApi();
   const navigate = useNavigate();
-
+  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -53,15 +54,24 @@ export default function Login() {
               <Form.Label className="d-none" htmlFor="password">
                 Contraseña
               </Form.Label>
-              <Form.Control
-                name="password"
-                id="password"
-                type="password"
-                className="form-input"
-                placeholder="Contraseña"
-                value={formData.password}
-                onChange={handleChange}
-              />
+              <div className="position-relative">
+                <Form.Control
+                  name="password"
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  className="form-input pe-5"
+                  placeholder="Contraseña"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="position-absolute top-50 end-0 translate-middle-y me-3"
+                  style={{ cursor: "pointer" }}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
             </Form.Group>
             <div className="d-flex justify-content-between">
               <Button
