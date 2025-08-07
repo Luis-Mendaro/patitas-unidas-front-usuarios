@@ -1,57 +1,68 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
 
 export default function Register() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <AuthLayout msg="Bienvenido a Patas Unidas">
       <div className="login-container">
         <div className="login-box">
           <Form>
             <Form.Group className="mb-3" controlId="formBasicUser">
-              <Form.Label className="d-none" htmlFor="name">
-                Nombre
-              </Form.Label>
               <Form.Control
                 name="name"
-                id="name"
                 type="text"
                 className="form-input"
                 placeholder="Nombre"
-
-                /*onChange={handleChange}*/
+                value={formData.name}
+                onChange={handleChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicUser">
-              <Form.Label className="d-none" htmlFor="email">
-                Email
-              </Form.Label>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control
                 name="email"
-                id="email"
-                type="text"
+                type="email"
                 className="form-input"
                 placeholder="Email"
-
-                /*onChange={handleChange}*/
+                value={formData.email}
+                onChange={handleChange}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label className="d-none" htmlFor="password">
-                Contraseña
-              </Form.Label>
-              <Form.Control
-                name="password"
-                id="password"
-                type="password"
-                className="form-input"
-                placeholder="Contraseña"
-                /**value={formData.password}
-                            onChange={handleChange}*/
-              />
+              <div className="position-relative">
+                <Form.Control
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  className="form-input pe-5"
+                  placeholder="Contraseña"
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="position-absolute top-50 end-0 translate-middle-y me-3"
+                  style={{ cursor: "pointer" }}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
             </Form.Group>
 
             <div className="d-flex justify-content-between">
@@ -70,7 +81,7 @@ export default function Register() {
               to="/iniciar-sesion"
               className="orange-link ms-1 text-decoration-none fw-semibold"
             >
-              Iniciar sesion
+              Iniciar sesión
             </Link>
           </p>
         </div>
