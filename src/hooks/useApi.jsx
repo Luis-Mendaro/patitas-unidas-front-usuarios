@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { addPets } from "../config/redux/petsSlice";
+import { setPets, setTotal } from "../config/redux/petsSlice";
 import { login, logout, likePet } from "../config/redux/userSlice";
+
 
 export const useApi = () => {
   const dispatch = useDispatch();
@@ -16,10 +17,10 @@ export const useApi = () => {
     return await api.get("/pets");
   };
 
-  const fetchAndStorePets = async () => {
-    const response = await fetchPets();
-    const data = response.data;
-    dispatch(addPets(data.pets));
+  const fetchAndStorePets = async (filters = {}) => {
+    const response = await api.get("/pets", { params: filters });
+    dispatch(setPets(response.data.pets));
+    dispatch(setTotal(response.data.total));
   };
 
   const userLogin = async (loginData) => {

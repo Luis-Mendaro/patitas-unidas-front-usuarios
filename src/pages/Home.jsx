@@ -12,7 +12,7 @@ import ReturnToTopButton from "../components/ReturnToTopButton";
 import constants from "../utils/constants";
 
 function Home() {
-  const pets = useSelector((state) => state.pets);
+  const pets = useSelector((state) => state.pets.items);
   const dispatch = useDispatch();
   const { fetchAndStorePets } = useApi();
   const [showButton, setShowButton] = useState(false);

@@ -1,4 +1,4 @@
-export const typeFilters = [
+export const speciesFilters = [
   { label: "Perro", value: "dog", icon: "/dog-head.svg" },
   { label: "Gato", value: "cat", icon: "/cat-head.svg" },
   { label: "Otros", value: "other", icon: "/other-paw.svg" },
@@ -6,8 +6,8 @@ export const typeFilters = [
 
 export const sizeFilters = [
   { label: "Chico", value: "small" },
-  { label: "Mediano", value: "average" },
-  { label: "Grande", value: "big" },
+  { label: "Mediano", value: "medium" },
+  { label: "Grande", value: "large" },
 ];
 
 export const sexFilters = [
