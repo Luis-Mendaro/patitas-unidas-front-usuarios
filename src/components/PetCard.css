@@ -1,6 +1,7 @@
 .petCard {
   width: 20rem;
   border-radius: 10px;
+  /* max-height: ; */
 }
 
 .petCardImageContainer {
