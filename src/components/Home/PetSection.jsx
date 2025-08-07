@@ -32,9 +32,9 @@ function PetSection() {
           <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
             <Link to="/mascotas" className="text-decoration-none text-muted">
               <div
-                className="card petCard d-flex flex-column align-items-center justify-content-center"
+                className="card petCard d-flex flex-column align-items-center justify-content-center text-center px-3 py-4"
                 style={{
-                  minHeight: "420px",
+                  minHeight: "400px",
                   backgroundColor: "#f9f5f3",
                 }}
               >

@@ -14,16 +14,12 @@ function PetCard({ pet }) {
   function handleLike() {
     likePetRequest(loggedUserId, pet.id);
   }
+
   return (
     pet && (
-      <div className="card petCard">
+      <div className="petCard">
         <div className="petCardImageContainer">
-          {/*replace the src from line 35's value with a url for the pet's image */}
-          <img
-            src={pet.images[0]}
-            className="card-img-top"
-            alt={`Imagen Mascota ${pet.name}`}
-          />
+          <img src={pet.images[0]} alt={`Imagen Mascota ${pet.name}`} />
 
           <button
             className="btn rounded-circle heart-button"
@@ -35,39 +31,44 @@ function PetCard({ pet }) {
               <i className="bi bi-heart" />
             )}
           </button>
-          {/*replace the text with fetched value for the categoryId of the pet */}
+
           <span className="badge rounded-pill py-2 pet-Category position-absolute">
             {pet.category.species}
           </span>
         </div>
-        <div className="card-body">
-          <h5 className="card-title">{pet.name}</h5>
-          <div>
-            <span className="petAge badge rounded-pill py-2 px-2 me-1">
-              {monthsToYears(pet.age)}
-            </span>
 
-            <span className="petLocation badge rounded-pill py-2 px-2">
-              {pet.shelterUser.location}
-            </span>
+        <div className="card-body">
+          <div>
+            <h5 className="card-title">{pet.name}</h5>
+            <div>
+              <span className="petAge badge rounded-pill py-2 px-2 me-1">
+                {monthsToYears(pet.age)}
+              </span>
+
+              <span className="petLocation badge rounded-pill py-2 px-2">
+                {pet.shelterUser.location}
+              </span>
+            </div>
+            <p className="card-text mt-3 text-truncate">{pet.description}</p>
           </div>
-          <p className="card-text mt-3 text-truncate">{pet.description}</p>
-          <div className="row">
-            <div className="col p-1">
-              <Link to="/mascotas/idMascota">
-                <Button text="Ver Detalle" customClasses="w-100" />
-              </Link>
-            </div>
-            <div className="col p-1">
-              <Link onClick={handleLike}>
-                <Button
-                  text="Me interesa"
-                  icon="bi-heart-fill"
-                  variant="secondary"
-                  customClasses="w-100"
-                />
-              </Link>
-            </div>
+
+          <div className="d-flex justify-content-between gap-2 mt-3">
+            <Link to={`/mascotas/${pet.id}`} className="flex-fill">
+              <Button text="Ver Detalle" customClasses="w-100 btn-PetDetails" />
+            </Link>
+
+            <button
+              onClick={handleLike}
+              className="flex-fill p-0 border-0 bg-transparent"
+              type="button"
+            >
+              <Button
+                text="Me interesa"
+                icon="bi-heart-fill"
+                variant="secondary"
+                customClasses="w-100 btn-PetLike"
+              />
+            </button>
           </div>
         </div>
       </div>
