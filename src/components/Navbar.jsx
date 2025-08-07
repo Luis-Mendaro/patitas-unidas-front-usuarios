@@ -5,6 +5,7 @@ import { useApi } from "../hooks/useApi";
 
 function Navbar() {
   const token = useSelector((state) => state.user?.token);
+  const user = useSelector((state) => state.user?.user);
   const { userLogout } = useApi();
 
   function handleLogout() {
@@ -96,6 +97,14 @@ function Navbar() {
                     onClick={handleLogout}
                   >
                     <Button text="Cerrar Sesión" large={false} />
+                  </Link>
+                  <Link to="/perfil">
+                    <Button
+                      text="Perfil"
+                      large={false}
+                      variant="secondary"
+                      customClasses="ms-2"
+                    />
                   </Link>
                 </>
               ) : (
