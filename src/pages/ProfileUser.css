@@ -1,36 +1,75 @@
 .profile-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-    background: white;
-    padding: 3rem 1rem;
-    min-height: 100vh;
+  width: 400px;
+  margin: 40px auto 0;
+  margin-bottom: 40px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-.profile-card {
-    background: linear-gradient(145deg, #ffffff, #f5f5f5);
-   
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 2rem;
-    border-radius: 20px;
-    width: 350px;
-    color: #ff6f00;
-   
-    border: 2px solid #ff6f00;
-   
+.header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.edit-btn{
+  background-color: #e37037;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.save-btn {
+  background-color: #e37037;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    border: 3px solid #ff6f00;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-
-.avatar-label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #ff6f00;
+.avatar-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+ input:focus{
+    outline: none;
+    box-shadow: none;
+ }
+
+ .guardar-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
