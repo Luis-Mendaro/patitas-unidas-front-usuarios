@@ -15,7 +15,7 @@ import PetList from "./pages/PetList";
 import AboutUs from "./pages/AboutUs";
 import LikedPets from "./pages/LikedPets";
 import ShelterDetail from "./pages/ShelterDetail";
-import ProfileUser from "./pages/profileUser";
+import ProfileUser from "./pages/ProfileUser";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
             <Route path="/sobre-este-proyecto" element={<AboutUs />} />
             <Route path="/mascotas" element={<PetList />} />
             <Route path="/mascotas/idMascota" element={<PetDetail />} />{" "}
-            {/* agregar mascota/:id */}
+            <Route path="/perfil" element={<ProfileUser />} />
             <Route path="/lista/idLista" element={<LikedPets />} />
             <Route path="/:id/formulario-adopcion" element={<AdoptionForm />} />
           </Route>
