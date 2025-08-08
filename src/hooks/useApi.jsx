@@ -27,6 +27,7 @@ export const useApi = () => {
       const response = await api.post("/auth/login", loginData);
       const data = response.data;
       dispatch(login(data));
+      toast.success(`Hola ${data.user.name} 🐶👋`);
       return response;
     } catch (error) {
       if (error.status === 401) {
@@ -35,11 +36,6 @@ export const useApi = () => {
         toast.error("Ocurrió un error inesperado");
       }
     }
-  };
-
-  //Preguntar a Lucho a ver si es mejor dejar este metodo aca o mover la linea 41 a la linea 11 de Navbar.jsx
-  const userLogout = () => {
-    dispatch(logout());
   };
 
   const likePetRequest = async (loggedUserId, petId) => {
@@ -54,7 +50,6 @@ export const useApi = () => {
         }
       );
       const data = response.data;
-      console.log(data);
       dispatch(likePet(data));
       return response;
     } catch (error) {
@@ -78,7 +73,6 @@ export const useApi = () => {
     fetchPets,
     fetchAndStorePets,
     userLogin,
-    userLogout,
     likePetRequest,
     submitAdoptionRequest,
   };

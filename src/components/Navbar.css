@@ -1,0 +1,35 @@
+.pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--patas-primary), 0.5);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.pfp:hover {
+  background-color: rgb(var(--patas-primary));
+  /* transform: scale(0.9); */
+}
+
+.nav-link-anim {
+  transition: all 0.05s ease-in-out;
+}
+
+.nav-link-anim:hover {
+  transform: scale(0.98);
+}
+
+.navbar .dropdown .navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.heart-icon {
+  display: inline-block;
+}
+
+.heart-icon:hover {
+  transform: scale(0.92);
+  color: rgba(var(--patas-primary), 0.85);
+}

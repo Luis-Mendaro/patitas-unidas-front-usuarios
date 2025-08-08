@@ -57,10 +57,9 @@ function PetCard({ pet }) {
               <Button text="Ver Detalle" customClasses="w-100 btn-PetDetails" />
             </Link>
 
-            <button
+            <Link
               onClick={handleLike}
               className="flex-fill p-0 border-0 bg-transparent"
-              type="button"
             >
               <Button
                 text="Me interesa"
@@ -68,7 +67,7 @@ function PetCard({ pet }) {
                 variant="secondary"
                 customClasses="w-100 btn-PetLike"
               />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
