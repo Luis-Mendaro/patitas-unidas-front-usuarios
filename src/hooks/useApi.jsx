@@ -16,6 +16,11 @@ export const useApi = () => {
     return await api.get("/pets");
   };
 
+  const fetchPetById = async (petId) => {
+    const { data } = await api.get(`/pets/${petId}`);
+    return data.pet;
+  };
+
   const fetchAndStorePets = async (filters = {}) => {
     const response = await api.get("/pets", { params: filters });
     dispatch(setPets(response.data.pets));
@@ -71,6 +76,7 @@ export const useApi = () => {
 
   return {
     fetchPets,
+    fetchPetById,
     fetchAndStorePets,
     userLogin,
     likePetRequest,

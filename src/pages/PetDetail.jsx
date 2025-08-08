@@ -1,126 +1,118 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useParams } from "react-router";
 import Button from "../components/Button.jsx";
-import pets from "../data/pets.js";
 import constants from "../utils/constants";
-import { useLayoutEffect } from "react";
-const { monthsToYears } = constants;
+import { useEffect, useLayoutEffect, useState } from "react";
+import BackButton from "../components/BackButton.jsx";
+import { useSelector } from "react-redux";
+import { useApi } from "../hooks/useApi.jsx";
+import Badge from "../components/Badge.jsx";
+import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 
 function PetDetail() {
-  const { monthsToYears, scrollToTop } = constants;
-  const petId = 1;
-  const pet = pets.find((pet) => pet.id === petId);
   const location = useLocation();
+  const { monthsToYears, scrollToTop } = constants;
+  const { petId } = useParams();
+  const id = Number(petId);
+
+  const { fetchPetById } = useApi();
+
+  const pets = useSelector((state) => state.pets?.items) ?? [];
+  const petInStore = pets.find((p) => p.id === id);
+
+  const [pet, setPet] = useState(null);
+
+  const currentPet = petInStore ?? pet;
 
   useLayoutEffect(() => {
     scrollToTop();
-  }, [location.pathname]);
+  }, [location.pathname, scrollToTop]);
 
+  useEffect(() => {
+    if (!petInStore) {
+      const getPet = async () => {
+        const pet = await fetchPetById(id);
+        setPet(pet);
+      };
+      getPet();
+    }
+  }, [petId, petInStore]);
+
+  const speciesToIcon = (species) => {
+    const values = {
+      dog: <FaDog />,
+      cat: <FaCat />,
+      other: <FaPaw />,
+    };
+
+    return values[species];
+  };
+
+  if (!currentPet) return null;
   return (
     <>
-      <div className="vh-100">
-        <div className="container pb-5">
-          <div className="p-3">
-            <Link to="/" className="text-decoration-none text-black">
-              <i className="bi bi-arrow-left me-2"></i>
-              <span>Volver a la lista</span>
-            </Link>
-          </div>
-          <div className="row p-3">
-            <div className="col-12 col-md-6 mb-4 mb-md-0">
-              <img
-                className="rounded img-fluid w-100 shadow-lg"
-                src={pet.images[1]}
-                alt=""
-              />
-            </div>
-            <div className="col-12 col-md-6 d-flex flex-column justify-content-between">
-              <div>
-                <div className="d-flex align-items-baseline">
-                  <h2 className="me-3 fw-bold">{pet.name} </h2>
-                  <span className="fs-5 text-secondary">
-                    {monthsToYears(pet.age)}
-                  </span>
-                </div>
-                <div className="mb-3">
-                  <span className="me-4 patas-text-brown">
-                    <i className="bi bi-house-door"></i> tShelterUser
-                  </span>
-                  <span className="patas-text-brown">
-                    <i className="bi bi-geo-alt"></i>tShelterUser
-                  </span>
-                </div>
-                <div
-                  className="mb-4 border rounded p-3 pb-5"
-                  style={{ backgroundColor: "#f7f5f3" }}
-                >
-                  <p>{pet.description}</p>
-                </div>
-                <div className="row mb-4">
-                  <div
-                    className="col border rounded mx-2 p-2 text-center"
-                    style={{ backgroundColor: "#f7f5f3" }}
-                  >
-                    <div className="d-flex flex-column">
-                      <span
-                        className="fs-3 fw-bold"
-                        style={{ color: "#e37036" }}
-                      >
-                        {pet.color}
-                      </span>
-                      <span>Color</span>
-                    </div>
-                  </div>
-                  <div
-                    className="col border rounded mx-2 p-2 text-center"
-                    style={{ backgroundColor: "#f7f5f3" }}
-                  >
-                    <div className="d-flex flex-column">
-                      <span
-                        className="fs-3 fw-bold"
-                        style={{ color: "#e37036" }}
-                      >
-                        {pet.sex}
-                      </span>
-                      <span>Sexo</span>
-                    </div>
-                  </div>
-                  <div
-                    className="col border rounded mx-2 p-2 text-center"
-                    style={{ backgroundColor: "#f7f5f3" }}
-                  >
-                    <div className="d-flex flex-column">
-                      <span
-                        className="fs-3 fw-bold"
-                        style={{ color: "#e37036" }}
-                      >
-                        {pet.size}
-                      </span>
-                      <span>Tamaño</span>
-                    </div>
-                  </div>
-                </div>
+      <div className="mb-5">
+        <div className="container">
+          <BackButton to="/mascotas" text="Volver a Mascotas" />
+          <div className="py-4 px-4 bg-white rounded border">
+            <div className="row">
+              <div className="col-12 col-md-6 mb-4 mb-md-0">
+                <img
+                  className="rounded img-fluid w-100"
+                  src={currentPet.images[0]}
+                  alt=""
+                  style={{ objectFit: "cover", height: "500px" }}
+                />
               </div>
-              <div className="row">
-                <div className="col">
-                  <Link to={`/${pet.shelterId}/refugio/:id`}>
-                    <Button
-                      text="Me interesa"
-                      large={true}
-                      icon="bi-heart-fill"
-                      variant="secondary"
-                      customClasses="w-100"
-                    />
-                  </Link>
+              <div className="col-12 col-md-6 d-flex flex-column justify-content-between">
+                <div>
+                  <div className="d-flex align-items-end gap-3">
+                    <h2 className="fw-bold m-0">{currentPet.name} </h2>
+                    <div className="fs-2">
+                      {speciesToIcon(currentPet.category.species)}
+                    </div>
+                  </div>
+
+                  <div className="mb-3">
+                    <span className="me-3 patas-text-brown">
+                      <i className="bi bi-house-door me-1"></i>{" "}
+                      {currentPet.shelterUser.name}
+                    </span>
+                    <span className="patas-text-brown">
+                      <i className="bi bi-geo-alt me-1"></i>
+                      {`${currentPet.shelterUser.location}, Uruguay`}
+                    </span>
+                  </div>
+                  <div className="d-flex gap-1">
+                    <Badge text={monthsToYears(currentPet.age)} />
+                    <Badge text={currentPet.sex} />
+                    <Badge text={currentPet.size} />
+                    <Badge text={currentPet.color} />
+                  </div>
+                  <div className="mb-5">
+                    <p>{currentPet.description}</p>
+                  </div>
                 </div>
-                <div className="col">
-                  <Link to={`/${pet.id}/formulario-adopcion`}>
-                    <Button
-                      text="Quiero adoptar"
-                      large={true}
-                      icon="bi-heart-fill"
-                      customClasses="w-100"
-                    />
-                  </Link>
+                <div className="row">
+                  <div className="col">
+                    <Link to={`/refugios`}>
+                      <Button
+                        text="Me interesa"
+                        large={true}
+                        icon="bi-heart-fill"
+                        variant="secondary"
+                        customClasses="w-100"
+                      />
+                    </Link>
+                  </div>
+                  <div className="col">
+                    <Link to={`/${currentPet.id}/formulario-adopcion`}>
+                      <Button
+                        text="Quiero adoptar"
+                        large={true}
+                        customClasses="w-100"
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

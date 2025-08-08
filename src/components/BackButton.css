@@ -1,0 +1,10 @@
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  transform: scale(0.98);
+  background-color: rgba(var(--patas-primary), 0.1);
+}
