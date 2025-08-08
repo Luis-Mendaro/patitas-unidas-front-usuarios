@@ -1,75 +1,80 @@
 .profile-container {
-  width: 400px;
-  margin: 40px auto 0;
-  margin-bottom: 40px;
-  background-color: white;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.edit-btn{
-  background-color: #e37037;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.save-btn {
-  background-color: #e37037;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.avatar {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.avatar-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 60px 0;
 }
 
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.profile-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ebe4e4;
+  padding: 60px;
+  width: 400px; /*320*/
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
 }
 
 input {
+  display: block;
   width: 100%;
-  padding: 5px;
-  margin-bottom: 12px;
+  outline: none;
+
+  margin: 10px 0;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
- input:focus{
-    outline: none;
-    box-shadow: none;
- }
-
- .guardar-container {
+.links {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+.link-btn{
+  margin-right: auto;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #0f75eb;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.link-btn:hover {
+  text-decoration: none;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
 }
 
+.guardar {
+  background-color: #e37037;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelar {
+  background-color: #9e9e9e;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
