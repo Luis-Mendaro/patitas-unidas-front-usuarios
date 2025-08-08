@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import './profileUser.css';
+import { useState } from "react";
+import "./profileUser.css";
+import { useSelector } from "react-redux";
 
 const ProfileUser = () => {
   const [editFields, setEditFields] = useState(false);
   const [editPassword, setEditPassword] = useState(false);
+  const user = useSelector((state) => state.user.user);
 
-  const [nombre, setNombre] = useState("Jose Gervasio Artigas");
-  const [email, setEmail] = useState("artigas764@gmail.com");
+  const [nombre, setNombre] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState("");
 
   const cancelarCambios = () => {
@@ -19,11 +21,7 @@ const ProfileUser = () => {
   return (
     <div className="profile-container">
       <div className="profile-card">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-          alt="Avatar"
-          className="avatar"
-        />
+        <img src={user.profileImage} alt="Avatar" className="avatar" />
 
         <input
           type="text"
@@ -59,7 +57,9 @@ const ProfileUser = () => {
           </div>
         ) : (
           <div className="action-buttons">
-            <button className="cancelar" onClick={cancelarCambios}>Cancelar</button>
+            <button className="cancelar" onClick={cancelarCambios}>
+              Cancelar
+            </button>
             <button className="guardar">Guardar</button>
           </div>
         )}
