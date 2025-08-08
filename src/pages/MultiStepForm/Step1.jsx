@@ -24,6 +24,7 @@ export default function Step1({ data, update, onNext }) {
             className="form-control"
             placeholder="Ingresa tu nombre"
             defaultValue={data.name}
+            required
           />
         </div>
 
@@ -37,6 +38,7 @@ export default function Step1({ data, update, onNext }) {
             className="form-control"
             placeholder="mail@ejemplo.com"
             defaultValue={data.email}
+            required
           />
         </div>
 
@@ -48,6 +50,7 @@ export default function Step1({ data, update, onNext }) {
             className="form-control"
             placeholder="099 123 456"
             defaultValue={data.phone}
+            required
           />
         </div>
 
@@ -62,6 +65,7 @@ export default function Step1({ data, update, onNext }) {
             className="form-control"
             placeholder="Ej. Montevideo"
             defaultValue={data.location}
+            required
           />
         </div>
 

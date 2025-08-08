@@ -1,8 +1,12 @@
 export default function Step2({ data, update, onNext, onBack }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const { email } = e.target;
-    // update({ email });
+    const form = e.target;
+    update({
+      petsAllowed: form.petsAllowed.value,
+      outDoorSpace: form.outDoorSpace.value,
+      children: form.children.value,
+    });
     onNext();
   };
 
@@ -23,6 +27,7 @@ export default function Step2({ data, update, onNext, onBack }) {
             id="petsAllowed"
             value="true"
             defaultChecked={data.petsAllowed === "true"}
+            required
           />
           <label className="form-check-label" htmlFor="petsAllowed">
             Sí
@@ -35,7 +40,7 @@ export default function Step2({ data, update, onNext, onBack }) {
             name="petsAllowed"
             id="petsAllowedNo"
             value="no"
-            defaultChecked={data.petsAllowed === "no"}
+            defaultChecked={data.petsAllowed === "false"}
           />
           <label className="form-check-label" htmlFor="petsAllowedNo">
             No
@@ -48,11 +53,12 @@ export default function Step2({ data, update, onNext, onBack }) {
           ¿Tenés patio o terraza? ¿Está cercado?
         </label>
         <input
-          name="location"
+          name="outDoorSpace"
           type="text"
           className="form-control"
-          placeholder="Ej. Montevideo"
-          defaultValue={data.location}
+          placeholder="Ej. Tengo un patio en mi casa"
+          defaultValue={data.outDoorSpace}
+          required
         />
       </div>
 
@@ -61,11 +67,12 @@ export default function Step2({ data, update, onNext, onBack }) {
           ¿Hay niños en tu hogar? ¿De qué edad?
         </label>
         <input
-          name="location"
+          name="children"
           type="text"
           className="form-control"
-          placeholder="Ej. Montevideo"
-          defaultValue={data.location}
+          // placeholder="Ej. Montevideo"
+          defaultValue={data.children}
+          required
         />
       </div>
 

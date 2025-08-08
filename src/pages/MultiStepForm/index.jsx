@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { useApi } from "../../hooks/useApi.jsx";
 
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
 import LastStep from "./LastStep";
+import { useSelector } from "react-redux";
 
 export default function MultiStepForm() {
+  const { submitAdoptionRequest } = useApi();
+  const loggedUserId = useSelector((state) => state.user?.user.id);
   const pet = {
     id: 1,
     name: "Milanesa",
@@ -37,6 +41,13 @@ export default function MultiStepForm() {
     location: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const requestData = {
+    userId: loggedUserId,
+    petId: pet.id,
+    shelterUserId: pet.shelterUserId,
+    status: "active",
+    requestContent: formData,
+  };
 
   // En nextstep o en prevstep se podria agregar formData al store con redux. Asi no se perderían los datos.
   const nextStep = () => setStep(step + 1);
@@ -48,6 +59,7 @@ export default function MultiStepForm() {
 
   const handleSubmit = () => {
     console.log("Formulario completo:", formData);
+    submitAdoptionRequest(requestData);
     setSubmitted(true);
   };
 

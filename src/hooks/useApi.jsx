@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { setPets, setTotal } from "../config/redux/petsSlice";
 import { login, logout, likePet } from "../config/redux/userSlice";
 
-
 export const useApi = () => {
   const dispatch = useDispatch();
   const authToken = useSelector((state) => state.user?.token);
@@ -63,11 +62,24 @@ export const useApi = () => {
     }
   };
 
+  const submitAdoptionRequest = async (requestData) => {
+    try {
+      await api.post("/requests", requestData, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     fetchPets,
     fetchAndStorePets,
     userLogin,
     userLogout,
     likePetRequest,
+    submitAdoptionRequest,
   };
 };
