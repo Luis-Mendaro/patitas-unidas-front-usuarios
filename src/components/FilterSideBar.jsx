@@ -1,7 +1,6 @@
 import "./FilterSideBar.css";
 
 import { useState } from "react";
-import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 
 import {
   speciesFilters,
