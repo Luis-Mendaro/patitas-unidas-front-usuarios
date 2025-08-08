@@ -57,7 +57,7 @@ function PetDetail() {
   return (
     <>
       <div className="mb-5">
-        <div className="container">
+        <div className="container mb-5">
           <BackButton to="/mascotas" text="Volver a Mascotas" />
           <div className="py-4 px-4 bg-white rounded border">
             <div className="row">

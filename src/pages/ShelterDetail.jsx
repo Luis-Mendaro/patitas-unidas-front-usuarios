@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router";
 import Button from "../components/Button";
+import BackButton from "../components/BackButton";
 
 function ShelterDetail() {
   // Con esto se puede hacer la llamada y obtener todos los datos del refugio.
@@ -95,14 +96,8 @@ function ShelterDetail() {
     ],
   };
   return (
-    <main className="container py-5">
-      <button
-        onClick={() => navigate("/")}
-        className="btn btn-link text-secondary mb-4 d-flex align-items-center gap-2 p-0"
-      >
-        <i className="bi bi-arrow-left"></i>
-        Volver a refugios
-      </button>
+    <main className="container">
+      <BackButton />
 
       <div className="row g-5">
         <div className="col-lg-6">

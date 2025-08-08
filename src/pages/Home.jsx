@@ -27,7 +27,7 @@ function Home() {
   return (
     pets.length > 0 && (
       <>
-        <main>
+        <main className="mb-5">
           <Hero />
           <PetSection />
           <HowItWorks />
