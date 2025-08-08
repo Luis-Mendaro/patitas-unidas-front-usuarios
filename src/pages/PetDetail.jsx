@@ -15,7 +15,6 @@ function PetDetail() {
     scrollToTop();
   }, [location.pathname]);
 
-  console.log(pet.age);
   return (
     <>
       <div className="vh-100">

@@ -28,6 +28,7 @@ function App() {
             <Route path="/iniciar-sesion" element={<Login />} />
             <Route path="/registro" element={<Register />} />
             <Route path="/sobre-este-proyecto" element={<AboutUs />} />
+            <Route path="/refugios" element={<ShelterDetail />} />
             <Route path="/mascotas" element={<PetList />} />
             <Route path="/mascotas/idMascota" element={<PetDetail />} />{" "}
             <Route path="/perfil" element={<ProfileUser />} />
