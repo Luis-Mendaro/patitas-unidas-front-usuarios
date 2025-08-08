@@ -14,9 +14,10 @@ function Footer() {
                 />
                 <h5 className="fw-bold fs-3 m-0 text-white">Patitas Unidas</h5>
               </div>
-              <p className="text-light mb-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                fuga, aliquid atque accusamus eum ex.
+              <p className="text-light mb-4">
+                Somos una organización sin fines de lucro que rescata y protege
+                mascotas en abandono, buscando para ellas un hogar lleno de
+                amor.
               </p>
               <div className="text-light d-flex fs-5">
                 <i className="bi bi-facebook me-3"></i>
@@ -52,7 +53,7 @@ function Footer() {
           <hr className="text-light" />
           <div className="d-flex justify-content-end">
             <p className="text-light m-0 pb-3 text-end">
-              © 2025 Patas Unidas. Todos los derechos reservados
+              © 2025 Patitas Unidas. Todos los derechos reservados
             </p>
           </div>
         </div>
