@@ -3,14 +3,16 @@ import Button from "../components/Button.jsx";
 import constants from "../utils/constants";
 import { useEffect, useLayoutEffect, useState } from "react";
 import BackButton from "../components/BackButton.jsx";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useApi } from "../hooks/useApi.jsx";
 import Badge from "../components/Badge.jsx";
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
+import { setSelectedPet } from "../config/redux/petsSlice.js";
 
 function PetDetail() {
   const location = useLocation();
   const { monthsToYears, scrollToTop } = constants;
+  const dispatch = useDispatch();
   const { petId } = useParams();
   const id = Number(petId);
 
@@ -46,6 +48,10 @@ function PetDetail() {
 
     return values[species];
   };
+
+  function selectPet() {
+    dispatch(setSelectedPet(currentPet));
+  }
 
   if (!currentPet) return null;
   return (
@@ -105,7 +111,10 @@ function PetDetail() {
                     </Link>
                   </div>
                   <div className="col">
-                    <Link to={`/${currentPet.id}/formulario-adopcion`}>
+                    <Link
+                      to={`/${currentPet.id}/formulario-adopcion`}
+                      onClick={selectPet}
+                    >
                       <Button
                         text="Quiero adoptar"
                         large={true}

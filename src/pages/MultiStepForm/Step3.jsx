@@ -3,7 +3,7 @@ export default function Step3({ data, update, onNext, onBack }) {
     e.preventDefault();
     const form = e.target;
     update({
-      coversMedicalExpenses: form.medicalExpenses.value,
+      coversMedicalExpenses: form.coversMedicalExpenses.value,
       motive: form.motive.value,
       expectations: form.expectations.value,
       petChoice: form.petChoice.value,
