@@ -108,7 +108,7 @@ function Navbar() {
               </Link>
             </div>
 
-            <div className="d" id="contenido-derecha">
+            <div className="d-flex" id="contenido-derecha">
               <div className="d-flex align-items-center ms-auto d-sm-none me-2">
                 {token ? (
                   <>
