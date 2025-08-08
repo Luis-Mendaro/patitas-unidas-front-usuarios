@@ -49,9 +49,9 @@ function AboutUs() {
         <div className="row g-4 floating-cards justify-content-center">
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
             <div className="card shadow-sm h-100 rounded-4 position-relative overflow-hidden">
-              <div className="card-body text-center">
+              <div className=" text-center m-3 ">
                 <h5 className="card-title mt-4">Duración</h5>
-                <p className="card-text text-start">
+                <p className="card-text text-center">
                   El proyecto fue desarrollado en tan sólo 3 semanas, dividido
                   en <em>sprints</em> (Scrum) de una semana de duración.
                 </p>
@@ -76,9 +76,9 @@ function AboutUs() {
 
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
             <div className="card shadow-sm h-100  rounded-4 position-relative overflow-hidden">
-              <div className="card-body">
+              <div className="m-3">
                 <h5 className="card-title text-center mt-4">Tecnologías</h5>
-                <p className="card-text text-start">
+                <p className="card-text text-center">
                   Para el Front-End se desarrolló una aplicación en{" "}
                   <strong>React</strong> mientras que el Back-End consiste en
                   una <strong>REST API</strong> construida con Node.js, Express,
@@ -105,7 +105,7 @@ function AboutUs() {
 
           <div className="col-12 col-sm-6 col-lg-3 position-relative">
             <div className="card shadow-sm h-100  rounded-4 position-relative overflow-hidden">
-              <div className="card-body text-start">
+              <div className=" text-center m-3">
                 <h5 className="card-title mt-4 text-center">
                   División de tareas
                 </h5>
@@ -138,8 +138,8 @@ function AboutUs() {
       <section className="container team-section">
         <div className="row g-4 mt-5">
           <div className="col-md-4">
-            <div className="card shadow-lg h-100 team-card text-center overflow-hidden">
-              <div className="card-body">
+            <div className="card shadow-lg h-100 team-card text-center overflow-hidden rounded-top-4 ">
+              <div className="">
                 <FaUsers
                   size={50}
                   color="white"
@@ -150,11 +150,12 @@ function AboutUs() {
                     boxShadow: "0 0 5px rgba(0,0,0,0.2)",
                     border: "2px solid #b65b28",
                     marginBottom: "15px",
+                    marginTop: "25px",
                   }}
                 />
-                <h5 className="card-title">Equipo</h5>
+                <h5 className="card-title m-3 mb-4 ">Equipo</h5>
                 <hr />
-                <p className="card-text mt-5">
+                <p className="card-text mt-5 m-3 ">
                   Somos un equipo de estudiantes del Bootcamp Full Stack de{" "}
                   <strong>Hack Academy</strong>. Durante el proyecto aplicamos
                   metodologías ágiles, trabajo colaborativo y las tecnologías
