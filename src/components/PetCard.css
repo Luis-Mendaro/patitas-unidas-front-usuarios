@@ -104,6 +104,24 @@
   color: #de5714;
   border-color: black !important;
 }
-.border {
-  border-block: ;
+
+@keyframes doublePulse {
+  15%,
+  30%,
+  50%,
+  65%,
+  100% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.05);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+}
+
+.petCardImageContainer:hover img {
+  animation: doublePulse 2s ease-in-out infinite;
 }
