@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
+import { useSelector } from "react-redux";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,11 +14,15 @@ export default function Register() {
     email: "",
     password: "",
   });
+  const userToken = useSelector((state) => state.user?.token);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  if (userToken) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <AuthLayout msg="Bienvenido a Patitas Unidas">
       <div className="login-container">

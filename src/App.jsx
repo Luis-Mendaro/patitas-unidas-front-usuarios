@@ -32,9 +32,6 @@ function App() {
             <Route path="/refugios" element={<ShelterDetail />} />
             <Route path="/mascotas" element={<PetList />} />
             <Route path="/mascotas/:petId" element={<PetDetail />} />
-            {/* <Route path="/perfil" element={<ProfileUser />} />
-            <Route path="/lista/idLista" element={<LikedPets />} />
-            <Route path="/:id/formulario-adopcion" element={<AdoptionForm />} /> */}
           </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="/perfil" element={<ProfileUser />} />

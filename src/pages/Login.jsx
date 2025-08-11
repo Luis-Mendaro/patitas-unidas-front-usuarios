@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 
 import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
 import { useApi } from "../hooks/useApi";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 export default function Login() {
   const { userLogin } = useApi();
@@ -15,6 +16,7 @@ export default function Login() {
     email: "test@user.com",
     password: "1234",
   });
+  const userToken = useSelector((state) => state.user?.token);
 
   const handleChange = (e) => {
     setFormData({
@@ -31,6 +33,9 @@ export default function Login() {
     }
   };
 
+  if (userToken) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <AuthLayout msg="Bienvenido a Patitas Unidas">
       <div className="login-container">
