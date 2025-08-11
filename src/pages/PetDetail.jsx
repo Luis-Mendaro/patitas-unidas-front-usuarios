@@ -9,6 +9,7 @@ import Badge from "../components/Badge.jsx";
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice.js";
 
+
 function PetDetail() {
   const location = useLocation();
   const { monthsToYears, scrollToTop } = constants;
@@ -39,6 +40,7 @@ function PetDetail() {
     }
   }, [petId, petInStore]);
 
+
   const speciesToIcon = (species) => {
     const values = {
       dog: <FaDog />,
@@ -49,15 +51,31 @@ function PetDetail() {
     return values[species];
   };
 
+
+  const englishToSpanish = (value) => {
+    const dictionary = {
+      male: "Macho",
+      female: "Hembra",
+      small: "Chico",
+      medium: "Mediano",
+      large: "Grande",
+    };
+
+    return dictionary[value];
+  };
+
   function selectPet() {
     dispatch(setSelectedPet(currentPet));
   }
+
 
   if (!currentPet) return null;
   return (
     <>
       <div className="mb-5">
+
         <div className="container mb-5">
+
           <BackButton to="/mascotas" text="Volver a Mascotas" />
           <div className="py-4 px-4 bg-white rounded border">
             <div className="row">
@@ -88,12 +106,23 @@ function PetDetail() {
                       {`${currentPet.shelterUser.location}, Uruguay`}
                     </span>
                   </div>
-                  <div className="d-flex gap-1">
-                    <Badge text={monthsToYears(currentPet.age)} />
-                    <Badge text={currentPet.sex} />
-                    <Badge text={currentPet.size} />
-                    <Badge text={currentPet.color} />
+
+                  <div className="row g-1 mb-3">
+                    <div className="col-auto">
+                      <Badge text={monthsToYears(currentPet.age)} />
+                    </div>
+                    <div className="col-auto">
+                      <Badge text={englishToSpanish(currentPet.sex)} />
+                    </div>
+                    <div className="col-auto">
+                      <Badge text={englishToSpanish(currentPet.size)} />
+                    </div>
+                    <div className="col-auto">
+                      <Badge text={currentPet.color} />
+                    </div>
+
                   </div>
+
                   <div className="mb-5">
                     <p>{currentPet.description}</p>
                   </div>
@@ -111,6 +140,7 @@ function PetDetail() {
                     </Link>
                   </div>
                   <div className="col">
+
                     <Link
                       to={`/${currentPet.id}/formulario-adopcion`}
                       onClick={selectPet}
