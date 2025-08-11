@@ -16,6 +16,7 @@ import AboutUs from "./pages/AboutUs";
 import LikedPets from "./pages/LikedPets";
 import ShelterDetail from "./pages/ShelterDetail";
 import ProfileUser from "./pages/ProfileUser";
+import PrivateRoutes from "./routes/PrivateRoutes";
 
 function App() {
   return (
@@ -30,7 +31,12 @@ function App() {
             <Route path="/sobre-este-proyecto" element={<AboutUs />} />
             <Route path="/refugios" element={<ShelterDetail />} />
             <Route path="/mascotas" element={<PetList />} />
-            <Route path="/mascotas/:petId" element={<PetDetail />} />{" "}
+            <Route path="/mascotas/:petId" element={<PetDetail />} />
+            {/* <Route path="/perfil" element={<ProfileUser />} />
+            <Route path="/lista/idLista" element={<LikedPets />} />
+            <Route path="/:id/formulario-adopcion" element={<AdoptionForm />} /> */}
+          </Route>
+          <Route element={<PrivateRoutes />}>
             <Route path="/perfil" element={<ProfileUser />} />
             <Route path="/lista/idLista" element={<LikedPets />} />
             <Route path="/:id/formulario-adopcion" element={<AdoptionForm />} />

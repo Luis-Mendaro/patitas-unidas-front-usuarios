@@ -2,18 +2,25 @@ import { Link } from "react-router";
 import constants from "../utils/constants";
 import Button from "./Button";
 import "./LikedPet.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useApi } from "../hooks/useApi";
+import { setSelectedPet } from "../config/redux/petsSlice";
 
 const LikedPet = ({ likedPet }) => {
   const { monthsToYears, determineBadgeText } = constants;
   const { likePetRequest } = useApi();
   const loggedUserId = useSelector((state) => state.user?.user.id);
   const userLikedPets = useSelector((state) => state.user?.user.likedPet.pets);
+  const dispatch = useDispatch();
 
   function handleLike() {
     likePetRequest(loggedUserId, likedPet.id);
   }
+
+  function selectPet() {
+    dispatch(setSelectedPet(likedPet));
+  }
+
   return (
     <div className="card mb-3">
       <div className="row g-0">
@@ -55,7 +62,7 @@ const LikedPet = ({ likedPet }) => {
           <p className="card-text mt-2 pet-description flex-grow-1">
             {likedPet.description}
           </p>
-          <Link to={`/${likedPet.id}/formulario-adopcion`}>
+          <Link to={`/${likedPet.id}/formulario-adopcion`} onClick={selectPet}>
             <Button text="Adoptar" customClasses="mb-1 btn-Adopt" />
           </Link>
         </div>

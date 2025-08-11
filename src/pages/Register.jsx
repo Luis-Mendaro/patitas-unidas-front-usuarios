@@ -19,7 +19,7 @@ export default function Register() {
   };
 
   return (
-    <AuthLayout msg="Bienvenido a Patas Unidas">
+    <AuthLayout msg="Bienvenido a Patitas Unidas">
       <div className="login-container">
         <div className="login-box">
           <Form>
