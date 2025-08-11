@@ -14,9 +14,15 @@ const userSlice = createSlice({
       const updatedLikedPets = action.payload;
       state.user.likedPet.pets = updatedLikedPets;
     },
+    updateUser(state, action) {
+      state.user = {
+        ...state.user,
+        ...action.payload,
+      };
+    },
   },
 });
 
 const { actions, reducer } = userSlice;
-export const { login, logout, likePet } = actions;
+export const { login, logout, likePet, updateUser } = actions;
 export default reducer;

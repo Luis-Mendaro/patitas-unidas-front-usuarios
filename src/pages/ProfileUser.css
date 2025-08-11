@@ -1,43 +1,27 @@
-.profile-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 0;
+.ProfileUser input {
+  display: block;
+  width: 100%;
+  outline: none;
+  margin: 10px 0;
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .profile-card {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ebe4e4;
-  padding: 60px;
-  width: 400px; /*320*/
-  text-align: center;
+  width: 400px;
 }
 
 .avatar {
   width: 100px;
   height: 100px;
-  margin-bottom: 20px;
-  border-radius: 50%;
   border: 3px solid rgba(var(--patas-primary), 0.5);
-}
-
-input {
-  display: block;
-  width: 100%;
-  outline: none;
-
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 3px;
 }
 .link-btn {
   margin-right: auto;
@@ -46,11 +30,8 @@ input {
 .link-btn {
   background: none;
   border: none;
-  color: #0f75eb;
+  color: rgb(var(--patas-primary));
   cursor: pointer;
-  font-size: 14px;
-  text-decoration: underline;
-  padding: 0;
 }
 
 .link-btn:hover {
@@ -61,22 +42,4 @@ input {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-}
-
-.guardar {
-  background-color: #e37037;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.cancelar {
-  background-color: #9e9e9e;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 5px;
-  cursor: pointer;
 }

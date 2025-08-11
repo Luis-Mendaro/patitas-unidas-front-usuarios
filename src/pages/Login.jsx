@@ -12,8 +12,8 @@ export default function Login() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: "test@user.com",
+    password: "1234",
   });
 
   const handleChange = (e) => {
