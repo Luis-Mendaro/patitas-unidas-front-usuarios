@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { setPets, setTotal } from "../config/redux/petsSlice";
-import { login, logout, likePet } from "../config/redux/userSlice";
+import { login, logout, likePet, updateUser } from "../config/redux/userSlice";
 
 export const useApi = () => {
   const dispatch = useDispatch();
@@ -74,6 +74,31 @@ export const useApi = () => {
     }
   };
 
+  const updateUserProfile = async (userId, newUserData) => {
+    try {
+      const response = await api.patch(
+        `/users/${userId}`,
+        newUserData,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+
+      const data = response.data;
+      dispatch(updateUser(newUserData));
+      toast.success("Perfil actualizado correctamente 🐾");
+
+      return data;
+    } catch (error) {
+      console.error(error);
+      toast.error("No se pudo actualizar el perfil");
+      throw error;
+    }
+  };
+
+
   return {
     fetchPets,
     fetchPetById,
@@ -81,5 +106,6 @@ export const useApi = () => {
     userLogin,
     likePetRequest,
     submitAdoptionRequest,
+    updateUserProfile
   };
 };
