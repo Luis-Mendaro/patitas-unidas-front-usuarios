@@ -9,7 +9,6 @@ import Badge from "../components/Badge.jsx";
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice.js";
 
-
 function PetDetail() {
   const location = useLocation();
   const { monthsToYears, scrollToTop } = constants;
@@ -40,7 +39,6 @@ function PetDetail() {
     }
   }, [petId, petInStore]);
 
-
   const speciesToIcon = (species) => {
     const values = {
       dog: <FaDog />,
@@ -50,7 +48,6 @@ function PetDetail() {
 
     return values[species];
   };
-
 
   const englishToSpanish = (value) => {
     const dictionary = {
@@ -68,14 +65,11 @@ function PetDetail() {
     dispatch(setSelectedPet(currentPet));
   }
 
-
   if (!currentPet) return null;
   return (
     <>
       <div className="mb-5">
-
         <div className="container mb-5">
-
           <BackButton to="/mascotas" text="Volver a Mascotas" />
           <div className="py-4 px-4 bg-white rounded border">
             <div className="row">
@@ -120,7 +114,6 @@ function PetDetail() {
                     <div className="col-auto">
                       <Badge text={currentPet.color} />
                     </div>
-
                   </div>
 
                   <div className="mb-5">
@@ -140,7 +133,6 @@ function PetDetail() {
                     </Link>
                   </div>
                   <div className="col">
-
                     <Link
                       to={`/${currentPet.id}/formulario-adopcion`}
                       onClick={selectPet}
