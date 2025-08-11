@@ -28,8 +28,41 @@ function Navbar() {
         style={{ backgroundColor: "#f9f8f6" }}
       >
         <div className="container">
+          {/* Centro */}
+          <div className="d-none d-lg-flex align-items-center gap-3 nav-center">
+            <Link
+              className={`text-decoration-none nav-link-anim ${
+                location.pathname === "/mascotas"
+                  ? "fs-4 patas-text-primary"
+                  : "fs-5 patas-text-brown"
+              }`}
+              to="/mascotas"
+            >
+              Adoptar
+            </Link>
+            <Link
+              className={`text-decoration-none nav-link-anim ${
+                location.pathname === "/refugios"
+                  ? "fs-4 patas-text-primary"
+                  : "fs-5 patas-text-brown"
+              }`}
+              to="/refugios"
+            >
+              Refugios
+            </Link>
+            <Link
+              className={`text-decoration-none nav-link-anim ${
+                location.pathname === "/sobre-este-proyecto"
+                  ? "fs-4 patas-text-primary"
+                  : "fs-5 patas-text-brown"
+              }`}
+              to="/sobre-este-proyecto"
+            >
+              Sobre este Proyecto
+            </Link>
+          </div>
           <div className="w-100 d-flex justify-content-between">
-            {/* Brand */}
+            {/* Izquierda */}
             <div className="d-flex align-items-center">
               <div className="dropdown d-lg-none">
                 <button
@@ -75,39 +108,8 @@ function Navbar() {
                 </h1>
               </Link>
             </div>
-            <div className="d-none d-lg-flex align-items-center gap-3">
-              <Link
-                className={`text-decoration-none nav-link-anim ${
-                  location.pathname === "/mascotas"
-                    ? "fs-4 patas-text-primary"
-                    : "fs-5 patas-text-brown"
-                }`}
-                to="/mascotas"
-              >
-                Adoptar
-              </Link>
-              <Link
-                className={`text-decoration-none nav-link-anim ${
-                  location.pathname === "/refugios"
-                    ? "fs-4 patas-text-primary"
-                    : "fs-5 patas-text-brown"
-                }`}
-                to="/refugios"
-              >
-                Refugios
-              </Link>
-              <Link
-                className={`text-decoration-none nav-link-anim ${
-                  location.pathname === "/sobre-este-proyecto"
-                    ? "fs-4 patas-text-primary"
-                    : "fs-5 patas-text-brown"
-                }`}
-                to="/sobre-este-proyecto"
-              >
-                Sobre este Proyecto
-              </Link>
-            </div>
 
+            {/* Derecha*/}
             <div className="d-flex" id="contenido-derecha">
               <div className="d-flex align-items-center ms-auto d-sm-none me-2">
                 {token ? (

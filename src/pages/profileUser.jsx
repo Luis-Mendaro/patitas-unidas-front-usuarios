@@ -15,11 +15,11 @@ const ProfileUser = () => {
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
 
-  const { updateUserProfile } = useApi()
+  const { updateUserProfile } = useApi();
 
   const handleCancelChanges = () => {
-    setEmail(user.email)
-    setName(user.name)
+    setEmail(user.email);
+    setName(user.name);
     setIsEditingFields(false);
     setIsEditingPassword(false);
   };
@@ -30,9 +30,9 @@ const ProfileUser = () => {
     if (name === user.name && email === user.email) {
       toast.error("No hay cambios para guardar");
     } else {
-      updateUserProfile(user.id, { name, email })
+      updateUserProfile(user.id, { name, email });
     }
-    setIsEditingFields(false)
+    setIsEditingFields(false);
   };
 
   return (
