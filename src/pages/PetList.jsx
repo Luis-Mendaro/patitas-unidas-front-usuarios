@@ -63,10 +63,10 @@ function PetList() {
     <div>
       <div className="container py-5">
         <div className="d-flex flex-column flex-md-row">
-          <div className="me-3 mb-3 mb-md-0">
+          <div className="me-md-3 mb-3 mb-md-0">
             <FilterSideBar onSearch={handleSearch} onReset={handleReset} />
           </div>
-          <div className="col-12 col-sm-6 col-lg-8 col-xl-9">
+          <div className="col-12 col-md-6 col-lg-8 col-xl-9">
             {pets.length === 0 ? (
               <p className="text-muted text-center mt-5">
                 Lo sentimos, no se encontraron patitas con esos filtros.
