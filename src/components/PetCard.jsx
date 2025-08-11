@@ -17,36 +17,11 @@ function PetCard({ pet }) {
 
   return (
     pet && (
-      <div className="petCard" style={{ position: "relative" }}>
-        <div
-          className="petCardImageContainer"
-          style={{ position: "relative", overflow: "hidden" }}
-        >
-          <img
-            src={pet.images[0]}
-            alt={`Imagen Mascota ${pet.name}`}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              display: "block",
-            }}
-          />
-
-          <Link
-            to={`/mascotas/${pet.id}`}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              zIndex: 1,
-              opacity: 0,
-              cursor: "pointer",
-            }}
-            aria-label={`Ver detalles de ${pet.name}`}
-          />
+      <div className="petCard">
+        <div className="petCardImageContainer">
+          <Link to={`/mascotas/${pet.id}`} className="flex-fill">
+            <img src={pet.images[0]} alt={`Imagen Mascota ${pet.name}`} />
+          </Link>
 
           <button
             className="btn rounded-circle heart-button"
@@ -54,7 +29,6 @@ function PetCard({ pet }) {
               e.stopPropagation();
               likePetRequest(loggedUserId, pet.id);
             }}
-            style={{ position: "relative", zIndex: 2 }}
           >
             {userLikedPets?.some((listItem) => listItem.id === pet.id) ? (
               <i className="bi bi-heart-fill petcard-heart" />
@@ -63,10 +37,7 @@ function PetCard({ pet }) {
             )}
           </button>
 
-          <span
-            className="badge rounded-pill py-2 pet-Category position-absolute"
-            style={{ zIndex: 2 }}
-          >
+          <span className="badge rounded-pill py-2 pet-Category position-absolute">
             {pet.category.species}
           </span>
         </div>
