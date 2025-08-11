@@ -33,3 +33,9 @@
   transform: scale(0.92);
   color: rgba(var(--patas-primary), 0.85);
 }
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
