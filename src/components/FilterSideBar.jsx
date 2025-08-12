@@ -49,7 +49,7 @@ function FilterSideBar({ onSearch, onReset }) {
       <div
         className="sidebar bg-white rounded p-3 mb-5 mb-auto border position-sticky"
         style={{
-          width: showSidebar ? "300px" : "50px",
+          width: showSidebar ? "auto" : "50px",
           top: "1rem",
           backgroundColor: "#f9f8f6",
         }}

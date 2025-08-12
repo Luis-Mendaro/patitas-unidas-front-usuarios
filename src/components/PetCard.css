@@ -1,12 +1,16 @@
 .petCard {
-  width: 300px;
+  /*  width: 300px; */
   height: 400px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   overflow: hidden;
-  background-color: white;
+  background-color: ffffff;
   box-sizing: border-box;
+}
+
+.petCard:hover {
+  transform: scale(1.01);
 }
 
 .petCardImageContainer {
@@ -105,7 +109,7 @@
   border-color: black !important;
 }
 
-@keyframes doublePulse {
+/* @keyframes doublePulse {
   15%,
   30%,
   50%,
@@ -125,3 +129,4 @@
 .petCardImageContainer:hover img {
   animation: doublePulse 2s ease-in-out infinite;
 }
+ */

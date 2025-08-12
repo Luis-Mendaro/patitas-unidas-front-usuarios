@@ -4,6 +4,7 @@ import Button from "./Button";
 import "./LikedPet.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useApi } from "../hooks/useApi";
+import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice";
 
 const LikedPet = ({ likedPet }) => {
@@ -17,9 +18,42 @@ const LikedPet = ({ likedPet }) => {
     likePetRequest(loggedUserId, likedPet.id);
   }
 
+  function handleUnLike() {
+    if (
+      window.confirm(
+        `¿Estas seguro que deseas quitar a ${likedPet.name} de tus Patitas? 💔🥺`
+      )
+    ) {
+      handleLike();
+    }
+  }
+
+  const speciesToIcon = (species) => {
+    const values = {
+      dog: <FaDog />,
+      cat: <FaCat />,
+      other: <FaPaw />,
+    };
+
+    return values[species];
+  };
+
+  const englishToSpanish = (value) => {
+    const dictionary = {
+      male: "Macho",
+      female: "Hembra",
+      small: "Chico",
+      medium: "Mediano",
+      large: "Grande",
+    };
+
+    return dictionary[value];
+  };
+
   function selectPet() {
     dispatch(setSelectedPet(likedPet));
   }
+
 
   return (
     <div className="card mb-3">
@@ -30,23 +64,29 @@ const LikedPet = ({ likedPet }) => {
             className="img-fluid"
             alt={`Imagen de la mascota ${likedPet.name}`}
           />
-          <span className="badge rounded-pill py-2 pet-Category">
-            {determineBadgeText(likedPet.category.species, likedPet.sex)}
-          </span>
         </div>
         <div className="col-md-8 card-body-container d-flex flex-column p-3">
           <div className="liked-Pet-Header mt-2 d-flex align-items-center ">
-            <h5 className="card-title">{likedPet.name}</h5>
+            <div className="d-flex gap-2 justify-content-between">
+              <h5 className="card-title">{likedPet.name}</h5>
+              <div className="d-flex align-baseline fs-5">
+                {speciesToIcon(likedPet.category.species)}
+              </div>
+            </div>
             <button
               className="btn rounded-circle heart-button bg-transparent"
-              onClick={handleLike}
+              onClick={() => {
+                userLikedPets?.some((pet) => pet.id === likedPet.id)
+                  ? handleUnLike()
+                  : handleLike();
+              }}
             >
               {userLikedPets?.some(
                 (listItem) => listItem.id === likedPet.id
               ) ? (
-                <i className="bi bi-heart-fill petcard-heart" />
+                <i className="bi bi-suit-heart-fill petcard-heart" />
               ) : (
-                <i className="bi bi-heart" />
+                <i className="bi bi-suit-heart" />
               )}
             </button>
           </div>
@@ -54,7 +94,12 @@ const LikedPet = ({ likedPet }) => {
             <span className="petAge badge rounded-pill py-2 px-2 me-1">
               {monthsToYears(likedPet.age)}
             </span>
-
+            <span className="petAge badge rounded-pill py-2 px-2 me-1">
+              {englishToSpanish(likedPet.sex)}
+            </span>
+            <span className="petAge badge rounded-pill py-2 px-2 me-1">
+              {englishToSpanish(likedPet.size)}
+            </span>
             <span className="petLocation badge rounded-pill py-2 px-2">
               {likedPet.shelterUser.location}
             </span>
