@@ -43,9 +43,12 @@ function PetDetail() {
   }, [petId, petInStore]);
 
   function handleLike() {
-    loggedUserId
-      ? likePetRequest(loggedUserId, currentPet.id)
-      : toast.error("Inicie sesión para dar like");
+    if (loggedUserId) {
+      likePetRequest(loggedUserId, currentPet.id);
+      toast.success(`${currentPet.name} fue añadido a tus Patitas!❤️`);
+    } else {
+      toast.error("Inicie sesión para dar like");
+    }
   }
 
   function handleUnLike() {
@@ -54,7 +57,8 @@ function PetDetail() {
         `¿Estas seguro que deseas quitar a ${currentPet.name} de tus Patitas? 💔🥺`
       )
     ) {
-      handleLike();
+      likePetRequest(loggedUserId, currentPet.id);
+      toast.error(`${currentPet.name} se fue de tus Patitas 😿`);
     }
   }
 

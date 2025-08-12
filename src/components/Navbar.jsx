@@ -24,8 +24,8 @@ function Navbar() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg bg-body-tertiary py-3 border-bottom"
-        style={{ backgroundColor: "#f9f8f6" }}
+        className="navbar navbar-expand-lg py-3 border-bottom"
+        style={{ backgroundColor: "#fdfbf8" }}
       >
         <div className="container">
           {/* Centro */}

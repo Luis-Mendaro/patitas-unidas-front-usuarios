@@ -14,9 +14,12 @@ function PetCard({ pet }) {
   const userLikedPets = useSelector((state) => state.user?.user.likedPet.pets);
 
   function handleLike() {
-    loggedUserId
-      ? likePetRequest(loggedUserId, pet.id)
-      : toast.error("Inicie sesión para dar like");
+    if (loggedUserId) {
+      likePetRequest(loggedUserId, pet.id);
+      toast.success(`${pet.name} fue añadido a tus Patitas!❤️`);
+    } else {
+      toast.error("Inicie sesión para dar like");
+    }
   }
 
   function handleUnLike() {
@@ -25,7 +28,8 @@ function PetCard({ pet }) {
         `¿Estas seguro que deseas quitar a ${pet.name} de tus Patitas? 💔🥺`
       )
     ) {
-      handleLike();
+      likePetRequest(loggedUserId, pet.id);
+      toast.error(`${pet.name} se fue de tus Patitas 😿`);
     }
   }
 

@@ -1,13 +1,18 @@
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 
 import FilterSideBar from "../components/FilterSideBar.jsx";
 import PetCard from "../components/PetCard.jsx";
 import { useApi } from "../hooks/useApi.jsx";
+import ReturnToTopButton from "../components/ReturnToTopButton.jsx";
+import constants from "../utils/constants";
 
 function PetList() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [showButton, setShowButton] = useState(false);
+  const { listenToScrollPosition, handleScroll } = constants;
   const limit = 18;
   const isAdopted = false;
 
@@ -37,6 +42,11 @@ function PetList() {
     fetchAndStorePets({ ...activeFilters, page, limit, isAdopted });
   }, [searchParams]);
 
+  useEffect(() => {
+    const scrollHandler = () => handleScroll(setShowButton);
+    listenToScrollPosition(scrollHandler);
+  }, []);
+
   const handleSearch = (filters) => {
     setSearchParams({ ...filters, page: 1 });
   };
@@ -64,7 +74,12 @@ function PetList() {
       <div className="container py-5">
         <div className="d-flex flex-column flex-md-row">
           <div className="me-md-3 mb-3 mb-md-0">
-            <FilterSideBar onSearch={handleSearch} onReset={handleReset} />
+            <FilterSideBar
+              showSidebar={showSidebar}
+              setShowSidebar={setShowSidebar}
+              onSearch={handleSearch}
+              onReset={handleReset}
+            />
           </div>
           <div className="col-12 col-md-6 col-lg-8 col-xl-9">
             {pets.length === 0 ? (
@@ -102,6 +117,25 @@ function PetList() {
           </div>
         </div>
       </div>
+
+      {showButton && (
+        <div className="d-flex justify-content-center">
+          <button
+            className="btn btn-light d-md-none position-fixed bottom-0 start-0 m-3 px-3 py-2 shadow"
+            onClick={() => {
+              setShowSidebar(true);
+              setTimeout(() => {
+                document
+                  .getElementById("filter-content")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }, 50);
+            }}
+          >
+            <i className={`bi bi-filter fw-bold icon fs-6 ms-auto`}></i>
+          </button>
+          <ReturnToTopButton />
+        </div>
+      )}
     </div>
   );
 }
