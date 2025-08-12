@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useApi } from "../hooks/useApi";
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice";
+import { toast } from "react-toastify";
 
 const LikedPet = ({ likedPet }) => {
   const { monthsToYears, determineBadgeText } = constants;
@@ -15,7 +16,12 @@ const LikedPet = ({ likedPet }) => {
   const dispatch = useDispatch();
 
   function handleLike() {
-    likePetRequest(loggedUserId, likedPet.id);
+    if (loggedUserId) {
+      likePetRequest(loggedUserId, likedPet.id);
+      toast.success(`${likedPet.name} fue añadido a tus Patitas!❤️`);
+    } else {
+      toast.error("Inicie sesión para dar like");
+    }
   }
 
   function handleUnLike() {
@@ -24,7 +30,8 @@ const LikedPet = ({ likedPet }) => {
         `¿Estas seguro que deseas quitar a ${likedPet.name} de tus Patitas? 💔🥺`
       )
     ) {
-      handleLike();
+      likePetRequest(loggedUserId, likedPet.id);
+      toast.error(`${likedPet.name} se fue de tus Patitas 😿`);
     }
   }
 
@@ -53,7 +60,6 @@ const LikedPet = ({ likedPet }) => {
   function selectPet() {
     dispatch(setSelectedPet(likedPet));
   }
-
 
   return (
     <div className="card mb-3">

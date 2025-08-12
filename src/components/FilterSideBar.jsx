@@ -9,8 +9,7 @@ import {
   departamentosUruguay,
 } from "../data/filterData";
 
-function FilterSideBar({ onSearch, onReset }) {
-  const [showSidebar, setShowSidebar] = useState(true);
+function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
   const [collapsed, setCollapsed] = useState({
     species: false,
     size: false,
@@ -51,7 +50,6 @@ function FilterSideBar({ onSearch, onReset }) {
         style={{
           width: showSidebar ? "auto" : "50px",
           top: "1rem",
-          backgroundColor: "#f9f8f6",
         }}
       >
         <div
