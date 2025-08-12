@@ -1,4 +1,4 @@
-import "./profileUser.css";
+import "./ProfileUser.css";
 
 import { useState } from "react";
 import { useSelector } from "react-redux";
