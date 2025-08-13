@@ -1,0 +1,32 @@
+/* Animación de fade-in para todo el form */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación explosiva del botón */
+.btn-explode {
+  animation: explodeBtn 0.3s ease-out forwards;
+}
+
+@keyframes explodeBtn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

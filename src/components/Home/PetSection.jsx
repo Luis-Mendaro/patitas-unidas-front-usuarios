@@ -12,8 +12,20 @@ function PetSection() {
           <div className="d-inline-flex align-items-center gap-2 text-muted">
             <Badge text="Historias de esperanza" icon="bi-heart-fill" />
           </div>
-          <h2 className="fw-bold mb-3">
-            Animales buscando <span className="patas-text-primary">hogar</span>
+          <h2 className="fw-bolder mb-3">
+            Animales buscando{" "}
+            <span
+              className="text-decoration-none"
+              style={{
+                background:
+                  "linear-gradient(135deg, hsl(20 75% 55%), hsl(25 70% 60%), hsl(35 75% 65%))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                display: "inline-block",
+              }}
+            >
+              hogar
+            </span>
           </h2>
           <p className="fs-5 text-muted text-center mx-auto lead w-75 w-md-50">
             Cada uno tiene una historia única y está esperando escribir un nuevo

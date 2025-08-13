@@ -80,24 +80,76 @@
   left: 0;
   width: 100%;
   height: 100%;
-  transition: opacity 1s ease-in-out; /* Transición suave para la opacidad */
+  transition: opacity 1s ease-in-out;
 }
 
 .real-img {
-  opacity: 0; /* La foto real está oculta por defecto */
+  opacity: 0;
 }
 
-.highlight-card-container:hover .real-img {
-  opacity: 1; /* Al hacer hover en el contenedor, mostramos la foto real */
-}
-
-/* Mantén la animación de `transform` en el contenedor para que toda la tarjeta se mueva */
 .highlight-card-container {
   transition: transform 0.5s ease;
+  cursor: pointer;
 }
 
-.highlight-card-container:hover {
-  transform: translateY(-10px);
+/* Hover para desktop */
+@media (hover: hover) {
+  .highlight-card-container:hover .real-img {
+    opacity: 1;
+  }
+
+  .highlight-card-container:hover {
+    transform: translateY(-10px);
+  }
+}
+
+/* Para dispositivos táctiles (móviles/tablets) */
+@media (hover: none) {
+  .highlight-card-container.touched .real-img {
+    opacity: 1;
+  }
+
+  .highlight-card-container.touched {
+    transform: translateY(-10px);
+  }
+
+  /* Indicador visual para móviles */
+  .highlight-card-container::after {
+    content: "✨ ¿Quién soy realmente? ✨";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    opacity: 0.9;
+    z-index: 5;
+    white-space: nowrap;
+    animation: pulse 2s infinite;
+  }
+
+  .highlight-card-container.touched::after {
+    content: "Toca para volver";
+    background-image: url("/paw.svg");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    padding-left: 30px;
+    padding-right: 12px;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
 }
 
 .team-card:hover {
@@ -139,18 +191,22 @@
 .github-btn:hover {
   background-color: #6e5494;
 }
+
 .card svg {
   z-index: 10;
   position: relative;
 }
 
 .hack {
-  color: linear-gradient(
+  background: linear-gradient(
     135deg,
     hsl(20 75% 55%),
     hsl(25 70% 60%),
     hsl(35 75% 65%)
   );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 @media (max-width: 768px) {

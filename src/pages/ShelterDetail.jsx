@@ -129,7 +129,7 @@ function ShelterDetail() {
 
         <div className="col-lg-6">
           <div className="h-100 d-flex flex-column">
-            <h1 className="display-5 fw-bold text-dark mb-3">{shelter.name}</h1>
+            <h1 className="display-5 mb-3 fw-bolder"> {shelter.name}</h1>
             <div className="d-flex align-items-center gap-3 text-secondary mb-3">
               <span className="d-flex align-items-center gap-2">
                 <i className="bi bi-calendar"></i>

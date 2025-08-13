@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   FaLinkedin,
   FaClock,
@@ -10,11 +10,72 @@ import {
 import "./AboutUs.css";
 
 function AboutUs() {
+  useEffect(() => {
+    // Función para manejar el toggle de imágenes en móviles
+    const handleImageToggle = () => {
+      const imageContainers = document.querySelectorAll(
+        ".highlight-card-container"
+      );
+
+      imageContainers.forEach((container) => {
+        // Solo aplicar en dispositivos táctiles
+        if (!window.matchMedia("(hover: hover)").matches) {
+          const handleTouch = (e) => {
+            e.preventDefault(); // Prevenir el scroll accidental
+
+            // Toggle de la clase 'touched'
+            container.classList.toggle("touched");
+          };
+
+          const handleClick = (e) => {
+            if (!window.matchMedia("(hover: hover)").matches) {
+              e.preventDefault();
+              container.classList.toggle("touched");
+
+              setTimeout(() => {
+                container.classList.remove("touched");
+              }, 4000);
+            }
+          };
+
+          // Agregar event listeners
+          container.addEventListener("touchstart", handleTouch, {
+            passive: false,
+          });
+          container.addEventListener("click", handleClick);
+
+          // Guardar las funciones para poder removerlas después
+          container._handleTouch = handleTouch;
+          container._handleClick = handleClick;
+        }
+      });
+    };
+
+    // Ejecutar cuando el componente se monta
+    const timer = setTimeout(handleImageToggle, 100);
+
+    // Cleanup function
+    return () => {
+      clearTimeout(timer);
+      const imageContainers = document.querySelectorAll(
+        ".highlight-card-container"
+      );
+      imageContainers.forEach((container) => {
+        if (container._handleTouch) {
+          container.removeEventListener("touchstart", container._handleTouch);
+        }
+        if (container._handleClick) {
+          container.removeEventListener("click", container._handleClick);
+        }
+      });
+    };
+  }, []);
+
   return (
     <>
       <section className="hero-section position-relative d-flex align-items-center container">
-        <div className="position-relative rounded p-4 hero-text">
-          <h1 className="display-4 fw-bold mb-4 text-center text-md-start">
+        <div className="position-relative rounded p-4">
+          <h1 className="display-5 mb-4  text-center fw-bolder">
             Sobre este proyecto
           </h1>
           <p className="lead text-justify">
@@ -29,14 +90,7 @@ function AboutUs() {
             Este proyecto fue desarrollado en el Coding Bootcamp de{" "}
             <a
               href="https://ha.dev"
-              className="fw-bold text-decoration-none"
-              style={{
-                background:
-                  "linear-gradient(135deg, hsl(20 75% 55%), hsl(25 70% 60%), hsl(35 75% 65%))",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                display: "inline-block",
-              }}
+              className="fw-bold text-decoration-none hack"
             >
               Hack Academy
             </a>
@@ -170,85 +224,105 @@ function AboutUs() {
               name: "Bruno",
               role: "Estudiante Full Stack Developer",
               imgAnimal: "./img/bruno.avif",
-              imgReal: "./img/cambiar foto.jpg", // Asegúrate de tener estas imágenes
+              imgReal: "./img/cambiar foto.jpg",
               description: "Apasionado por el desarrollo web...",
+              linkedin: "https://www.linkedin.com/in/bruno/",
+              github: "https://github.com/bruno",
             },
             {
               name: "Juan",
               role: "Estudiante Full Stack Developer",
               imgAnimal: "./img/juan.avif",
-              imgReal: "./img/cambiar foto.jpg", // Asegúrate de tener estas imágenes
+              imgReal: "./img/cambiar foto.jpg",
               description: "Motivado por el aprendizaje constante...",
+              linkedin: "https://www.linkedin.com/in/juan/",
+              github: "https://github.com/juan",
             },
             {
               name: "Nicolas",
               role: "Estudiante Full Stack Developer",
               imgAnimal: "./img/nico.avif",
-              imgReal: "./img/cambiar foto.jpg", // Asegúrate de tener estas imágenes
+              imgReal: "./img/cambiar foto.jpg",
               description: "Entusiasta del diseño UX...",
+              linkedin: "https://www.linkedin.com/in/nicolas/",
+              github: "https://github.com/nicolas",
             },
             {
               name: "Joaquin",
               role: "Estudiante Full Stack Developer",
               imgAnimal: "./img/joaquin.avif",
-              imgReal: "./img/cambiar foto.jpg", // Asegúrate de tener estas imágenes
+              imgReal: "./img/cambiar foto.jpg",
               description: "Amante del código limpio...",
+              linkedin: "https://www.linkedin.com/in/joaquin/",
+              github: "https://github.com/joaquin",
             },
             {
               name: "Luis",
               role: "Estudiante Full Stack Developer",
-              imgAnimal: "./img/luis.avif",
-              imgReal: "./img/luis2.jpg", // Asegúrate de tener estas imágenes
+              imgAnimal: "./img/luis.jpg",
+              imgReal: "./img/luis2.jpg",
               description: "Desarrollador enfocado en la creación...",
+              linkedin: "https://www.linkedin.com/in/luis-mendaro-34165037a/",
+              github: "https://github.com/Luis-Mendaro",
             },
-          ].map(({ name, role, imgAnimal, imgReal, description }) => (
-            <div key={name} className="col-md-4">
-              <div className="card shadow-lg h-100 team-card rounded-4">
-                <div className="image-wrapper highlight-card-container">
-                  <img
-                    src={imgAnimal}
-                    alt={`${name} (animal)`}
-                    className="card-img-top custom-rounded-top animal-img"
-                    style={{ height: "250px", objectFit: "cover" }}
-                  />
-                  <img
-                    src={imgReal}
-                    alt={`${name} (real)`}
-                    className="card-img-top custom-rounded-top real-img"
-                    style={{ height: "250px", objectFit: "cover" }}
-                  />
-                </div>
-                <div className="card-body ">
-                  <h5 className="card-title">{name}</h5>
-                  <h6 className="text-primary">{role}</h6>
-                  <p className="card-text text-justify">{description}</p>
-                  <div
-                    className="d-flex gap-2 mt-3"
-                    style={{ justifyContent: "flex-start" }}
-                  >
-                    <a
-                      href="https://www.linkedin.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="linkedin-btn"
-                      aria-label="LinkedIn"
+          ].map(
+            ({
+              name,
+              role,
+              imgAnimal,
+              imgReal,
+              description,
+              linkedin,
+              github,
+            }) => (
+              <div key={name} className="col-md-4">
+                <div className="card shadow-lg h-100 team-card rounded-4">
+                  <div className="image-wrapper highlight-card-container">
+                    <img
+                      src={imgAnimal}
+                      alt={`${name} (animal)`}
+                      className="card-img-top custom-rounded-top animal-img"
+                      style={{ height: "250px", objectFit: "cover" }}
+                    />
+                    <img
+                      src={imgReal}
+                      alt={`${name} (real)`}
+                      className="card-img-top custom-rounded-top real-img"
+                      style={{ height: "250px", objectFit: "cover" }}
+                    />
+                  </div>
+                  <div className="card-body ">
+                    <h5 className="card-title">{name}</h5>
+                    <h6 className="text-primary">{role}</h6>
+                    <p className="card-text text-justify">{description}</p>
+                    <div
+                      className="d-flex gap-2 mt-3"
+                      style={{ justifyContent: "flex-start" }}
                     >
-                      <FaLinkedin size={28} />
-                    </a>
-                    <a
-                      href="https://github.com/tuUsuario"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="github-btn"
-                      aria-label="GitHub"
-                    >
-                      <FaGithub size={28} />
-                    </a>
+                      <a
+                        href={linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="linkedin-btn"
+                        aria-label="LinkedIn"
+                      >
+                        <FaLinkedin size={28} />
+                      </a>
+                      <a
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="github-btn"
+                        aria-label="GitHub"
+                      >
+                        <FaGithub size={28} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </section>
     </>

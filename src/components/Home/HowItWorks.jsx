@@ -28,7 +28,7 @@ function HowItWorks() {
         <div className="text-center mb-5">
           <Badge text="Proceso simple" icon="bi-stars" />
 
-          <h1 className="fw-bold mb-3">¿Cómo funciona?</h1>
+          <h1 className=" mb-3 fw-bolder">¿Cómo funciona?</h1>
           <p className="lead text-muted mx-auto">
             En solo {steps.length} pasos puedes cambiar una vida y encontrar tu
             compañero.
@@ -69,7 +69,7 @@ function HowItWorks() {
               <div className="cta-icon patas-bg-gradient mx-auto mb-4 rounded-circle d-flex align-items-center justify-content-center shadow">
                 <i className="bi-heart-fill text-white fs-3 pulse"></i>
               </div>
-              <h3 className="fw-bold mb-3">¿Quieres cambiar una vida?</h3>
+              <h3 className="mb-3 fw-bolder">¿Quieres cambiar una vida?</h3>
               <p className="text-muted mb-4 lead">
                 Cientos de animales están esperando conocerte. Tu hogar podría
                 ser exactamente lo que necesitan para encontrar la felicidad que
