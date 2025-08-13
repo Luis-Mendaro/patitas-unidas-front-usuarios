@@ -39,3 +39,31 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.shadow-img {
+  filter: drop-shadow(3px 3px 8px rgba(253, 126, 20, 0.5));
+}
+*/ .rotate-img:hover {
+  transform: rotate(deg) scale(1.05);
+  filter: drop-shadow(4px 4px 12px rgba(253, 126, 20, 0.5))
+    drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.rotate-letter-P {
+  display: inline-block;
+  transform: rotate(23deg);
+  font-size: 2.4rem;
+  position: relative;
+  top: 7px;
+  right: 1.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.letter-u {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title-navbar {
+  font-family: "Coiny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}

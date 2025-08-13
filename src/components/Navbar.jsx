@@ -97,14 +97,18 @@ function Navbar() {
                 to="/"
                 className="navbar-brand d-flex align-items-center nav-link-anim"
               >
-                <img
-                  src="/paw.svg"
-                  alt="Patas Unidas logo"
-                  height="30"
-                  className="me-2"
-                />
-                <h1 className="fw-bold fs-2 m-0 d-none d-sm-block text-dark">
-                  Patitas Unidas
+                <div className="shadow-img">
+                  <img
+                    src="/paw.svg"
+                    alt="Patas Unidas logo"
+                    height="30"
+                    className="me-2"
+                  />
+                </div>
+                <h1 className="fw-bold fs-2 m-0 d-none d-sm-block text-dark title-navbar">
+                  <span className="rotate-letter-P">P</span>atitas
+                  <span> </span>
+                  <span className="letter-u">U</span>nidas
                 </h1>
               </Link>
             </div>

@@ -7,10 +7,21 @@ function Hero() {
       <div className="container">
         <div className="row align-items-center gy-5">
           <div className="col-12 col-lg-6">
-            <h1 className="display-4 fw-bold lh-1 mb-4">
+            <h1 className="display-4  lh-1 mb-4 fw-bolder">
               Conectamos{" "}
-              <span className="patas-text-primary d-block">corazones</span> con
-              hogares
+              <span
+                className=" text-decoration-noned-block patas-text-primary"
+                style={{
+                  background:
+                    "linear-gradient(135deg, hsl(20 75% 55%), hsl(25 70% 60%), hsl(35 75% 65%))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  display: "inline-block",
+                }}
+              >
+                corazones
+              </span>{" "}
+              con hogares
             </h1>
             <p className="fs-5 text-muted mb-4 hero-text-limited">
               Miles de animales esperan una segunda oportunidad. Adopta o ayuda
