@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import "./MultiStepForm.css";
+
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { useApi } from "../../hooks/useApi.jsx";
 
@@ -135,6 +137,28 @@ export default function MultiStepForm() {
                 </div>
 
                 <div className="p-4">
+                  <div className="stepper-container mb-4">
+                    <div className={`stepper completed-${step}`}>
+                      {[1, 2, 3, 4].map((s, i) => (
+                        <React.Fragment key={s}>
+                          <div
+                            className={`stepper-circle ${
+                              step >= s ? "active" : ""
+                            }`}
+                          >
+                            {s}
+                          </div>
+                          {i !== 3 && (
+                            <div
+                              className={`stepper-line ${
+                                step > s ? "active" : ""
+                              }`}
+                            ></div>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  </div>
                   <h2 className="mb-4 fw-semibold patas-text-primary">
                     {title}
                   </h2>
