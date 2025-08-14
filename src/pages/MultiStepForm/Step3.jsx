@@ -94,7 +94,9 @@ export default function Step3({ data, update, onNext, onBack }) {
         />
       </div>
 
-      <div className="d-flex justify-content-between gap-2">
+      <span className="text-muted small">Todos los campos son requeridos.</span>
+
+      <div className="d-flex justify-content-between gap-2 mt-3">
         <button
           type="button"
           className="patas-btn patas-btn-secondary px-4"

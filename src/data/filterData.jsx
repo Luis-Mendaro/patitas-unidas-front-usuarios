@@ -1,7 +1,9 @@
+import { FaDog, FaCat, FaPaw } from "react-icons/fa";
+
 export const speciesFilters = [
-  { label: "Perro", value: "dog", icon: "/dog-head.svg" },
-  { label: "Gato", value: "cat", icon: "/cat-head.svg" },
-  { label: "Otros", value: "other", icon: "/other-paw.svg" },
+  { label: "Perro", value: "dog", icon: <FaDog className="text-muted" size={40} /> },
+  { label: "Gato", value: "cat", icon: <FaCat className="text-muted" size={40} /> },
+  { label: "Otros", value: "other", icon: <FaPaw className="text-muted" size={40} /> },
 ];
 
 export const sizeFilters = [

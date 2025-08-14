@@ -57,9 +57,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
         >
           {showSidebar && <p className="fs-4 fw-bold m-0">Filtros</p>}
           <i
-            className={`bi ${
-              showSidebar ? "bi-arrows-angle-contract" : "bi-filter fw-bold"
-            } icon fs-6 ms-auto`}
+            className={`bi ${showSidebar ? "bi-arrows-angle-contract" : "bi-filter fw-bold"
+              } icon fs-6 ms-auto`}
             onClick={() => setShowSidebar(!showSidebar)}
           ></i>
         </div>
@@ -128,9 +127,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
             <div className={`d-flex justify-content-between mb-2`}>
               <span className="fw-semibold">Tipo:</span>
               <i
-                className={`bi ${
-                  collapsed.species ? "bi-chevron-up" : "bi-chevron-down"
-                } icon`}
+                className={`bi ${collapsed.species ? "bi-chevron-up" : "bi-chevron-down"
+                  } icon`}
                 onClick={() => toggleCollapse("species")}
               />
             </div>
@@ -140,16 +138,15 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
                   return (
                     <button
                       key={filter.value}
-                      className={`filter-btn ${
-                        speciesFilter === filter.value ? "selected" : ""
-                      }`}
+                      className={`filter-btn ${speciesFilter === filter.value ? "selected" : ""
+                        }`}
                       onClick={() =>
                         setSpeciesFilter(
                           speciesFilter === filter.value ? null : filter.value
                         )
                       }
                     >
-                      <img src={filter.icon} alt={filter.label} height="40" />
+                      {filter.icon}
                       {filter.label}
                     </button>
                   );
@@ -161,9 +158,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
             <div className="d-flex justify-content-between mb-2">
               <span className="fw-semibold">Tamaño:</span>
               <i
-                className={`bi ${
-                  collapsed.size ? "bi-chevron-up" : "bi-chevron-down"
-                } icon`}
+                className={`bi ${collapsed.size ? "bi-chevron-up" : "bi-chevron-down"
+                  } icon`}
                 onClick={() => toggleCollapse("size")}
               />
             </div>
@@ -173,9 +169,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
                   return (
                     <button
                       key={filter.value}
-                      className={`filter-btn-text w-100 mb-1 ${
-                        sizeFilter === filter.value ? "selected" : ""
-                      }`}
+                      className={`filter-btn-text w-100 mb-1 ${sizeFilter === filter.value ? "selected" : ""
+                        }`}
                       onClick={() =>
                         setSizeFilter(
                           sizeFilter === filter.value ? null : filter.value
@@ -193,9 +188,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
             <div className="d-flex justify-content-between mb-2">
               <span className="fw-semibold">Sexo:</span>
               <i
-                className={`bi ${
-                  collapsed.sex ? "bi-chevron-up" : "bi-chevron-down"
-                } icon`}
+                className={`bi ${collapsed.sex ? "bi-chevron-up" : "bi-chevron-down"
+                  } icon`}
                 onClick={() => toggleCollapse("sex")}
               />
             </div>
@@ -206,9 +200,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
                   return (
                     <button
                       key={filter.value}
-                      className={`filter-btn-text w-100 mb-1 ${
-                        sexFilter === filter.value ? "selected" : ""
-                      }`}
+                      className={`filter-btn-text w-100 mb-1 ${sexFilter === filter.value ? "selected" : ""
+                        }`}
                       onClick={() =>
                         setSexFilter(
                           sexFilter === filter.value ? null : filter.value
@@ -226,9 +219,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
             <div className="d-flex justify-content-between mb-2">
               <span className="fw-semibold">Edad:</span>
               <i
-                className={`bi ${
-                  collapsed.age ? "bi-chevron-up" : "bi-chevron-down"
-                } icon`}
+                className={`bi ${collapsed.age ? "bi-chevron-up" : "bi-chevron-down"
+                  } icon`}
                 onClick={() => toggleCollapse("age")}
               />
             </div>
@@ -239,9 +231,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
                   <input
                     type="number"
                     min="0"
-                    className={`form-control text-center ${
-                      !isAgeValid ? "is-invalid" : ""
-                    }`}
+                    className={`form-control text-center ${!isAgeValid ? "is-invalid" : ""
+                      }`}
                     placeholder="Mayor a"
                     value={ageFilter[0]}
                     onChange={(e) => {
@@ -253,9 +244,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
                   <input
                     type="number"
                     min="0"
-                    className={`form-control text-center ${
-                      !isAgeValid ? "is-invalid" : ""
-                    }`}
+                    className={`form-control text-center ${!isAgeValid ? "is-invalid" : ""
+                      }`}
                     placeholder="Menor a"
                     value={ageFilter[1]}
                     onChange={(e) => {
@@ -275,9 +265,8 @@ function FilterSideBar({ onSearch, onReset, showSidebar, setShowSidebar }) {
             <div className="d-flex justify-content-between mb-2">
               <span className="fw-semibold">Ubicación:</span>
               <i
-                className={`bi ${
-                  collapsed.location ? "bi-chevron-up" : "bi-chevron-down"
-                } icon`}
+                className={`bi ${collapsed.location ? "bi-chevron-up" : "bi-chevron-down"
+                  } icon`}
                 onClick={() => toggleCollapse("location")}
               />
             </div>

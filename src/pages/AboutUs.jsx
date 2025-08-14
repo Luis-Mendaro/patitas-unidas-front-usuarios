@@ -78,7 +78,7 @@ function AboutUs() {
           <h1 className="display-5 mb-4  text-center fw-bolder">
             Sobre este proyecto
           </h1>
-          <p className="lead text-justify">
+          <p className="lead">
             Somos 5 compañeros que, tras más de 600 horas de formación intensiva
             en 3 meses, nos propusimos un gran reto: crear esta página en solo 3
             semanas. Con jornadas completas, horas extras y fines de semana
@@ -192,7 +192,7 @@ function AboutUs() {
       <section className="container team-section">
         <div className="row g-4 mt-5">
           <div className="col-md-4">
-            <div className="card shadow-lg h-100 team-card text-center overflow-hidden rounded-top-4 ">
+            <div className="card h-100 team-card text-center overflow-hidden rounded-top-4 ">
               <div className="">
                 <FaUsers
                   size={50}
@@ -233,19 +233,19 @@ function AboutUs() {
               name: "Juan",
               role: "Estudiante Full Stack Developer",
               imgAnimal: "./img/juan.avif",
-              imgReal: "./img/cambiar foto.jpg",
+              imgReal: "./img/juan.jpg",
               description: "Motivado por el aprendizaje constante...",
               linkedin: "https://www.linkedin.com/in/juan/",
               github: "https://github.com/juan",
             },
             {
               name: "Nicolas",
-              role: "Estudiante Full Stack Developer",
-              imgAnimal: "./img/nico.avif",
-              imgReal: "./img/cambiar foto.jpg",
-              description: "Entusiasta del diseño UX...",
-              linkedin: "https://www.linkedin.com/in/nicolas/",
-              github: "https://github.com/nicolas",
+              role: "Full Stack Developer",
+              imgAnimal: "./img/nico.jpeg",
+              imgReal: "./img/nico2.jpeg",
+              description: "Desarrollador orientado a crear aplicaciones funcionales, atractivas y creativas, integrando frontend y backend para ofrecer experiencias completas y eficientes.",
+              linkedin: "https://uy.linkedin.com/in/reaserchear-nicolas-fernandez",
+              github: "https://github.com/nikof7",
             },
             {
               name: "Joaquin",
@@ -276,7 +276,7 @@ function AboutUs() {
               github,
             }) => (
               <div key={name} className="col-md-4">
-                <div className="card shadow-lg h-100 team-card rounded-4">
+                <div className="card h-100 team-card rounded-4 overflow-hidden">
                   <div className="image-wrapper highlight-card-container">
                     <img
                       src={imgAnimal}
@@ -294,10 +294,9 @@ function AboutUs() {
                   <div className="card-body ">
                     <h5 className="card-title">{name}</h5>
                     <h6 className="text-primary">{role}</h6>
-                    <p className="card-text text-justify">{description}</p>
+                    <p className="card-text text-start">{description}</p>
                     <div
-                      className="d-flex gap-2 mt-3"
-                      style={{ justifyContent: "flex-start" }}
+                      className="d-flex justify-content-start gap-2 mt-3"
                     >
                       <a
                         href={linkedin}

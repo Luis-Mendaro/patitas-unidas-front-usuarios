@@ -5,19 +5,11 @@
   border: 2px solid rgba(var(--patas-primary), 0.5);
   object-fit: cover;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .pfp:hover {
   background-color: rgb(var(--patas-primary));
-  /* transform: scale(0.9); */
-}
-
-.nav-link-anim {
-  transition: all 0.05s ease-in-out;
-}
-
-.nav-link-anim:hover {
-  transform: scale(0.98);
 }
 
 .navbar .dropdown .navbar-toggler:focus {
@@ -39,9 +31,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
-.shadow-img {
-  filter: drop-shadow(3px 3px 8px rgba(253, 126, 20, 0.5));
-}
+
 */ .rotate-img:hover {
   transform: rotate(deg) scale(1.05);
   filter: drop-shadow(4px 4px 12px rgba(253, 126, 20, 0.5))
@@ -60,10 +50,4 @@
 
 .letter-u {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.title-navbar {
-  font-family: "Coiny", system-ui;
-  font-weight: 400;
-  font-style: normal;
 }

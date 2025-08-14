@@ -155,7 +155,7 @@ function ShelterDetail() {
               </div>
             </div>
             <div className="flex-grow-1">
-              <div className="card mb-4 ">
+              <div className="card mb-4 overflow-hidden">
                 <div className="card-body pb-3">
                   <h5 className="card-title fw-semibold">Descripción</h5>
                   <p className="card-text text-secondary">

@@ -1,11 +1,13 @@
-import { Link } from "react-router";
 import "./PetCard.css";
-import Button from "./Button";
-import constants from "../utils/constants";
+
+import { Link } from "react-router";
 import { useSelector } from "react-redux";
-import { useApi } from "../hooks/useApi";
 import { toast } from "react-toastify";
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
+
+import { useApi } from "../hooks/useApi";
+import constants from "../utils/constants";
+import Button from "./Button";
 
 function PetCard({ pet }) {
   const { monthsToYears } = constants;

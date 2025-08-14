@@ -7,7 +7,7 @@ function Hero() {
       <div className="container">
         <div className="row align-items-center gy-5">
           <div className="col-12 col-lg-6">
-            <h1 className="display-4  lh-1 mb-4 fw-bolder">
+            <h1 className="lh-1 mb-4" style={{ fontWeight: "900", fontSize: "3rem", maxWidth: "20ch" }}>
               Conectamos{" "}
               <span
                 className=" text-decoration-noned-block patas-text-primary"

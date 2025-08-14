@@ -121,7 +121,7 @@ function PetList() {
       {showButton && (
         <div className="d-flex justify-content-center">
           <button
-            className="btn btn-light d-md-none position-fixed bottom-0 start-0 m-3 px-3 py-2 shadow"
+            className="btn btn-dark d-md-none position-fixed bottom-0 start-0 m-3 px-3 py-2 shadow"
             onClick={() => {
               setShowSidebar(true);
               setTimeout(() => {
