@@ -1,0 +1,82 @@
+.stepper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%; /* ancho total del stepper */
+  position: relative;
+}
+
+/* Líneas externas a la izquierda y derecha */
+.stepper::before,
+.stepper::after {
+  content: "";
+  height: 3px;
+  background-color: #ccc;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.stepper::before {
+  width: 40px;
+  left: -40px; /* ajustamos para que quede pegada al primer círculo */
+}
+
+.stepper::after {
+  width: 40px;
+  right: -40px; /* ajustamos para que quede pegada al último círculo */
+}
+
+/* Pintar líneas externas según el paso */
+.stepper.completed-1::before,
+.stepper.completed-2::before,
+.stepper.completed-3::before {
+  background-color: #e37036ff; /* naranja */
+}
+
+.stepper.completed-4::after {
+  background-color: #e37036ff;
+}
+
+/* Círculos */
+.stepper-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+  z-index: 2;
+  margin: 0; /* sin separación de las líneas */
+}
+
+/* Círculo activo */
+.stepper-circle.active {
+  background-color: #e37036ff;
+}
+
+/* Líneas entre círculos */
+.stepper-line {
+  height: 3px;
+  background-color: #ccc;
+  flex-grow: 1; /* ocupa todo el espacio entre los círculos */
+  margin: 0; /* pegada a los círculos */
+  z-index: 1;
+}
+
+/* Línea activa */
+.stepper-line.active {
+  background-color: #e37036ff;
+}

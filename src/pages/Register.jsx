@@ -71,11 +71,7 @@ export default function Register() {
             </Form.Group>
 
             <div className="d-flex justify-content-between">
-              <Button
-                text="Soy un Refugio"
-                variant="secondary"
-                customClasses="w-100 me-2"
-              />
+              <a href={import.meta.env.VITE_FRONT_SHELTER_URL} className="patas-btn patas-btn-secondary px-3 me-2 w-100">Soy un refugio</a>
               <Button text="Crear Cuenta" customClasses="w-100" />
             </div>
           </Form>
