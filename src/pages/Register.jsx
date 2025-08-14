@@ -24,7 +24,7 @@ export default function Register() {
     return <Navigate to={"/"} />;
   }
   return (
-    <AuthLayout msg="Bienvenido a Patitas Unidas">
+    <AuthLayout msg="Bienvenid@ a Patitas Unidas">
       <div className="login-container">
         <div className="login-box">
           <Form>
@@ -84,7 +84,7 @@ export default function Register() {
             ¿Ya tienes cuenta?
             <Link
               to="/iniciar-sesion"
-              className="orange-link ms-1 text-decoration-none fw-semibold"
+              className="ms-1 patas-text-primary text-decoration-none fw-semibold"
             >
               Iniciar sesión
             </Link>

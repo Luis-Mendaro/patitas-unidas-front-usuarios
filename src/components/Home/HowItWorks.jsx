@@ -56,7 +56,7 @@ function HowItWorks() {
                 </div>
               </div>
 
-              <div className="step-content border rounded-4 p-4 flex-grow-1">
+              <div className="step-content rounded-4 p-4 flex-grow-1 bg-body">
                 <h5 className="fw-bold mb-3">{step.title}</h5>
                 <p className="patas-text-brown">{step.description}</p>
               </div>
@@ -64,7 +64,7 @@ function HowItWorks() {
           ))}
         </div>
         <div className="text-center mt-5 pt-5">
-          <div className="cta-box p-5 rounded-4 shadow border mx-auto">
+          <div className="cta-box p-5 rounded-4 bg-body mx-auto">
             <div className="cta-content">
               <div className="cta-icon patas-bg-gradient mx-auto mb-4 rounded-circle d-flex align-items-center justify-content-center shadow">
                 <i className="bi-heart-fill text-white fs-3 pulse"></i>

@@ -69,6 +69,7 @@ export default function Step1({ data, update, onNext }) {
           />
         </div>
 
+        <span className="text-muted small">Todos los campos son requeridos.</span>
         <div className="text-end">
           <button className="patas-btn patas-btn-primary px-4" type="submit">
             Siguiente

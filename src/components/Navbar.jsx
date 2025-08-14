@@ -31,37 +31,34 @@ function Navbar() {
           {/* Centro */}
           <div className="d-none d-lg-flex align-items-center gap-3 nav-center">
             <Link
-              className={`text-decoration-none nav-link-anim ${
-                location.pathname === "/mascotas"
-                  ? "fs-4 patas-text-primary"
-                  : "fs-5 patas-text-brown"
-              }`}
+              className={`text-decoration-none nav-link-anim ${location.pathname === "/mascotas"
+                ? "fs-4 patas-text-primary"
+                : "fs-5 patas-text-brown"
+                }`}
               to="/mascotas"
             >
               Adoptar
             </Link>
             <Link
-              className={`text-decoration-none nav-link-anim ${
-                location.pathname === "/refugios"
-                  ? "fs-4 patas-text-primary"
-                  : "fs-5 patas-text-brown"
-              }`}
+              className={`text-decoration-none nav-link-anim ${location.pathname === "/refugios"
+                ? "fs-4 patas-text-primary"
+                : "fs-5 patas-text-brown"
+                }`}
               to="/refugios"
             >
               Refugios
             </Link>
             <Link
-              className={`text-decoration-none nav-link-anim ${
-                location.pathname === "/sobre-este-proyecto"
-                  ? "fs-4 patas-text-primary"
-                  : "fs-5 patas-text-brown"
-              }`}
+              className={`text-decoration-none nav-link-anim ${location.pathname === "/sobre-este-proyecto"
+                ? "fs-4 patas-text-primary"
+                : "fs-5 patas-text-brown"
+                }`}
               to="/sobre-este-proyecto"
             >
               Sobre este Proyecto
             </Link>
           </div>
-          <div className="w-100 d-flex justify-content-between">
+          <div className="w-100 d-flex align-items-baseline justify-content-between">
             {/* Izquierda */}
             <div className="d-flex align-items-center">
               <div className="dropdown d-lg-none">
@@ -97,18 +94,14 @@ function Navbar() {
                 to="/"
                 className="navbar-brand d-flex align-items-center nav-link-anim"
               >
-                <div className="shadow-img">
-                  <img
-                    src="/paw.svg"
-                    alt="Patas Unidas logo"
-                    height="30"
-                    className="me-2"
-                  />
-                </div>
-                <h1 className="fw-bold fs-2 m-0 d-none d-sm-block text-dark title-navbar">
-                  <span className="rotate-letter-P">P</span>atitas
-                  <span> </span>
-                  <span className="letter-u">U</span>nidas
+                <img
+                  src="/paw.svg"
+                  alt="Patas Unidas logo"
+                  height="30"
+                  className="me-2"
+                />
+                <h1 className="fw-bold fs-2 d-none d-sm-block text-dark m-0" style={{ fontFamily: "Rubik" }}>
+                  Patitas Unidas
                 </h1>
               </Link>
             </div>
@@ -216,7 +209,7 @@ function Navbar() {
             </div>
           </div>
         </div>
-      </nav>
+      </nav >
     </>
   );
 }

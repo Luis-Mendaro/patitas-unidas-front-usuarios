@@ -32,13 +32,6 @@
   position: relative;
 }
 
-.card-img-top.custom-rounded-top {
-  border-top-left-radius: 1rem !important;
-  border-top-right-radius: 1rem !important;
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-}
-
 .floating-cards > .col-md-3 {
   margin-bottom: 20px;
 }
@@ -46,7 +39,7 @@
 .highlight-card {
   min-height: 240px;
   border-radius: 20px !important;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .highlight-card:hover {
@@ -60,7 +53,7 @@
 
 .team-card {
   border-radius: 12px;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.25s ease;
   background-color: #f8f9fa;
   position: relative;
 }
@@ -69,8 +62,6 @@
   position: relative;
   overflow: hidden;
   height: 250px;
-  border-top-left-radius: 1rem !important;
-  border-top-right-radius: 1rem !important;
 }
 
 .animal-img,
@@ -80,7 +71,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
 }
 
 .real-img {
@@ -88,7 +79,8 @@
 }
 
 .highlight-card-container {
-  transition: transform 0.5s ease;
+  background-color: #181717;
+  transition: transform 0.25s ease;
   cursor: pointer;
 }
 
@@ -99,7 +91,7 @@
   }
 
   .highlight-card-container:hover {
-    transform: translateY(-10px);
+    transform: scale(1.05);
   }
 }
 
@@ -152,10 +144,6 @@
   }
 }
 
-.team-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
 .linkedin-btn,
 .github-btn {
   display: inline-flex;
@@ -165,7 +153,7 @@
   height: 36px;
   border-radius: 50%;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.25s ease;
 }
 
 .linkedin-btn svg,

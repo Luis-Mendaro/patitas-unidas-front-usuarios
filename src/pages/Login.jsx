@@ -37,7 +37,7 @@ export default function Login() {
     return <Navigate to={"/"} />;
   }
   return (
-    <AuthLayout msg="Bienvenido a Patitas Unidas">
+    <AuthLayout msg="Bienvenid@ a Patitas Unidas">
       <div className="login-container">
         <div className="login-box">
           <Form onSubmit={handleSubmit}>
@@ -92,7 +92,7 @@ export default function Login() {
             ¿No tenés cuenta?
             <Link
               to="/registro"
-              className="orange-link ms-1 text-decoration-none fw-semibold"
+              className="ms-1 patas-text-primary text-decoration-none fw-semibold"
             >
               Registrate
             </Link>

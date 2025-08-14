@@ -42,7 +42,7 @@ function App() {
         <Footer />
       </div>
 
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
     </>
   );
 }

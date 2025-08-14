@@ -47,22 +47,19 @@ function PetSection() {
               className="text-decoration-none text-muted w-100"
             >
               <div
-                className="rounded-3 d-flex flex-column align-items-center justify-content-center text-center px-3 py-4"
+                className="rounded-3 d-flex flex-column align-items-center justify-content-center text-center px-3 py-4 bg-body h-100"
                 style={{
-                  minHeight: "400px",
-                  backgroundColor: "rgba(var(--patas-primary),0.1)",
-                  border: "none",
+                  minHeight: "350px",
                 }}
               >
                 <i
-                  className="bi bi-plus-circle fs-1 mb-3"
-                  style={{ color: "#e37036" }}
+                  className="bi bi-plus-circle fs-1 mb-3 patas-text-primary"
                 ></i>
                 <p className="fs-5 fw-semibold text-center">
                   Ver todos los animales
                 </p>
                 <p className="card-text fs-6 mt-4">
-                  Descubre más mascotas en adopción !!!
+                  ¡Descubre más mascotas en adopción!
                 </p>
               </div>
             </Link>
