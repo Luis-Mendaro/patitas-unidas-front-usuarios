@@ -13,6 +13,14 @@ function PetCard({ pet }) {
   const loggedUserId = useSelector((state) => state.user?.user.id);
   const userLikedPets = useSelector((state) => state.user?.user.likedPet.pets);
 
+  const baseUrl = import.meta.env.VITE_SUPABASE;
+  /*PARA COMPROBAR LA URL Y PROBAR LOCALMENTE, EN LA LINEA 72 SE USA PARA REMOTO */
+  function getImageUrl(img) {
+    if (!img)
+      return "https://dummyimage.com/600x300/cccccc/555555&text=Imagen+no+disponible";
+    return isFullUrl ? img : `${baseUrl}/PetImages/${img}`;
+  }
+
   function handleLike() {
     if (loggedUserId) {
       likePetRequest(loggedUserId, pet.id);
@@ -60,7 +68,10 @@ function PetCard({ pet }) {
       <div className="petCard">
         <div className="petCardImageContainer">
           <Link to={`/mascotas/${pet.id}`} className="flex-fill">
-            <img src={pet.images[0]} alt={`Imagen Mascota ${pet.name}`} />
+            <img
+              src={getImageUrl(pet.images?.[0])}
+              alt={`Imagen Mascota ${pet.name}`}
+            />
           </Link>
 
           <button
