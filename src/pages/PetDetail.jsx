@@ -153,9 +153,6 @@ function PetDetail() {
                   <div className="col-auto">
                     <Badge text={englishToSpanish(currentPet.size)} />
                   </div>
-                  <div className="col-auto">
-                    <Badge text={currentPet.color} />
-                  </div>
                 </div>
 
                 <div className="mb-5">
@@ -166,18 +163,18 @@ function PetDetail() {
                 {!userLikedPets?.some(
                   (likedPet) => likedPet.id === currentPet.id
                 ) && (
-                  <div className="col">
-                    <div onClick={handleLike}>
-                      <Button
-                        text="Me interesa"
-                        large={true}
-                        icon="bi-heart-fill"
-                        variant="secondary"
-                        customClasses="w-100"
-                      />
+                    <div className="col">
+                      <div onClick={handleLike}>
+                        <Button
+                          text="Me interesa"
+                          large={true}
+                          icon="bi-heart-fill"
+                          variant="secondary"
+                          customClasses="w-100"
+                        />
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
                 <div className="col">
                   <Link
                     to={`/${currentPet.id}/formulario-adopcion`}
