@@ -8,23 +8,13 @@ import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { useApi } from "../hooks/useApi";
 import constants from "../utils/constants";
 import Button from "./Button";
+import getImageUrl from "../utils/getImageUrl";
 
 function PetCard({ pet }) {
   const { monthsToYears } = constants;
   const { likePetRequest } = useApi();
   const loggedUserId = useSelector((state) => state.user?.user?.id);
   const userLikedPets = useSelector((state) => state.user?.user?.likedPet.pets);
-
-  function getImageUrl(img) {
-    const baseUrl = import.meta.env.VITE_SUPABASE;
-
-    if (!img) {
-      return "https://dummyimage.com/600x300/cccccc/555555&text=Imagen+no+disponible";
-    }
-
-    const isFullUrl = /^http(s)?:\/\//.test(img);
-    return isFullUrl ? img : `${baseUrl}/PetImages/${img}`;
-  }
 
   function handleLike() {
     if (loggedUserId) {
