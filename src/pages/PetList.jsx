@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router";
 
 import FilterSideBar from "../components/FilterSideBar.jsx";
@@ -10,9 +10,9 @@ import constants from "../utils/constants";
 
 function PetList() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [showSidebar, setShowSidebar] = useState(true);
   const [showButton, setShowButton] = useState(false);
   const { listenToScrollPosition, handleScroll } = constants;
+  const offcanvasRef = useRef(null);
   const limit = 18;
   const isAdopted = false;
 
@@ -47,6 +47,14 @@ function PetList() {
     listenToScrollPosition(scrollHandler);
   }, []);
 
+  const closeFilters = () => {
+    if (!offcanvasRef.current) return;
+    const oc = window.bootstrap?.Offcanvas.getOrCreateInstance(
+      offcanvasRef.current
+    );
+    oc?.hide();
+  };
+
   const handleSearch = (filters) => {
     setSearchParams({ ...filters, page: 1 });
   };
@@ -72,66 +80,115 @@ function PetList() {
   return (
     <div>
       <div className="container py-5">
-        <div className="d-flex flex-column flex-md-row">
-          <div className="me-md-3 mb-3 mb-md-0">
-            <FilterSideBar
-              showSidebar={showSidebar}
-              setShowSidebar={setShowSidebar}
-              onSearch={handleSearch}
-              onReset={handleReset}
-            />
+        <div className="row mb-5">
+          <div className="col-12 text-center">
+            <h1 className="display-4 fw-bold text-dark mb-3">
+              Patitas en Adopción
+            </h1>
+            <p className="lead text-secondary">
+              Descubrí a los patitas que esperan una familia y están listos para
+              llenar tu hogar de alegría y cariño
+            </p>
           </div>
-          <div className="col-12 col-md-6 col-lg-8 col-xl-9">
+        </div>
+
+        <button
+          className="btn btn-dark mb-3"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#filtersOffcanvas"
+          aria-controls="filtersOffcanvas"
+        >
+          <i className="bi bi-filter me-2"></i>Filtros
+        </button>
+
+        <div className="d-flex flex-column flex-md-row">
+          <div className="col-12">
             {pets.length === 0 ? (
               <p className="text-muted text-center mt-5">
                 Lo sentimos, no se encontraron patitas con esos filtros.
               </p>
             ) : (
-              <div className="row g-4">
-                {pets.map((pet) => (
-                  <div className="col-12 col-lg-6 col-xxl-4" key={pet.id}>
-                    <PetCard pet={pet} />
-                  </div>
-                ))}
-                <div className="d-flex justify-content-center mt-4">
+              <>
+                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                  {pets.map((pet) => (
+                    <div className="col" key={pet.id}>
+                      {/* Si tu componente <PetCard> ya renderiza una .card, poné .h-100 adentro de PetCard */}
+                      <PetCard pet={pet} />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Paginación fuera del row */}
+                <div className="d-flex justify-content-center align-items-center mt-4 gap-2">
                   <button
                     onClick={prevPage}
                     disabled={page === 1}
-                    className="btn btn-outline-dark me-2"
+                    className="btn btn-outline-dark"
                   >
                     Anterior
                   </button>
-                  <span className="align-self-center">
+                  <span className="mx-2">
                     Página {page} de {totalPages}
                   </span>
                   <button
                     onClick={nextPage}
                     disabled={page >= totalPages}
-                    className="btn btn-outline-dark ms-2"
+                    className="btn btn-outline-dark"
                   >
                     Siguiente
                   </button>
                 </div>
-              </div>
+              </>
             )}
           </div>
         </div>
       </div>
+      <div
+        className="offcanvas offcanvas-start pb-3 pb-sm-0"
+        tabIndex="-1"
+        id="filtersOffcanvas"
+        aria-labelledby="filtersOffcanvasLabel"
+        ref={offcanvasRef}
+      >
+        <div className="offcanvas-header pb-2">
+          <h5
+            className="offcanvas-title fs-4 fw-bold "
+            id="filtersOffcanvasLabel"
+          >
+            Filtros
+          </h5>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div className="offcanvas-body p-0">
+          <FilterSideBar
+            onSearch={(filters) => {
+              handleSearch(filters);
+            }}
+            onReset={() => {
+              handleReset();
+            }}
+            isOffcanvas
+          />
+        </div>
+      </div>
 
       {showButton && (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex gap-2 position-fixed bottom-0 start-0 p-3">
           <button
-            className="btn btn-dark d-md-none position-fixed bottom-0 start-0 m-3 px-3 py-2 shadow"
-            onClick={() => {
-              setShowSidebar(true);
-              setTimeout(() => {
-                document
-                  .getElementById("filter-content")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }, 50);
-            }}
+            className="btn btn-dark d-md-none"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#filtersOffcanvas"
+            aria-controls="filtersOffcanvas"
           >
-            <i className={`bi bi-filter fw-bold icon fs-6 ms-auto`}></i>
+            <i className="bi bi-filter"></i>
           </button>
           <ReturnToTopButton />
         </div>

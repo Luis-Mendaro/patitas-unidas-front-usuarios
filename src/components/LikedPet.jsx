@@ -7,6 +7,7 @@ import { useApi } from "../hooks/useApi";
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice";
 import { toast } from "react-toastify";
+import getImageUrl from "../utils/getImageUrl";
 
 const LikedPet = ({ likedPet }) => {
   const { monthsToYears, determineBadgeText } = constants;
@@ -66,7 +67,7 @@ const LikedPet = ({ likedPet }) => {
       <div className="row g-0">
         <div className="col-md-4 pet-image-container ">
           <img
-            src={likedPet.images[0]}
+            src={getImageUrl(likedPet.images[0])}
             className="img-fluid"
             alt={`Imagen de la mascota ${likedPet.name}`}
           />
