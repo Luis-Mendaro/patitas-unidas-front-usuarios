@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Form } from "react-bootstrap";
-import { Link, Navigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useApi } from "../hooks/useApi";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,12 +15,42 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
+
+  const { registerUser } = useApi();
+
+  const navigate = useNavigate();
+
   const userToken = useSelector((state) => state.user?.token);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Las contraseñas no coinciden");
+      return;
+    }
+    if (formData.password.length < 6) {
+      toast.error("La contraseña debe tener al menos 6 caracteres");
+      return;
+    }
+
+    try {
+      const response = await registerUser(formData);
+      if (response.status === 201) {
+        toast.success("Se creó tu cuenta satisfactoriamente.")
+        navigate("/iniciar-sesion");
+      }
+    } catch (error) {
+      toast.error("Ocurrió un error al registrarte. Intenta de nuevo.");
+    }
+  };
+
 
   if (userToken) {
     return <Navigate to={"/"} />;
@@ -27,7 +59,7 @@ export default function Register() {
     <AuthLayout msg="Bienvenid@ a Patitas Unidas">
       <div className="login-container">
         <div className="login-box">
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicUser">
               <Form.Control
                 name="name"
@@ -36,6 +68,7 @@ export default function Register() {
                 placeholder="Nombre"
                 value={formData.name}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
 
@@ -47,6 +80,7 @@ export default function Register() {
                 placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
 
@@ -58,6 +92,28 @@ export default function Register() {
                   className="form-input pe-5"
                   placeholder="Contraseña"
                   value={formData.password}
+                  required
+                  onChange={handleChange}
+                />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="position-absolute top-50 end-0 translate-middle-y me-3"
+                  style={{ cursor: "pointer" }}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+              <div className="position-relative">
+                <Form.Control
+                  name="confirmPassword"
+                  type={showPassword ? "text" : "password"}
+                  className="form-input pe-5"
+                  placeholder="Confirmar contraseña"
+                  value={formData.confirmPassword}
+                  required
                   onChange={handleChange}
                 />
                 <span

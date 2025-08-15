@@ -98,6 +98,17 @@ export const useApi = () => {
     }
   };
 
+  const registerUser = async (formData) => {
+    try {
+      const response = await api.post(`/users/`, formData)
+      return response
+    } catch (error) {
+      console.log(error)
+      toast.error("Inténtalo de nuevo.")
+
+    }
+  }
+
 
   return {
     fetchPets,
@@ -106,6 +117,7 @@ export const useApi = () => {
     userLogin,
     likePetRequest,
     submitAdoptionRequest,
-    updateUserProfile
+    updateUserProfile,
+    registerUser
   };
 };
