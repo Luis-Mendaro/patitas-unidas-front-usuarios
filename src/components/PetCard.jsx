@@ -12,8 +12,8 @@ import Button from "./Button";
 function PetCard({ pet }) {
   const { monthsToYears } = constants;
   const { likePetRequest } = useApi();
-  const loggedUserId = useSelector((state) => state.user?.user.id);
-  const userLikedPets = useSelector((state) => state.user?.user.likedPet.pets);
+  const loggedUserId = useSelector((state) => state.user?.user?.id);
+  const userLikedPets = useSelector((state) => state.user?.user?.likedPet.pets);
 
   function getImageUrl(img) {
     const baseUrl = import.meta.env.VITE_SUPABASE;
