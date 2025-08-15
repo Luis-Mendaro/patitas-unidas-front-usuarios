@@ -106,6 +106,16 @@ export const useApi = () => {
   const getShelterById = async (id) => {
     const response = await api.get(`/shelters/${id}`)
     return response
+
+  const registerUser = async (formData) => {
+    try {
+      const response = await api.post(`/users/`, formData)
+      return response
+    } catch (error) {
+      console.log(error)
+      toast.error("Inténtalo de nuevo.")
+
+    }
   }
 
 
@@ -118,6 +128,7 @@ export const useApi = () => {
     submitAdoptionRequest,
     updateUserProfile,
     fetchShelters,
-    getShelterById
+    getShelterById,
+    registerUser
   };
 };

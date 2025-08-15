@@ -9,6 +9,7 @@ import Badge from "../components/Badge.jsx";
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice.js";
 import { toast } from "react-toastify";
+import getImageUrl from "../utils/getImageUrl.js";
 
 function PetDetail() {
   const location = useLocation();
@@ -19,8 +20,8 @@ function PetDetail() {
 
   const { fetchPetById, likePetRequest } = useApi();
 
-  const loggedUserId = useSelector((state) => state.user?.user.id);
-  const userLikedPets = useSelector((state) => state.user?.user.likedPet.pets);
+  const loggedUserId = useSelector((state) => state.user?.user?.id);
+  const userLikedPets = useSelector((state) => state.user?.user?.likedPet.pets);
   const pets = useSelector((state) => state.pets?.items) ?? [];
   const petInStore = pets.find((p) => p.id === id);
 
@@ -98,7 +99,7 @@ function PetDetail() {
             <div className="col-12 col-md-6 mb-4 mb-md-0">
               <img
                 className="rounded img-fluid w-100"
-                src={currentPet.images[0]}
+                src={getImageUrl(currentPet.images[0])}
                 alt=""
                 style={{ objectFit: "cover", height: "500px" }}
               />
@@ -165,18 +166,18 @@ function PetDetail() {
                 {!userLikedPets?.some(
                   (likedPet) => likedPet.id === currentPet.id
                 ) && (
-                    <div className="col">
-                      <div onClick={handleLike}>
-                        <Button
-                          text="Me interesa"
-                          large={true}
-                          icon="bi-heart-fill"
-                          variant="secondary"
-                          customClasses="w-100"
-                        />
-                      </div>
+                  <div className="col">
+                    <div onClick={handleLike}>
+                      <Button
+                        text="Me interesa"
+                        large={true}
+                        icon="bi-heart-fill"
+                        variant="secondary"
+                        customClasses="w-100"
+                      />
                     </div>
-                  )}
+                  </div>
+                )}
                 <div className="col">
                   <Link
                     to={`/${currentPet.id}/formulario-adopcion`}
