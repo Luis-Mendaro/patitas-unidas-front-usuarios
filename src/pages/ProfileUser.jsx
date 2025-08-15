@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useApi } from "../hooks/useApi";
 import { toast } from "react-toastify";
-import "./profileUser.css";
+import "./ProfileUser.css";
 
 const ProfileUser = () => {
   const { updateUserProfile } = useApi();
@@ -30,7 +30,8 @@ const ProfileUser = () => {
       setName(user.name || "");
       setEmail(user.email || "");
       setAvatarPreview(currentAvatar);
-    } }, [user]);
+    }
+  }, [user]);
 
   if (!user)
     return (
