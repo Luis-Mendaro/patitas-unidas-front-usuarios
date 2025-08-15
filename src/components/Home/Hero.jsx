@@ -3,8 +3,8 @@ import heroImage from "../../assets/img/hero.jpg";
 import Button from "../Button";
 import { useSelector } from "react-redux";
 function Hero() {
-  const totalPets = useSelector((state) => state.pets.total);
-  const allShelters = useSelector((state) => state.shelters.items.shelters);
+  const totalPets = useSelector((state) => state.pets?.total);
+  const allShelters = useSelector((state) => state.shelters?.items.shelters);
   return (
     <section className="Hero position-relative d-flex align-items-center py-5 mb-5">
       <div className="container">
