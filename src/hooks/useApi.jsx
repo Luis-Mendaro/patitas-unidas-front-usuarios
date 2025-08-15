@@ -76,15 +76,11 @@ export const useApi = () => {
 
   const updateUserProfile = async (userId, newUserData) => {
     try {
-      const response = await api.patch(
-        `/users/${userId}`,
-        newUserData,
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      );
+      const response = await api.patch(`/users/${userId}`, newUserData, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
 
       const data = response.data;
       dispatch(updateUser(newUserData));
@@ -99,25 +95,24 @@ export const useApi = () => {
   };
 
   const fetchShelters = async (filters = {}) => {
-    const response = await api.get("/shelters", { params: filters })
-    return response
-  }
+    const response = await api.get("/shelters", { params: filters });
+    return response;
+  };
 
   const getShelterById = async (id) => {
-    const response = await api.get(`/shelters/${id}`)
-    return response
+    const response = await api.get(`/shelters/${id}`);
+    return response;
+  };
 
   const registerUser = async (formData) => {
     try {
-      const response = await api.post(`/users/`, formData)
-      return response
+      const response = await api.post(`/users/`, formData);
+      return response;
     } catch (error) {
-      console.log(error)
-      toast.error("Inténtalo de nuevo.")
-
+      console.log(error);
+      toast.error("Inténtalo de nuevo.");
     }
-  }
-
+  };
 
   return {
     fetchPets,
@@ -129,6 +124,6 @@ export const useApi = () => {
     updateUserProfile,
     fetchShelters,
     getShelterById,
-    registerUser
+    registerUser,
   };
 };
