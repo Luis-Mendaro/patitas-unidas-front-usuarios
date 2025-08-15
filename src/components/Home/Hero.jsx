@@ -1,13 +1,19 @@
 import { Link } from "react-router";
 import heroImage from "../../assets/img/hero.jpg";
 import Button from "../Button";
+import { useSelector } from "react-redux";
 function Hero() {
+  const totalPets = useSelector((state) => state.pets.total);
+  const allShelters = useSelector((state) => state.shelters.items.shelters);
   return (
     <section className="Hero position-relative d-flex align-items-center py-5 mb-5">
       <div className="container">
         <div className="row align-items-center gy-5">
           <div className="col-12 col-lg-6">
-            <h1 className="lh-1 mb-4" style={{ fontWeight: "900", fontSize: "3rem", maxWidth: "20ch" }}>
+            <h1
+              className="lh-1 mb-4"
+              style={{ fontWeight: "900", fontSize: "3rem", maxWidth: "20ch" }}
+            >
               Conectamos{" "}
               <span
                 className=" text-decoration-noned-block patas-text-primary"
@@ -30,11 +36,13 @@ function Hero() {
 
             <div className="d-flex flex-column flex-sm-row gap-4 text-center mb-4">
               <div>
-                <div className="h3 fw-bold patas-text-primary">1,247</div>
-                <div className="text-muted small">Adoptados</div>
+                <div className="h3 fw-bold patas-text-primary">{totalPets}</div>
+                <div className="text-muted small">
+                  patitas buscan un nuevo hogar
+                </div>
               </div>
               <div>
-                <div className="h3 fw-bold">127</div>
+                <div className="h3 fw-bold">{allShelters.length}</div>
                 <div className="text-muted small">Refugios</div>
               </div>
             </div>

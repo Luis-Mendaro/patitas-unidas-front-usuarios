@@ -12,10 +12,12 @@ import {
 import storage from "redux-persist/lib/storage";
 import userReducer from "./userSlice";
 import petsReducer from "./petsSlice";
+import sheltersReducer from "./sheltersSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
   pets: petsReducer,
+  shelters: sheltersReducer,
 });
 
 const persistConfig = {

@@ -11,15 +11,15 @@ import ReturnToTopButton from "../components/ReturnToTopButton";
 import constants from "../utils/constants";
 
 function Home() {
-  const { fetchAndStorePets } = useApi();
+  const { fetchAndStorePets, fetchShelters } = useApi();
   const { listenToScrollPosition, handleScroll } = constants;
 
   const [showButton, setShowButton] = useState(false);
   const pets = useSelector((state) => state.pets.items);
 
-
   useEffect(() => {
     fetchAndStorePets();
+    fetchShelters();
     const scrollHandler = () => handleScroll(setShowButton);
     listenToScrollPosition(scrollHandler);
   }, []);
