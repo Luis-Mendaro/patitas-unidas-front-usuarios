@@ -241,7 +241,7 @@ function SheltersList() {
                         <p className="mb-4">
                             Únete a nuestra comunidad y ayuda a más animales a encontrar un hogar
                         </p>
-                        <button
+                        <a href={`${import.meta.env.VITE_FRONT_SHELTER_URL}/registro`}
                             className="patas-btn patas-btn-lg patas-btn-primary"
                             style={{ borderRadius: '25px', padding: '12px 30px' }}
                         >
@@ -250,7 +250,7 @@ function SheltersList() {
                                 <FaPlus className="me-2" />
                                 Registrar mi refugio
                             </span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
