@@ -19,8 +19,8 @@ function PetDetail() {
 
   const { fetchPetById, likePetRequest } = useApi();
 
-  const loggedUserId = useSelector((state) => state.user?.user.id);
-  const userLikedPets = useSelector((state) => state.user?.user.likedPet.pets);
+  const loggedUserId = useSelector((state) => state.user?.user?.id);
+  const userLikedPets = useSelector((state) => state.user?.user?.likedPet.pets);
   const pets = useSelector((state) => state.pets?.items) ?? [];
   const petInStore = pets.find((p) => p.id === id);
 
@@ -163,18 +163,18 @@ function PetDetail() {
                 {!userLikedPets?.some(
                   (likedPet) => likedPet.id === currentPet.id
                 ) && (
-                    <div className="col">
-                      <div onClick={handleLike}>
-                        <Button
-                          text="Me interesa"
-                          large={true}
-                          icon="bi-heart-fill"
-                          variant="secondary"
-                          customClasses="w-100"
-                        />
-                      </div>
+                  <div className="col">
+                    <div onClick={handleLike}>
+                      <Button
+                        text="Me interesa"
+                        large={true}
+                        icon="bi-heart-fill"
+                        variant="secondary"
+                        customClasses="w-100"
+                      />
                     </div>
-                  )}
+                  </div>
+                )}
                 <div className="col">
                   <Link
                     to={`/${currentPet.id}/formulario-adopcion`}
