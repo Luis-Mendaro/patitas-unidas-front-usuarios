@@ -1,0 +1,27 @@
+.field {
+  position: relative;
+}
+
+.asterisk {
+  color: #d32f2f;
+  font-weight: bold;
+  margin-left: 4px;
+}
+
+.field.show-asterisk::after {
+  content: "*";
+  position: absolute;
+  right: 10px;
+  top: 75%;
+  transform: translateY(-50%);
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.invalid {
+  border-color: #d32f2f !important;
+}
+
+.eye-icon{
+    top: 60% !important;
+}
