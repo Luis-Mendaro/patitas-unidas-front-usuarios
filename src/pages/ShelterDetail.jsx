@@ -1,105 +1,16 @@
-import { Link, useNavigate, useParams } from "react-router";
+import { Link, useParams } from "react-router";
+import { useState, useEffect } from "react";
+
 import Button from "../components/Button";
 import BackButton from "../components/BackButton";
-import { useEffect } from "react";
-import { useApi } from "../hooks/useApi";
-import { useState } from "react";
 import PetCard from "../components/PetCard";
+
+import { useApi } from "../hooks/useApi";
 
 function ShelterDetail() {
   const { id } = useParams();
-  const navigate = useNavigate()
   const { getShelterById } = useApi()
   const [shelter, setShelter] = useState(false)
-
-  // const shelter = {
-  //   id: 1,
-  //   name: "Animales sin hogar",
-  //   creationDate: "2009",
-  //   location: "Montevideo, Uruguay",
-  //   description:
-  //     "Somos una organización sin fines de lucro dedicada al rescate, rehabilitación y reubicación de animales abandonados. Trabajamos incansablemente para brindar una segunda oportunidad a aquellos que más lo necesitan, proporcionando atención médica, amor y cuidado hasta encontrarles un hogar permanente. Cada día enfrentamos historias difíciles, pero también somos testigos de transformaciones increíbles. Detrás de cada rescate hay un equipo comprometido, voluntarios apasionados y una comunidad que cree en el valor de la compasión. Nos enfocamos no solo en salvar vidas, sino también en crear conciencia sobre la tenencia responsable, el respeto hacia todos los seres vivos y la importancia de la adopción como primer camino. Gracias al apoyo de personas solidarias, podemos seguir ofreciendo alimento, tratamientos veterinarios y un refugio temporal a decenas de animales que esperan por una familia. Creemos que cada vida importa y que, con empatía y acción colectiva, podemos construir un mundo más justo para ellos.",
-  //   rating: 4.8,
-  //   totalReviews: 127,
-  //   images: [
-  //     "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //     "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //     "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //   ],
-  //   socialMedia: {
-  //     instagram: "@animalessinhogar",
-  //     facebook: "AnimalesSinHogar",
-  //     twitter: "@animales_hogar",
-  //   },
-  //   contact: {
-  //     phone: "+34 600 123 456",
-  //     email: "contacto@animalessinhogar.org",
-  //   },
-  //   animals: [
-  //     {
-  //       id: 1,
-  //       name: "Luna",
-  //       image:
-  //         "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Max",
-  //       image:
-  //         "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Bella",
-  //       image:
-  //         "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "Rocky",
-  //       image:
-  //         "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //     },
-  //     {
-  //       id: 5,
-  //       name: "Mia",
-  //       image:
-  //         "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //     },
-  //     {
-  //       id: 6,
-  //       name: "Charlie",
-  //       image:
-  //         "https://www.blueridgehumane.org/wp-content/uploads/2019/06/dog-2243682_1920.jpg",
-  //     },
-  //   ],
-  //   products: [
-  //     {
-  //       id: 1,
-  //       name: "Comida",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Juguetes",
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Camas",
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "Medicamentos",
-  //     },
-  //     {
-  //       id: 5,
-  //       name: "Collares",
-  //     },
-  //     {
-  //       id: 6,
-  //       name: "Juguetes",
-  //     },
-  //   ],
-  // };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -111,7 +22,7 @@ function ShelterDetail() {
 
   return shelter && (
     <main className="container">
-      <BackButton />
+      <BackButton text="Volver al inicio" to="/" />
 
       <div className="row g-5">
         <div className="col-lg-6">
@@ -147,7 +58,7 @@ function ShelterDetail() {
             <div className="d-flex align-items-center gap-3 text-secondary mb-3">
               <span className="d-flex align-items-center gap-2">
                 <i className="bi bi-calendar"></i>
-                Fecha de creación: {shelter.creationDate}
+                Fecha de creación: {new Date(shelter.createdAt).toLocaleDateString("es-UY")}
               </span>
             </div>
             <div className="d-flex align-items-center gap-2 text-secondary mb-4">
@@ -189,6 +100,9 @@ function ShelterDetail() {
       </div>
 
       <section className="mt-5">
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h2 className="h4 fw-bold">Mascotas</h2>
+        </div>
         <div className="row g-3">
           {shelter.pets.map((animal) => (
             <div key={animal.id} className="col-12 col-md-6 col-lg-4 col-xl-3">
@@ -199,10 +113,10 @@ function ShelterDetail() {
       </section>
 
       <section className="my-5">
-        {/* <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="h4 fw-bold">Productos</h2>
-          <Link to="/mascotas"><Button variant="secondary" text="Ver todos" /></Link>
-        </div> */}
+          {/* <Link to="/mascotas"><Button variant="secondary" text="Ver todos" /></Link> */}
+        </div>
         <div className="row g-3">
           {shelter.products.slice(0, 5).map((product) => (
             <div key={product.id} className="col-6 col-md-4 col-lg-2">
