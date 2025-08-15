@@ -9,6 +9,7 @@ import Badge from "../components/Badge.jsx";
 import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice.js";
 import { toast } from "react-toastify";
+import getImageUrl from "../utils/getImageUrl.js";
 
 function PetDetail() {
   const location = useLocation();
@@ -98,7 +99,7 @@ function PetDetail() {
             <div className="col-12 col-md-6 mb-4 mb-md-0">
               <img
                 className="rounded img-fluid w-100"
-                src={currentPet.images[0]}
+                src={getImageUrl(currentPet.images[0])}
                 alt=""
                 style={{ objectFit: "cover", height: "500px" }}
               />
