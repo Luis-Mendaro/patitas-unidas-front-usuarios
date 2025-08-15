@@ -11,6 +11,7 @@ import LastStep from "./LastStep";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedPet } from "../../config/redux/petsSlice.js";
 import BackButton from "../../components/BackButton.jsx";
+import getImageUrl from "../../utils/getImageUrl.js";
 
 export default function MultiStepForm() {
   const { submitAdoptionRequest, fetchPetById } = useApi();
@@ -119,7 +120,7 @@ export default function MultiStepForm() {
                   style={{ height: "220px" }}
                 >
                   <img
-                    src={pet.images[0]}
+                    src={getImageUrl(pet.images[0])}
                     alt={pet.name}
                     className="w-100 h-100 object-fit-cover"
                   />
