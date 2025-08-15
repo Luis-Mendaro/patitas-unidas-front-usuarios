@@ -251,7 +251,7 @@ function AboutUs() {
               name: "Joaquin",
               role: "Estudiante Full Stack Developer",
               imgAnimal: "./img/joaquin.avif",
-              imgReal: "./img/cambiar foto.jpg",
+              imgReal: "./img/Joaquin.jpeg",
               description: "Amante del código limpio...",
               linkedin: "https://www.linkedin.com/in/joaquin/",
               github: "https://github.com/joaquin",
