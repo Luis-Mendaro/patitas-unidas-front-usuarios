@@ -17,6 +17,7 @@ import LikedPets from "./pages/LikedPets";
 import ShelterDetail from "./pages/ShelterDetail";
 import ProfileUser from "./pages/ProfileUser";
 import PrivateRoutes from "./routes/PrivateRoutes";
+import SheltersList from "./pages/Shelters";
 
 function App() {
   return (
@@ -29,9 +30,10 @@ function App() {
             <Route path="/iniciar-sesion" element={<Login />} />
             <Route path="/registro" element={<Register />} />
             <Route path="/sobre-este-proyecto" element={<AboutUs />} />
-            <Route path="/refugios" element={<ShelterDetail />} />
             <Route path="/mascotas" element={<PetList />} />
             <Route path="/mascotas/:petId" element={<PetDetail />} />
+            <Route path="/refugios" element={<SheltersList />} />
+            <Route path="/refugios/:id" element={<ShelterDetail />} />
           </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="/perfil" element={<ProfileUser />} />
