@@ -74,8 +74,8 @@ function AboutUs() {
   return (
     <>
       <section className="hero-section position-relative d-flex align-items-center container">
-        <div className="position-relative rounded p-4">
-          <h1 className="display-5 mb-4  text-center fw-bolder">
+        <div className="position-relative rounded px-4 pb-4">
+          <h1 className="display-4 mb-4  text-center fw-bold text-dark">
             Sobre este proyecto
           </h1>
           <p className="lead">
