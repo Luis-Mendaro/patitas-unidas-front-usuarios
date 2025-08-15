@@ -136,7 +136,9 @@ function PetDetail() {
                 <div className="mb-3">
                   <span className="me-3 patas-text-brown">
                     <i className="bi bi-house-door me-1"></i>{" "}
-                    {currentPet.shelterUser.name}
+                    <Link to={`/refugios/${currentPet.shelterUser.id}`} className="link-dark">
+                      {currentPet.shelterUser.name}
+                    </Link>
                   </span>
                   <span className="patas-text-brown">
                     <i className="bi bi-geo-alt me-1"></i>

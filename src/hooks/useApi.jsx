@@ -98,6 +98,15 @@ export const useApi = () => {
     }
   };
 
+  const fetchShelters = async (filters = {}) => {
+    const response = await api.get("/shelters", { params: filters })
+    return response
+  }
+
+  const getShelterById = async (id) => {
+    const response = await api.get(`/shelters/${id}`)
+    return response
+
   const registerUser = async (formData) => {
     try {
       const response = await api.post(`/users/`, formData)
@@ -118,6 +127,8 @@ export const useApi = () => {
     likePetRequest,
     submitAdoptionRequest,
     updateUserProfile,
+    fetchShelters,
+    getShelterById,
     registerUser
   };
 };
