@@ -94,17 +94,17 @@ function PetCard({ pet }) {
                 {speciesToIcon(pet.category.species)}
               </div>
             </div>
-            <div>
-              <span className="petAge badge rounded-pill py-2 px-2 me-1">
+            <div className="d-flex gap-1 flex-wrap">
+              <span className="petBadge badge rounded-pill py-2 px-2">
                 {monthsToYears(pet.age)}
               </span>
-              <span className="petAge badge rounded-pill py-2 px-2 me-1">
+              <span className="petBadge badge rounded-pill py-2 px-2">
                 {englishToSpanish(pet.sex)}
               </span>
-              <span className="petAge badge rounded-pill py-2 px-2 me-1">
+              <span className="petBadge badge rounded-pill py-2 px-2">
                 {englishToSpanish(pet.size)}
               </span>
-              <span className="petLocation badge rounded-pill py-2 px-2">
+              <span className="petBadge badge rounded-pill py-2 px-2">
                 {pet.shelterUser.location}
               </span>
             </div>
