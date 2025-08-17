@@ -14,7 +14,9 @@ function PetCard({ pet }) {
   const { monthsToYears } = constants;
   const { likePetRequest } = useApi();
   const loggedUserId = useSelector((state) => state.user?.user?.id);
-  const userLikedPets = useSelector((state) => state.user?.user?.likedPet.pets);
+  const userLikedPets = useSelector(
+    (state) => state.user?.user?.likedPet?.pets
+  );
 
   function handleLike() {
     if (loggedUserId) {
