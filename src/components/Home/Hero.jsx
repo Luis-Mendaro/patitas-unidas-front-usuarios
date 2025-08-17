@@ -35,7 +35,7 @@ function Hero() {
               a transformar vidas, una patita a la vez.
             </p>
 
-            <div className="d-flex flex-column flex-sm-row gap-4 mb-4">
+            <div className="d-flex justify-content-center justify-content-md-start gap-4 mb-4">
               <div className="text-center">
                 <div className="h3 mb-0 fw-bold patas-text-primary">{allShelters && (allShelters.length)}</div>
                 <div className="text-muted small">Refugios</div>
@@ -43,7 +43,7 @@ function Hero() {
               <div className="text-center">
                 <div className="h3 mb-0 fw-bold patas-text-primary">{totalPets && totalPets}<FaPaw className="text-muted ms-1" style={{ fontSize: "1rem" }} /></div>
                 <div className="text-muted small">
-                  Buscan un hogar
+                  Buscan hogar
                 </div>
               </div>
             </div>
