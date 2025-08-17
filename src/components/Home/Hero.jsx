@@ -69,9 +69,9 @@ function Hero() {
               />
             </div>
 
-            <div className="image-over-card position-absolute bg-white bg-opacity-95 p-4 rounded-3 shadow border">
-              <div className="d-flex align-items-center gap-3">
-                <div className="image-over-circle patas-bg-gradient rounded-circle d-flex align-items-center justify-content-center pulse">
+            <div className="image-over-card bg-white bg-opacity-95 rounded-3 shadow border">
+              <div className="d-flex align-items-center">
+                <div className="image-over-circle patas-bg-gradient rounded-circle d-flex align-items-center justify-content-center pulse me-3">
                   <i className="bi bi-heart-fill text-white"></i>
                 </div>
                 <div>
@@ -81,6 +81,7 @@ function Hero() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
