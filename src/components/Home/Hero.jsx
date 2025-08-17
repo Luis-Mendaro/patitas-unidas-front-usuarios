@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import heroImage from "../../assets/img/hero.jpg";
 import Button from "../Button";
 import { useSelector } from "react-redux";
+import { FaPaw } from "react-icons/fa";
 function Hero() {
   const totalPets = useSelector((state) => state.pets?.total);
   const allShelters = useSelector((state) => state.shelters?.items.shelters);
@@ -34,16 +35,16 @@ function Hero() {
               a transformar vidas, una patita a la vez.
             </p>
 
-            <div className="d-flex flex-column flex-sm-row gap-4 text-center mb-4">
-              <div>
-                <div className="h3 fw-bold patas-text-primary">{totalPets}</div>
-                <div className="text-muted small">
-                  patitas buscan un nuevo hogar
-                </div>
-              </div>
-              <div>
-                <div className="h3 fw-bold">{allShelters.length}</div>
+            <div className="d-flex flex-column flex-sm-row gap-4 mb-4">
+              <div className="text-center">
+                <div className="h3 mb-0 fw-bold patas-text-primary">{allShelters && (allShelters.length)}</div>
                 <div className="text-muted small">Refugios</div>
+              </div>
+              <div className="text-center">
+                <div className="h3 mb-0 fw-bold patas-text-primary">{totalPets && totalPets}<FaPaw className="text-muted ms-1" style={{ fontSize: "1rem" }} /></div>
+                <div className="text-muted small">
+                  Buscan un hogar
+                </div>
               </div>
             </div>
             <div className="d-md-inline d-flex justify-content-center w-100">
