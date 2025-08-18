@@ -3,6 +3,8 @@ import heroImage from "../../assets/img/hero.jpg";
 import Button from "../Button";
 import { useSelector } from "react-redux";
 import { FaPaw } from "react-icons/fa";
+import { FaHouse } from "react-icons/fa6";
+
 function Hero() {
   const totalPets = useSelector((state) => state.pets?.total);
   const allShelters = useSelector((state) => state.shelters?.items.shelters);
@@ -37,14 +39,25 @@ function Hero() {
 
             <div className="d-flex justify-content-center justify-content-md-start gap-4 mb-4">
               <div className="text-center">
-                <div className="h3 mb-0 fw-bold patas-text-primary">{allShelters && (allShelters.length)}</div>
+                <div className="h3 mb-0 fw-bold patas-text-primary">
+                  {allShelters && allShelters.length}
+                  <FaHouse
+                    className="text-muted ms-1"
+                    style={{ fontSize: "1rem" }}
+                  />
+                </div>
+
                 <div className="text-muted small">Refugios</div>
               </div>
               <div className="text-center">
-                <div className="h3 mb-0 fw-bold patas-text-primary">{totalPets && totalPets}<FaPaw className="text-muted ms-1" style={{ fontSize: "1rem" }} /></div>
-                <div className="text-muted small">
-                  Buscan hogar
+                <div className="h3 mb-0 fw-bold patas-text-primary">
+                  {totalPets && totalPets}
+                  <FaPaw
+                    className="text-muted ms-1"
+                    style={{ fontSize: "1rem" }}
+                  />
                 </div>
+                <div className="text-muted small">Buscan hogar</div>
               </div>
             </div>
             <div className="d-md-inline d-flex justify-content-center w-100">
@@ -81,7 +94,6 @@ function Hero() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
