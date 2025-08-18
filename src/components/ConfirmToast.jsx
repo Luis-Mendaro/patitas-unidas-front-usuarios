@@ -4,7 +4,6 @@ function ConfirmToast({
   onConfirm,
   onCancel,
   text = "¿Deseas seguir adelante?",
-  toastEffect,
 }) {
   return (
     <div>
