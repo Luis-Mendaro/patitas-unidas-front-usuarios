@@ -6,7 +6,7 @@ import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import {useApi} from "../hooks/useApi";
+import { useApi } from "../hooks/useApi";
 import "./Register.css";
 
 export default function Register() {
@@ -15,14 +15,16 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
   const [touched, setTouched] = useState({});
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
-  const registerUser = useApi();
+  const { registerUser } = useApi();
   const navigate = useNavigate();
-  const userToken = useSelector((state) => state.user2?.token || state.user?.token);
+  const userToken = useSelector(
+    (state) => state.user2?.token || state.user?.token
+  );
 
   const errors = validate(formData);
 
@@ -64,10 +66,17 @@ export default function Register() {
       <div className="login-container">
         <div className="login-box">
           <Form onSubmit={handleSubmit}>
-            <Form.Group className={`mb-3 field ${shouldShowAsterisk("name") ? "show-asterisk" : ""}`} controlId="formBasicUser">
+            <Form.Group
+              className={`mb-3 field ${
+                shouldShowAsterisk("name") ? "show-asterisk" : ""
+              }`}
+              controlId="formBasicUser"
+            >
               <Form.Label>
                 Nombre completo
-                {shouldShowAsterisk("name") && <span className="asterisk">*</span>}
+                {shouldShowAsterisk("name") && (
+                  <span className="asterisk">*</span>
+                )}
               </Form.Label>
               <Form.Control
                 name="name"
@@ -80,11 +89,17 @@ export default function Register() {
               />
             </Form.Group>
 
-            
-            <Form.Group className={`mb-3 field ${shouldShowAsterisk("email") ? "show-asterisk" : ""}`} controlId="formBasicEmail">
+            <Form.Group
+              className={`mb-3 field ${
+                shouldShowAsterisk("email") ? "show-asterisk" : ""
+              }`}
+              controlId="formBasicEmail"
+            >
               <Form.Label>
                 Email
-                {shouldShowAsterisk("email") && <span className="asterisk">*</span>}
+                {shouldShowAsterisk("email") && (
+                  <span className="asterisk">*</span>
+                )}
               </Form.Label>
               <Form.Control
                 name="email"
@@ -97,11 +112,18 @@ export default function Register() {
               />
             </Form.Group>
 
-            <Form.Group className={`mb-3 field ${shouldShowAsterisk("password") ? "show-asterisk" : ""}`} controlId="formBasicPassword">
+            <Form.Group
+              className={`mb-3 field ${
+                shouldShowAsterisk("password") ? "show-asterisk" : ""
+              }`}
+              controlId="formBasicPassword"
+            >
               <div className="position-relative">
                 <Form.Label>
                   Contraseña
-                  {shouldShowAsterisk("password") && <span className="asterisk">*</span>}
+                  {shouldShowAsterisk("password") && (
+                    <span className="asterisk">*</span>
+                  )}
                 </Form.Label>
                 <Form.Control
                   name="password"
@@ -110,7 +132,9 @@ export default function Register() {
                   value={formData.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`pe-5 ${shouldShowAsterisk("password") ? "invalid" : ""}`}
+                  className={`pe-5 ${
+                    shouldShowAsterisk("password") ? "invalid" : ""
+                  }`}
                 />
                 <span
                   onClick={() => setShowPassword(!showPassword)}
@@ -122,11 +146,18 @@ export default function Register() {
               </div>
             </Form.Group>
 
-            <Form.Group className={`mb-3 field ${shouldShowAsterisk("confirmPassword") ? "show-asterisk" : ""}`} controlId="formBasicConfirmPassword">
+            <Form.Group
+              className={`mb-3 field ${
+                shouldShowAsterisk("confirmPassword") ? "show-asterisk" : ""
+              }`}
+              controlId="formBasicConfirmPassword"
+            >
               <div className="position-relative">
                 <Form.Label>
                   Confirmar contraseña
-                  {shouldShowAsterisk("confirmPassword") && <span className="asterisk">*</span>}
+                  {shouldShowAsterisk("confirmPassword") && (
+                    <span className="asterisk">*</span>
+                  )}
                 </Form.Label>
                 <Form.Control
                   name="confirmPassword"
@@ -135,7 +166,9 @@ export default function Register() {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className={`pe-5 ${shouldShowAsterisk("confirmPassword") ? "invalid" : ""}`}
+                  className={`pe-5 ${
+                    shouldShowAsterisk("confirmPassword") ? "invalid" : ""
+                  }`}
                 />
                 <span
                   onClick={() => setShowPassword(!showPassword)}
@@ -153,7 +186,10 @@ export default function Register() {
 
             <p className="mt-4 text-center f-light small">
               ¿Ya tienes cuenta?
-              <Link to="/iniciar-sesion" className="ms-1 patas-text-primary text-decoration-none fw-semibold">
+              <Link
+                to="/iniciar-sesion"
+                className="ms-1 patas-text-primary text-decoration-none fw-semibold"
+              >
                 Iniciar sesión
               </Link>
             </p>
@@ -169,8 +205,13 @@ function validate(values) {
   if (!values.name.trim()) errors.name = "El nombre es obligatorio";
   if (!values.email.trim()) errors.email = "El email es obligatorio";
   if (!values.password) errors.password = "La contraseña es obligatoria";
-  if (!values.confirmPassword) errors.confirmPassword = "Confirma tu contraseña";
-  if (values.password && values.confirmPassword && values.password !== values.confirmPassword) {
+  if (!values.confirmPassword)
+    errors.confirmPassword = "Confirma tu contraseña";
+  if (
+    values.password &&
+    values.confirmPassword &&
+    values.password !== values.confirmPassword
+  ) {
     errors.confirmPassword = "Las contraseñas no coinciden";
   }
   return errors;
