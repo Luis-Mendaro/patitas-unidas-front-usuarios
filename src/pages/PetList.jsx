@@ -99,7 +99,7 @@ function PetList() {
         </div>
 
         <button
-          className="btn btn-dark mb-3"
+          className="btn btn-dark opacity-75 mb-3"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#filtersOffcanvas"

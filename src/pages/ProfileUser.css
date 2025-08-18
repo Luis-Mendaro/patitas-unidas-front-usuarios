@@ -19,7 +19,7 @@
   border: 1px solid var(--stroke);
   border-radius: 16px;
   padding: 28px 24px 24px;
-  box-shadow: 0 10px 25px rgba(16, 24, 40, .06);
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.06);
 }
 
 .avatar-wrapper {
@@ -40,7 +40,7 @@
 
 .avatar-plus-btn {
   position: absolute;
-  right: calc(50% - 96px/2 + 4px);
+  right: calc(50% - 96px / 2 + 4px);
   bottom: 14px;
   background: var(--primary);
   color: #fff;
@@ -60,7 +60,6 @@
 .avatar-plus-btn:hover {
   background: #e37037;
 }
-
 
 .input {
   width: 100%;
@@ -107,7 +106,6 @@
   color: #0954a5;
 }
 
-
 .actions {
   display: flex;
   gap: 10px;
@@ -135,7 +133,7 @@
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(224, 89, 62, .5);
+    box-shadow: 0 0 0 0 rgba(224, 89, 62, 0.5);
   }
 
   70% {
