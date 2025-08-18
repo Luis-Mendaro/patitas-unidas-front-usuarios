@@ -261,10 +261,12 @@ function AboutUs() {
             },
             {
               name: "Luis",
-              role: "Estudiante Full Stack Developer",
+              role: "Full Stack Developer",
               imgAnimal: "./img/luis.jpg",
               imgReal: "./img/luis2.jpg",
-              description: "Desarrollador enfocado en la creación...",
+
+              description:
+                "Reprogramando mi vida: de la refrigeración y las guardias sin fin al desarrollo creativo, innovador y al estudio permanente, buscando soluciones y superando cualquier desafío.",
               linkedin: "https://www.linkedin.com/in/luis-mendaro-34165037a/",
               github: "https://github.com/Luis-Mendaro",
             },
