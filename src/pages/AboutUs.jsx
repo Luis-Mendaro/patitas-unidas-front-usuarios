@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import {
   FaLinkedin,
   FaClock,
@@ -8,8 +8,17 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import "./AboutUs.css";
+import constants from "../utils/constants";
+import { useLocation } from "react-router";
 
 function AboutUs() {
+  const location = useLocation();
+  const { scrollToTop } = constants;
+
+  useLayoutEffect(() => {
+    scrollToTop();
+  }, [location.pathname, scrollToTop]);
+
   useEffect(() => {
     // Función para manejar el toggle de imágenes en móviles
     const handleImageToggle = () => {

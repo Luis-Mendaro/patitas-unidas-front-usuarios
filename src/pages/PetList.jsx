@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLocation, useSearchParams } from "react-router";
 
 import FilterSideBar from "../components/FilterSideBar.jsx";
 import PetCard from "../components/PetCard.jsx";
@@ -11,10 +11,11 @@ import constants from "../utils/constants";
 function PetList() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [showButton, setShowButton] = useState(false);
-  const { listenToScrollPosition, handleScroll } = constants;
+  const { listenToScrollPosition, handleScroll, scrollToTop } = constants;
   const offcanvasRef = useRef(null);
   const limit = 18;
   const isAdopted = false;
+  const pageLocation = useLocation();
 
   const pets = useSelector((state) => state.pets.items);
   const totalPets = useSelector((state) => state.pets.total);
@@ -37,6 +38,10 @@ function PetList() {
     ...(location && { location }),
     ...(species && { species }),
   };
+
+  useLayoutEffect(() => {
+    scrollToTop();
+  }, [pageLocation.pathname, scrollToTop]);
 
   useEffect(() => {
     fetchAndStorePets({ ...activeFilters, page, limit, isAdopted });

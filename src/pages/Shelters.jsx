@@ -1,23 +1,18 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import {
-  FaDog,
   FaMapMarkerAlt,
   FaCalendarAlt,
   FaInstagram,
   FaFacebook,
   FaTwitter,
   FaArrowRight,
-  FaChevronLeft,
-  FaChevronRight,
   FaPlus,
   FaThumbsUp,
-  FaPaw,
-  FaCat,
 } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useApi } from "../hooks/useApi";
 import { useEffect } from "react";
-import { current } from "@reduxjs/toolkit";
+import constants from "../utils/constants";
 
 function SheltersList() {
   const navigate = useNavigate();
@@ -29,6 +24,8 @@ function SheltersList() {
   const [error, setError] = useState(null);
   const [totalShelters, setTotalShelters] = useState(0);
   const totalPages = Math.ceil(totalShelters / limit);
+  const location = useLocation();
+  const { scrollToTop } = constants;
 
   const loadShelters = async (page = 1) => {
     try {
@@ -51,6 +48,10 @@ function SheltersList() {
       setLoading(false);
     }
   };
+
+  useLayoutEffect(() => {
+    scrollToTop();
+  }, [location.pathname, scrollToTop]);
 
   useEffect(() => {
     loadShelters(currentPage);
@@ -163,7 +164,8 @@ function SheltersList() {
                     </div>
                   </div>
 
-                  {/* Recomendaciones */}
+                  {/*TODO: once the "like" process for the shelters is defined, uncomment the following div */}
+                  {/* Recomendaciones
                   <div className="d-flex align-items-center mb-3">
                     <FaThumbsUp className="text-success me-2" />
                     <span className="fw-bold text-dark me-2">
@@ -172,7 +174,7 @@ function SheltersList() {
                     <small className="text-muted">
                       personas lo recomiendan
                     </small>
-                  </div>
+                  </div> */}
 
                   {/* Descripción */}
                   <p

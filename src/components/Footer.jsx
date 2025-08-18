@@ -54,9 +54,9 @@ function Footer() {
                 >
                   <li className="mb-1">Sobre Este Proyecto</li>
                 </Link>
-                <li className="mb-1">Guía de cuidado de mascotas</li>
               </ul>
             </div>
+            {/*TODO: The following links in the footer are for pages that need to be developed in the future*/}
             <div className="col-12 col-sm-6 col-xl-3 px-4 mb-5 mb-xl-0">
               <h6 className="text-white fs-4 fw-semibold mb-3">Soporte</h6>
               <ul className="text-light list-unstyled opacity-75">
