@@ -18,7 +18,7 @@ import ShelterDetail from "./pages/ShelterDetail";
 import ProfileUser from "./pages/ProfileUser";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import SheltersList from "./pages/Shelters";
-
+import NotFound from "./pages/NotFound";
 function App() {
   return (
     <>
@@ -34,11 +34,13 @@ function App() {
             <Route path="/mascotas/:petId" element={<PetDetail />} />
             <Route path="/refugios" element={<SheltersList />} />
             <Route path="/refugios/:id" element={<ShelterDetail />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="/perfil" element={<ProfileUser />} />
             <Route path="/lista/idLista" element={<LikedPets />} />
             <Route path="/:id/formulario-adopcion" element={<AdoptionForm />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
         <Footer />
