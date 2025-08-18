@@ -63,7 +63,7 @@ const LikedPet = ({ likedPet }) => {
   }
 
   return (
-    <div className="card mb-3">
+    <div className="card mb-3 border-0 bg-body">
       <div className="row g-0">
         <div className="col-md-4 pet-image-container ">
           <img
@@ -73,13 +73,8 @@ const LikedPet = ({ likedPet }) => {
           />
         </div>
         <div className="col-md-8 card-body-container d-flex flex-column p-3">
-          <div className="liked-Pet-Header mt-2 d-flex align-items-center ">
-            <div className="d-flex gap-2 justify-content-between">
-              <h5 className="card-title">{likedPet.name}</h5>
-              <div className="d-flex align-baseline fs-5">
-                {speciesToIcon(likedPet.category.species)}
-              </div>
-            </div>
+          <div className="mt-2 d-flex align-items-center">
+            <h2 className="fw-bold d-flex align-items-baseline gap-2">{likedPet.name} {speciesToIcon(likedPet.category.species)}</h2>
             <button
               className="btn rounded-circle heart-button bg-transparent"
               onClick={() => {
@@ -97,17 +92,17 @@ const LikedPet = ({ likedPet }) => {
               )}
             </button>
           </div>
-          <div>
-            <span className="petAge badge rounded-pill py-2 px-2 me-1">
+          <div className="d-flex gap-1 flex-wrap">
+            <span className="petBadge badge rounded-pill py-2 px-2">
               {monthsToYears(likedPet.age)}
             </span>
-            <span className="petAge badge rounded-pill py-2 px-2 me-1">
+            <span className="petBadge badge rounded-pill py-2 px-2">
               {englishToSpanish(likedPet.sex)}
             </span>
-            <span className="petAge badge rounded-pill py-2 px-2 me-1">
+            <span className="petBadge badge rounded-pill py-2 px-2">
               {englishToSpanish(likedPet.size)}
             </span>
-            <span className="petLocation badge rounded-pill py-2 px-2">
+            <span className="petBadge badge rounded-pill py-2 px-2">
               {likedPet.shelterUser.location}
             </span>
           </div>

@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import heroImage from "../../assets/img/hero.jpg";
 import Button from "../Button";
 import { useSelector } from "react-redux";
+import { FaPaw } from "react-icons/fa";
 function Hero() {
   const totalPets = useSelector((state) => state.pets?.total);
   const allShelters = useSelector((state) => state.shelters?.items.shelters);
@@ -34,14 +35,16 @@ function Hero() {
               transformar vidas, una patita a la vez.
             </p>
 
-            <div className="d-flex flex-column flex-sm-row gap-4 text-center mb-4">
-              <div>
-                <div className="h3 fw-bold patas-text-primary">{totalPets}</div>
-                <div className="text-muted small">futuras mascotas</div>
-              </div>
-              <div>
-                <div className="h3 fw-bold">{allShelters.length}</div>
+            <div className="d-flex justify-content-center justify-content-md-start gap-4 mb-4">
+              <div className="text-center">
+                <div className="h3 mb-0 fw-bold patas-text-primary">{allShelters && (allShelters.length)}</div>
                 <div className="text-muted small">Refugios</div>
+              </div>
+              <div className="text-center">
+                <div className="h3 mb-0 fw-bold patas-text-primary">{totalPets && totalPets}<FaPaw className="text-muted ms-1" style={{ fontSize: "1rem" }} /></div>
+                <div className="text-muted small">
+                  Buscan hogar
+                </div>
               </div>
             </div>
             <div className="d-md-inline d-flex justify-content-center w-100">
@@ -66,9 +69,9 @@ function Hero() {
               />
             </div>
 
-            <div className="image-over-card position-absolute bg-white bg-opacity-95 p-4 rounded-3 shadow border">
-              <div className="d-flex align-items-center gap-3">
-                <div className="image-over-circle patas-bg-gradient rounded-circle d-flex align-items-center justify-content-center pulse">
+            <div className="image-over-card bg-white bg-opacity-95 rounded-3 shadow border">
+              <div className="d-flex align-items-center">
+                <div className="image-over-circle patas-bg-gradient rounded-circle d-flex align-items-center justify-content-center pulse me-3">
                   <i className="bi bi-heart-fill text-white"></i>
                 </div>
                 <div>
@@ -78,6 +81,7 @@ function Hero() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
