@@ -99,7 +99,7 @@ function PetDetail() {
             <div className="col-12 col-md-6 mb-4 mb-md-0">
               <img
                 className="rounded img-fluid w-100"
-                src={getImageUrl(currentPet.images[0])}
+                src={getImageUrl.getImageUrl(currentPet.images[0])}
                 alt=""
                 style={{ objectFit: "cover", height: "500px" }}
               />
@@ -136,7 +136,10 @@ function PetDetail() {
                 <div className="mb-3">
                   <span className="me-3 patas-text-brown">
                     <i className="bi bi-house-door me-1"></i>{" "}
-                    <Link to={`/refugios/${currentPet.shelterUser.id}`} className="link-dark">
+                    <Link
+                      to={`/refugios/${currentPet.shelterUser.id}`}
+                      className="link-dark"
+                    >
                       {currentPet.shelterUser.name}
                     </Link>
                   </span>
@@ -168,18 +171,18 @@ function PetDetail() {
                 {!userLikedPets?.some(
                   (likedPet) => likedPet.id === currentPet.id
                 ) && (
-                    <div className="col">
-                      <div onClick={handleLike}>
-                        <Button
-                          text="Me interesa"
-                          large={true}
-                          icon="bi-heart-fill"
-                          variant="secondary"
-                          customClasses="w-100"
-                        />
-                      </div>
+                  <div className="col">
+                    <div onClick={handleLike}>
+                      <Button
+                        text="Me interesa"
+                        large={true}
+                        icon="bi-heart-fill"
+                        variant="secondary"
+                        customClasses="w-100"
+                      />
                     </div>
-                  )}
+                  </div>
+                )}
                 <div className="col">
                   <Link
                     to={`/${currentPet.id}/formulario-adopcion`}

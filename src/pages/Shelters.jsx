@@ -7,12 +7,13 @@ import {
   FaTwitter,
   FaArrowRight,
   FaPlus,
-  FaThumbsUp,
+  // FaThumbsUp,
 } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useApi } from "../hooks/useApi";
 import { useEffect } from "react";
 import constants from "../utils/constants";
+import getImageUrl from "../utils/getImageUrl";
 
 function SheltersList() {
   const navigate = useNavigate();
@@ -26,6 +27,17 @@ function SheltersList() {
   const totalPages = Math.ceil(totalShelters / limit);
   const location = useLocation();
   const { scrollToTop } = constants;
+
+  // function getImageUrl(img) {
+  //   const baseUrl = import.meta.env.VITE_SUPABASE;
+
+  //   if (!img) {
+  //     return "https://dummyimage.com/600x300/cccccc/555555&text=Imagen+no+disponible";
+  //   }
+
+  //   const isFullUrl = /^http(s)?:\/\//.test(img);
+  //   return isFullUrl ? img : `${baseUrl}/ShelterImages/${img}`;
+  // }
 
   const loadShelters = async (page = 1) => {
     try {
@@ -117,7 +129,8 @@ function SheltersList() {
                   style={{ borderRadius: "15px 15px 0 0" }}
                 >
                   <img
-                    src={shelter.images[0]}
+                    // src={shelter.images[0]}
+                    src={getImageUrl.getShelterImageUrl(shelter.images[0])}
                     alt={`Imagen de ${shelter.name}`}
                     className="card-img-top"
                     style={{

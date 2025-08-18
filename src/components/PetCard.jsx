@@ -66,7 +66,7 @@ function PetCard({ pet }) {
         <div className="petCardImageContainer">
           <Link to={`/mascotas/${pet.id}`} className="flex-fill">
             <img
-              src={getImageUrl(pet.images?.[0])}
+              src={getImageUrl.getImageUrl(pet.images?.[0])}
               alt={`Imagen Mascota ${pet.name}`}
             />
           </Link>

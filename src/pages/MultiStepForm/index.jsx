@@ -120,7 +120,7 @@ export default function MultiStepForm() {
                   style={{ height: "220px" }}
                 >
                   <img
-                    src={getImageUrl(pet.images[0])}
+                    src={getImageUrl.getImageUrl(pet.images[0])}
                     alt={pet.name}
                     className="w-100 h-100 object-fit-cover"
                   />
@@ -133,7 +133,6 @@ export default function MultiStepForm() {
                     }}
                   >
                     <h4 className="m-0">{pet.name}</h4>
-                    {pet.sex && <small>{pet.sex}</small>}
                   </div>
                 </div>
 

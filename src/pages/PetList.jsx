@@ -7,6 +7,7 @@ import PetCard from "../components/PetCard.jsx";
 import { useApi } from "../hooks/useApi.jsx";
 import ReturnToTopButton from "../components/ReturnToTopButton.jsx";
 import constants from "../utils/constants";
+import { CiSearch } from "react-icons/ci";
 
 function PetList() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -104,7 +105,8 @@ function PetList() {
           data-bs-target="#filtersOffcanvas"
           aria-controls="filtersOffcanvas"
         >
-          <i className="bi bi-filter me-2"></i>Filtros
+          <CiSearch className="mb-1 me-1" />
+          Filtros
         </button>
 
         <div className="d-flex flex-column flex-md-row">
@@ -193,7 +195,7 @@ function PetList() {
             data-bs-target="#filtersOffcanvas"
             aria-controls="filtersOffcanvas"
           >
-            <i className="bi bi-filter"></i>
+            <CiSearch />
           </button>
           <ReturnToTopButton />
         </div>

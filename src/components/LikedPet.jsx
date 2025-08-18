@@ -67,14 +67,16 @@ const LikedPet = ({ likedPet }) => {
       <div className="row g-0">
         <div className="col-md-4 pet-image-container ">
           <img
-            src={getImageUrl(likedPet.images[0])}
+            src={getImageUrl.getImageUrl(likedPet.images[0])}
             className="img-fluid"
             alt={`Imagen de la mascota ${likedPet.name}`}
           />
         </div>
         <div className="col-md-8 card-body-container d-flex flex-column p-3">
           <div className="mt-2 d-flex align-items-center">
-            <h2 className="fw-bold d-flex align-items-baseline gap-2">{likedPet.name} {speciesToIcon(likedPet.category.species)}</h2>
+            <h2 className="fw-bold d-flex align-items-baseline gap-2">
+              {likedPet.name} {speciesToIcon(likedPet.category.species)}
+            </h2>
             <button
               className="btn rounded-circle heart-button bg-transparent"
               onClick={() => {
