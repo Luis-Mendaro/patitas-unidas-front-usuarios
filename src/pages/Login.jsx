@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 import { Link, Navigate, useNavigate } from "react-router";
 
 import AuthLayout from "../components/AuthLayout";
 import Button from "../components/Button";
 import { useApi } from "../hooks/useApi";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaInfoCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 export default function Login() {
   const { userLogin } = useApi();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [showModal, setShowModal] = useState(true);
   const [formData, setFormData] = useState({
     email: "test@user.com",
     password: "1234",
@@ -36,6 +37,7 @@ export default function Login() {
   if (userToken) {
     return <Navigate to={"/"} />;
   }
+
   return (
     <AuthLayout msg="Bienvenid@ a Patitas Unidas">
       <div className="login-container">
@@ -79,10 +81,17 @@ export default function Login() {
               </div>
             </Form.Group>
             <div className="d-flex justify-content-between">
-              <a href={import.meta.env.VITE_FRONT_SHELTER_URL} className="patas-btn patas-btn-secondary px-3 me-2 w-100">Soy un refugio</a>
+              <a
+                href={import.meta.env.VITE_FRONT_SHELTER_URL}
+                className="patas-btn patas-btn-secondary px-3 me-2 w-100"
+              >
+                Soy un refugio
+              </a>
               <Button text="Iniciar Sesion" customClasses="w-100" />
             </div>
           </Form>
+
+
 
           <p className="mt-4 text-center fw-light small">
             ¿No tenés cuenta?
@@ -95,6 +104,54 @@ export default function Login() {
           </p>
         </div>
       </div>
+
+      {showModal && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+          }}
+        >
+          <div className="modal fade show d-block" tabIndex="-1" role="dialog">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title">Instrucciones de Uso</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={() => setShowModal(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <p className="mb-2">
+                    <strong>Para probar la aplicación, usa la cuenta de prueba:</strong>
+                  </p>
+                  <div className="bg-light p-2 rounded border mb-2">
+                    <strong>Email:</strong> test@user.com <br />
+                    <strong>Contraseña:</strong> 1234
+                  </div>
+                  <ul className="mb-0 ps-3 ms-3">
+                    <li>Generá peticiones para adoptar una mascota</li>
+                    <li>Navega por los perfiles de animales y refugios disponibles</li>
+                    <li>Agregá mascotas a tu lista de interés</li>
+                  </ul>
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="patas-btn patas-btn-primary w-100"
+                  >
+                    Entendido
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </AuthLayout>
   );
 }
