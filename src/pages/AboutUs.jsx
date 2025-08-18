@@ -231,7 +231,7 @@ function AboutUs() {
           {[
             {
               name: "Bruno",
-              role: "jr. Full Stack Developer y Test Automation Lead",
+              role: "Jr. Full Stack Developer y Test Automation Lead",
               imgAnimal: "./img/Cleo.jpg",
               imgReal: "./img/Bruno.jpeg",
               description:
@@ -240,13 +240,15 @@ function AboutUs() {
               github: "https://github.com/BBocalandro",
             },
             {
-              name: "Juan",
-              role: "Estudiante Full Stack Developer",
+              name: "Juan Pedro",
+              role: "Full Stack Developer",
               imgAnimal: "./img/juan.avif",
               imgReal: "./img/juan.jpg",
-              description: "Motivado por el aprendizaje constante...",
-              linkedin: "https://www.linkedin.com/in/juan/",
-              github: "https://github.com/juan",
+              description:
+                "Me apasiona el frontend y el diseño, aunque también tengo experiencia full stack. Disfruto transformar ideas en interfaces claras, atractivas y fáciles de usar.",
+              linkedin:
+                "https://www.linkedin.com/in/juan-pedro-maronna-854459113/",
+              github: "https://github.com/juanpimaro",
             },
             {
               name: "Nicolas",
@@ -261,10 +263,11 @@ function AboutUs() {
             },
             {
               name: "Joaquin",
-              role: "Estudiante Full Stack Developer",
+              role: "Full Stack Developer",
               imgAnimal: "./img/joaquin.avif",
               imgReal: "./img/Joaquin.jpeg",
-              description: "Amante del código limpio...",
+              description:
+                "Un desarrollador full stack curioso y resolutivo, con pasión por aprender nuevas tecnologías y transformar ideas en productos digitales que realmente funcionan.",
               linkedin: "https://www.linkedin.com/in/joaquin/",
               github: "https://github.com/joaquin",
             },
