@@ -17,7 +17,8 @@ function NotFound() {
           </div>
 
           <h1 className="display-1 fw-bold text-muted mb-3">404</h1>
-          <h2 className="mb-4">¡Ups! Esta página se perdió</h2>
+          <h2>¡Ups!</h2>
+          <h4 className="mb-4">Parece que esta página no existe.</h4>
 
           <div className="mt-4">
             <Link to="/" className="patas-btn patas-btn-secondary me-2">
