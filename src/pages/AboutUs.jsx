@@ -222,12 +222,13 @@ function AboutUs() {
           {[
             {
               name: "Bruno",
-              role: "Estudiante Full Stack Developer",
-              imgAnimal: "./img/bruno.avif",
-              imgReal: "./img/cambiar foto.jpg",
-              description: "Apasionado por el desarrollo web...",
-              linkedin: "https://www.linkedin.com/in/bruno/",
-              github: "https://github.com/bruno",
+              role: "jr. Full Stack Developer y Test Automation Lead",
+              imgAnimal: "./img/Cleo.jpg",
+              imgReal: "./img/Bruno.jpeg",
+              description:
+                "Con ya más de 4 años en el área de QA, ahora busco enfrentarme a nuevos desafíos y abrirme paso en el desarrollo de aplicaciones. \n\n Apasionado por el mundo de la programación con gran enfoque en crear aplicaciones de gran calidad, que se ajusten a las necesidades del cliente y le brinden una gran experiencia al usuario.",
+              linkedin: "https://www.linkedin.com/in/bruno-bocalandro/",
+              github: "https://github.com/BBocalandro",
             },
             {
               name: "Juan",
@@ -243,8 +244,10 @@ function AboutUs() {
               role: "Full Stack Developer",
               imgAnimal: "./img/nico.jpeg",
               imgReal: "./img/nico2.jpeg",
-              description: "Desarrollador orientado a crear aplicaciones funcionales, atractivas y creativas, integrando frontend y backend para ofrecer experiencias completas y eficientes.",
-              linkedin: "https://uy.linkedin.com/in/reaserchear-nicolas-fernandez",
+              description:
+                "Desarrollador orientado a crear aplicaciones funcionales, atractivas y creativas, integrando frontend y backend para ofrecer experiencias completas y eficientes.",
+              linkedin:
+                "https://uy.linkedin.com/in/reaserchear-nicolas-fernandez",
               github: "https://github.com/nikof7",
             },
             {
@@ -295,9 +298,7 @@ function AboutUs() {
                     <h5 className="card-title">{name}</h5>
                     <h6 className="text-primary">{role}</h6>
                     <p className="card-text text-start">{description}</p>
-                    <div
-                      className="d-flex justify-content-start gap-2 mt-3"
-                    >
+                    <div className="d-flex justify-content-start gap-2 mt-3">
                       <a
                         href={linkedin}
                         target="_blank"
