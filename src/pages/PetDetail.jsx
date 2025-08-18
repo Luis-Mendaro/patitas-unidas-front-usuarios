@@ -10,6 +10,7 @@ import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice.js";
 import { toast } from "react-toastify";
 import getImageUrl from "../utils/getImageUrl.js";
+import ConfirmToast from "../components/ConfirmToast";
 
 function PetDetail() {
   const location = useLocation();
@@ -53,14 +54,19 @@ function PetDetail() {
   }
 
   function handleUnLike() {
-    if (
-      window.confirm(
-        `¿Estas seguro que deseas quitar a ${currentPet.name} de tus Patitas? 💔🥺`
-      )
-    ) {
-      likePetRequest(loggedUserId, currentPet.id);
-      toast.error(`${currentPet.name} se fue de tus Patitas 😿`);
-    }
+    toast(
+      <ConfirmToast
+        text={`¿Estas seguro que deseas quitar a ${currentPet.name} de tus Patitas? 💔🥺`}
+        onConfirm={() => {
+          likePetRequest(loggedUserId, currentPet.id);
+          setTimeout(() => {
+            toast.error(`${currentPet.name} se fue de tus Patitas 😿`);
+          }, 300);
+        }}
+        onCancel={() => toast.dismiss()}
+      />,
+      { autoClose: false, position: "top-right" }
+    );
   }
 
   const speciesToIcon = (species) => {

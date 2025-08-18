@@ -8,6 +8,7 @@ import { FaDog, FaCat, FaPaw } from "react-icons/fa";
 import { setSelectedPet } from "../config/redux/petsSlice";
 import { toast } from "react-toastify";
 import getImageUrl from "../utils/getImageUrl";
+import ConfirmToast from "../components/ConfirmToast";
 
 const LikedPet = ({ likedPet }) => {
   const { monthsToYears, determineBadgeText } = constants;
@@ -26,14 +27,19 @@ const LikedPet = ({ likedPet }) => {
   }
 
   function handleUnLike() {
-    if (
-      window.confirm(
-        `¿Estas seguro que deseas quitar a ${likedPet.name} de tus Patitas? 💔🥺`
-      )
-    ) {
-      likePetRequest(loggedUserId, likedPet.id);
-      toast.error(`${likedPet.name} se fue de tus Patitas 😿`);
-    }
+    toast(
+      <ConfirmToast
+        text={`¿Estas seguro que deseas quitar a ${likedPet.name} de tus Patitas? 💔🥺`}
+        onConfirm={() => {
+          likePetRequest(loggedUserId, likedPet.id);
+          setTimeout(() => {
+            toast.error(`${likedPet.name} se fue de tus Patitas 😿`);
+          }, 300);
+        }}
+        onCancel={() => toast.dismiss()}
+      />,
+      { autoClose: false, position: "top-right" }
+    );
   }
 
   const speciesToIcon = (species) => {

@@ -39,22 +39,22 @@ function Hero() {
 
             <div className="d-flex justify-content-center justify-content-md-start gap-4 mb-4">
               <div className="text-center">
-                <div className="h3 mb-0 fw-bold patas-text-primary">
+                <div className="h3 mb-0 fw-bold patas-text-primary d-flex align-items-center">
                   {allShelters && allShelters.length}
                   <FaHouse
                     className="text-muted ms-1"
-                    style={{ fontSize: "1rem" }}
+                    style={{ fontSize: "1.3rem" }}
                   />
                 </div>
 
                 <div className="text-muted small">Refugios</div>
               </div>
               <div className="text-center">
-                <div className="h3 mb-0 fw-bold patas-text-primary">
+                <div className="h3 mb-0 fw-bold patas-text-primary d-flex align-items-center">
                   {totalPets && totalPets}
                   <FaPaw
                     className="text-muted ms-1"
-                    style={{ fontSize: "1rem" }}
+                    style={{ fontSize: "1.3rem" }}
                   />
                 </div>
                 <div className="text-muted small">Buscan hogar</div>

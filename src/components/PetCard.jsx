@@ -9,6 +9,7 @@ import { useApi } from "../hooks/useApi";
 import constants from "../utils/constants";
 import Button from "./Button";
 import getImageUrl from "../utils/getImageUrl";
+import ConfirmToast from "../components/ConfirmToast";
 
 function PetCard({ pet }) {
   const { monthsToYears } = constants;
@@ -28,14 +29,19 @@ function PetCard({ pet }) {
   }
 
   function handleUnLike() {
-    if (
-      window.confirm(
-        `¿Estas seguro que deseas quitar a ${pet.name} de tus Patitas? 💔🥺`
-      )
-    ) {
-      likePetRequest(loggedUserId, pet.id);
-      toast.error(`${pet.name} se fue de tus Patitas 😿`);
-    }
+    toast(
+      <ConfirmToast
+        text={`¿Estas seguro que deseas quitar a ${pet.name} de tus Patitas? 💔🥺`}
+        onConfirm={() => {
+          likePetRequest(loggedUserId, pet.id);
+          setTimeout(() => {
+            toast.error(`${pet.name} se fue de tus Patitas 😿`);
+          }, 300);
+        }}
+        onCancel={() => toast.dismiss()}
+      />,
+      { autoClose: false, position: "top-right" }
+    );
   }
 
   const speciesToIcon = (species) => {
