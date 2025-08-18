@@ -62,7 +62,7 @@ export default function Register() {
   if (userToken) return <Navigate to="/" />;
 
   return (
-    <AuthLayout msg="Bienvenid@ a Patitas Unidas">
+    <AuthLayout msg="Te damos la bienvenida">
       <div className="login-container">
         <div className="login-box">
           <Form onSubmit={handleSubmit}>
