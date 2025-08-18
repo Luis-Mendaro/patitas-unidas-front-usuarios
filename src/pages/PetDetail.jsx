@@ -94,7 +94,7 @@ function PetDetail() {
     <>
       <div className="container mb-5 pb-5">
         <BackButton to="/mascotas" text="Volver a Mascotas" />
-        <div className="py-4 px-4 bg-white rounded border">
+        <div className="py-4 px-4 bg-white rounded-1">
           <div className="row">
             <div className="col-12 col-md-6 mb-4 mb-md-0">
               <img
@@ -159,25 +159,27 @@ function PetDetail() {
                 </div>
 
                 <div className="mb-5">
-                  <p>{currentPet.description}</p>
+                  {currentPet.description.split("\n").map((line, index) => (
+                    <p key={index}>{line}</p>
+                  ))}
                 </div>
               </div>
               <div className="row">
                 {!userLikedPets?.some(
                   (likedPet) => likedPet.id === currentPet.id
                 ) && (
-                  <div className="col">
-                    <div onClick={handleLike}>
-                      <Button
-                        text="Me interesa"
-                        large={true}
-                        icon="bi-heart-fill"
-                        variant="secondary"
-                        customClasses="w-100"
-                      />
+                    <div className="col">
+                      <div onClick={handleLike}>
+                        <Button
+                          text="Me interesa"
+                          large={true}
+                          icon="bi-heart-fill"
+                          variant="secondary"
+                          customClasses="w-100"
+                        />
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
                 <div className="col">
                   <Link
                     to={`/${currentPet.id}/formulario-adopcion`}

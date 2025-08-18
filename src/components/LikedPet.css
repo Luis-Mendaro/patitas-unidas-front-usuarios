@@ -45,7 +45,6 @@
 }
 
 .card-body-container {
-  background-color: #f9f5f3;
   border-radius: 0 10px 10px 0;
 }
 
@@ -54,8 +53,7 @@
   height: 100%;
 }
 
-.petAge,
-.petLocation {
+.petBadge {
   background-color: #f2ece4;
   color: #a28570;
 }

@@ -54,7 +54,7 @@ export default function Step3({ data, update, onNext, onBack }) {
 
       <div className="mb-3">
         <label className="form-label fw-medium">
-          ¿Qué te motivó a adoptar y no comprar?
+          ¿Qué te motivó a adoptar?
         </label>
         <input
           name="motive"
