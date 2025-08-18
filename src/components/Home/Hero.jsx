@@ -72,7 +72,7 @@ function Hero() {
                   <i className="bi bi-heart-fill text-white"></i>
                 </div>
                 <div>
-                  <div className="fw-semibold">+100 solicitudes</div>
+                  <div className="fw-semibold">+100 visitas</div>
                   <div className="small text-muted">este mes</div>
                 </div>
               </div>
