@@ -243,8 +243,10 @@ function AboutUs() {
               role: "Full Stack Developer",
               imgAnimal: "./img/nico.jpeg",
               imgReal: "./img/nico2.jpeg",
-              description: "Desarrollador orientado a crear aplicaciones funcionales, atractivas y creativas, integrando frontend y backend para ofrecer experiencias completas y eficientes.",
-              linkedin: "https://uy.linkedin.com/in/reaserchear-nicolas-fernandez",
+              description:
+                "Desarrollador orientado a crear aplicaciones funcionales, atractivas y creativas, integrando frontend y backend para ofrecer experiencias completas y eficientes.",
+              linkedin:
+                "https://uy.linkedin.com/in/reaserchear-nicolas-fernandez",
               github: "https://github.com/nikof7",
             },
             {
@@ -258,10 +260,12 @@ function AboutUs() {
             },
             {
               name: "Luis",
-              role: "Estudiante Full Stack Developer",
+              role: "Full Stack Developer",
               imgAnimal: "./img/luis.jpg",
               imgReal: "./img/luis2.jpg",
-              description: "Desarrollador enfocado en la creación...",
+
+              description:
+                "Reprogramando mi vida: de la refrigeración y las guardias sin fin al desarrollo creativo, innovador y al estudio permanente, buscando soluciones y superando cualquier desafío.",
               linkedin: "https://www.linkedin.com/in/luis-mendaro-34165037a/",
               github: "https://github.com/Luis-Mendaro",
             },
@@ -295,9 +299,7 @@ function AboutUs() {
                     <h5 className="card-title">{name}</h5>
                     <h6 className="text-primary">{role}</h6>
                     <p className="card-text text-start">{description}</p>
-                    <div
-                      className="d-flex justify-content-start gap-2 mt-3"
-                    >
+                    <div className="d-flex justify-content-start gap-2 mt-3">
                       <a
                         href={linkedin}
                         target="_blank"
