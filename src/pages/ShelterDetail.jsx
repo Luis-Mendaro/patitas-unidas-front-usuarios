@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 
 import Button from "../components/Button";
@@ -10,18 +10,23 @@ import { FaEnvelope, FaMailBulk } from "react-icons/fa";
 
 function ShelterDetail() {
   const { id } = useParams();
-  const { getShelterById } = useApi()
-  const [shelter, setShelter] = useState(false)
+  const { getShelterById } = useApi();
+  const [shelter, setShelter] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await getShelterById(id)
-      setShelter(response.data.shelter)
-    }
-    fetchData()
-  }, [id])
+    let mounted = true;
+    (async () => {
+      const response = await getShelterById(id);
+      if (mounted) setShelter(response?.data?.shelter);
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, [id, getShelterById]);
 
-  return shelter && (
+  if (!shelter) return null;
+
+  return (
     <main className="container">
       <BackButton text="Volver al inicio" to="/" />
 
@@ -100,53 +105,53 @@ function ShelterDetail() {
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="h4 fw-bold">Mascotas</h2>
         </div>
-        <div className="row g-3">
-          {shelter.pets.map((animal) => (
+        <div className="row g-3 mb-5">
+          {shelter.pets?.map((animal) => (
             <div key={animal.id} className="col-12 col-md-6 col-lg-4 col-xl-3">
-              <PetCard pet={animal} key={animal.id} />
+              <PetCard pet={animal} />
             </div>
           ))}
         </div>
       </section>
 
+      {/*  ======= SECCIÓN DE PRODUCTOS — OCULTA =======
+
       <section className="my-5">
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h2 className="h4 fw-bold">Productos</h2>
-          {/* <Link to="/mascotas"><Button variant="secondary" text="Ver todos" /></Link> */}
         </div>
+
         <div className="row g-3">
-          {shelter.products.slice(0, 5).map((product) => (
+          {shelter.products?.slice(0, 5).map((product) => (
             <div key={product.id} className="col-6 col-md-4 col-lg-2">
               <div
                 className="bg-light rounded d-flex align-items-center justify-content-center"
                 style={{ aspectRatio: "1 / 1" }}
               >
                 <div className="text-center p-3">
-                  <p className="text-dark small fw-medium mb-0">
-                    {product.name}
-                  </p>
+                  <p className="text-dark small fw-medium mb-0">{product.name}</p>
                 </div>
               </div>
             </div>
           ))}
 
           <div className="col-6 col-md-4 col-lg-2">
-            <Link to="/">
+            <a href="/">
               <div
                 className="bg-light rounded d-flex align-items-center justify-content-center"
                 style={{ aspectRatio: "1 / 1" }}
               >
                 <div className="text-center p-3">
-                  <p className="text-dark small fw-medium mb-0">
-                    Ver más.
-                  </p>
+                  <p className="text-dark small fw-medium mb-0">Ver más.</p>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
-
         </div>
       </section>
+      */}
+
+      {/******* ESPACIO PARA SEPARARLO DE FOOTER *******/}
     </main>
   );
 }

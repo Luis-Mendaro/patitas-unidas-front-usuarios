@@ -97,7 +97,6 @@ export const useApi = () => {
 
   const fetchShelters = async (filters = {}) => {
     const response = await api.get("/shelters", { params: filters });
-    console.log(`response data: ${response.data}`);
     dispatch(setShelters(response.data));
     dispatch(setTotalShelters(response.data.total));
     return response;

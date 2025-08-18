@@ -1,0 +1,41 @@
+.not-found-container {
+  min-height: 60vh;
+}
+
+.logo-404 {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease;
+}
+
+.logo-404:hover {
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+.bounce-animation {
+  animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* Opcional: Efectos adicionales */
+.not-found-container h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
