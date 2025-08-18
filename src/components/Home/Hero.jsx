@@ -30,16 +30,14 @@ function Hero() {
               con hogares
             </h1>
             <p className="fs-5 text-muted mb-4 hero-text-limited">
-              Miles de animales esperan una segunda oportunidad. Adopta o ayuda
-              a transformar vidas, una patita a la vez.
+              Muchos animales esperan una segunda oportunidad. Adopta o ayuda a
+              transformar vidas, una patita a la vez.
             </p>
 
             <div className="d-flex flex-column flex-sm-row gap-4 text-center mb-4">
               <div>
                 <div className="h3 fw-bold patas-text-primary">{totalPets}</div>
-                <div className="text-muted small">
-                  patitas buscan un nuevo hogar
-                </div>
+                <div className="text-muted small">futuras mascotas</div>
               </div>
               <div>
                 <div className="h3 fw-bold">{allShelters.length}</div>
@@ -74,7 +72,7 @@ function Hero() {
                   <i className="bi bi-heart-fill text-white"></i>
                 </div>
                 <div>
-                  <div className="fw-semibold">+100 datos</div>
+                  <div className="fw-semibold">+100 solicitudes</div>
                   <div className="small text-muted">este mes</div>
                 </div>
               </div>
