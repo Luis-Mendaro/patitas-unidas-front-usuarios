@@ -37,7 +37,7 @@ export default function Login() {
     return <Navigate to={"/"} />;
   }
   return (
-    <AuthLayout msg="Bienvenid@ a Patitas Unidas">
+    <AuthLayout msg="Te damos la bienvenida">
       <div className="login-container">
         <div className="login-box">
           <Form onSubmit={handleSubmit}>
@@ -79,7 +79,12 @@ export default function Login() {
               </div>
             </Form.Group>
             <div className="d-flex justify-content-between">
-              <a href={import.meta.env.VITE_FRONT_SHELTER_URL} className="patas-btn patas-btn-secondary px-3 me-2 w-100">Soy un refugio</a>
+              <a
+                href={import.meta.env.VITE_FRONT_SHELTER_URL}
+                className="patas-btn patas-btn-secondary px-3 me-2 w-100"
+              >
+                Soy un refugio
+              </a>
               <Button text="Iniciar Sesion" customClasses="w-100" />
             </div>
           </Form>
