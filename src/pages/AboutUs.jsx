@@ -279,7 +279,7 @@ function AboutUs() {
 
               description:
                 "Reprogramando mi vida: de la refrigeración y las guardias sin fin al desarrollo creativo, innovador y al estudio permanente, buscando soluciones y superando cualquier desafío.",
-              linkedin: "https://www.linkedin.com/in/luis-mendaro-34165037a/",
+              linkedin: "https://www.linkedin.com/in/luis-devops-developer-34165037a/",
               github: "https://github.com/Luis-Mendaro",
             },
           ].map(
