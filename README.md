@@ -33,9 +33,7 @@ Aplicación web para conectar refugios de animales con personas interesadas en a
 |------|-------------|------|
 | [Front Usuarios](https://github.com/Luis-Mendaro/patitas-unidas-front-usuarios) | Interfaz para adoptantes | [Ver](https://patitas-unidas-front-usuarios.vercel.app) |
 | [Front Refugios](https://github.com/Luis-Mendaro/patitas-unidas-front-refugios) | Interfaz para administradores de refugios | [Ver](https://patitas-unidas-front-refugios.vercel.app) |
-| [Backend API](https://github.com/Luis-Mendaro/patitas-unidas-back) | API REST — Node.js, Express, Sequelize, PostgreSQL | — |
-
-> El backend no está activo actualmente. Los frontends cargan pero sin datos en tiempo real.
+| [Backend API](https://github.com/Luis-Mendaro/patitas-unidas-back) | API REST — Node.js, Express, Sequelize, PostgreSQL | [Ver](https://patitas-unidas-back-2026.vercel.app) |
 
 ---
 
